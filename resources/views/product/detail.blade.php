@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('style')
-
+    <link rel="stylesheet" href="{{ url('assets/css/plugins/nouislider/nouislider.css') }}">
 @endsection
 @section('content')
 
@@ -23,30 +23,24 @@
                     <div class="col-md-6">
                         <div class="product-gallery">
                             <figure class="product-main-image">
-                                <img id="product-zoom" src="assets/images/products/single/extended/3.jpg" data-zoom-image="assets/images/products/single/extended/3-big.jpg" alt="product image">
-
-                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
-                                    <i class="icon-arrows"></i>
-                                </a>
+                                @php
+                                    $getProductImage = $getProduct->getImageSingle($getProduct->id);
+                                @endphp
+                                @if(!empty($getProductImage) && !empty($getProductImage->getLogo()))
+                                    <img id="product-zoom" src="{{ $getProductImage->getLogo() }}" data-zoom-image="{{ $getProductImage->getLogo() }}" alt="product image">
+                                    
+                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                        <i class="icon-arrows"></i>
+                                    </a>
+                                @endif
                             </figure>
 
                             <div id="product-zoom-gallery" class="product-image-gallery">
-                                <a class="product-gallery-item" href="#" data-image="assets/images/products/single/extended/1.jpg" data-zoom-image="assets/images/products/single/extended/1-big.jpg">
-                                    <img src="assets/images/products/single/extended/1-small.jpg" alt="product side">
-                                </a>
-
-                                <a class="product-gallery-item" href="#" data-image="assets/images/products/single/extended/2.jpg" data-zoom-image="assets/images/products/single/extended/2-big.jpg">
-                                    <img src="assets/images/products/single/extended/2-small.jpg" alt="product cross">
-                                </a>
-
-                                <a class="product-gallery-item active" href="#" data-image="assets/images/products/single/extended/3.jpg" data-zoom-image="assets/images/products/single/extended/3-big.jpg">
-                                    <img src="assets/images/products/single/extended/3-small.jpg" alt="product with model">
-                                </a>
-
-                                <a class="product-gallery-item" href="#" data-image="assets/images/products/single/extended/4.jpg" data-zoom-image="assets/images/products/single/extended/4-big.jpg">
-                                    <img src="assets/images/products/single/extended/4-small.jpg" alt="product back">
-                                </a>
-
+                                @foreach($getProduct->getImage as $image)
+                                    <a class="product-gallery-item" href="#" data-image="{{ $image->getLogo() }}" data-zoom-image="{{ $image->getLogo() }}">
+                                        <img src="{{ $image->getLogo() }}" alt="product side">
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -70,31 +64,34 @@
                                 <p>{{ $getProduct->short_description }}</p>
                             </div>
 
+                            @if(!empty($getProduct->getColor->count()))
                             <div class="details-filter-row details-row-size">
-                                <label>Color:</label>
-
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #eab656;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #3a588b;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #caab97;"><span class="sr-only">Color name</span></a>
+                                <label for="size">Color:</label>
+                                <div class="select-custom">
+                                    <select name="size" id="size" class="form-control">
+                                        <option value="">Select a color</option>
+                                        @foreach($getProduct->getColor as $color)
+                                            <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
+                            @endif
 
+                            @if(!empty($getProduct->getSize->count()))
                             <div class="details-filter-row details-row-size">
                                 <label for="size">Size:</label>
                                 <div class="select-custom">
                                     <select name="size" id="size" class="form-control">
-                                        <option value="#" selected="selected">Select a size</option>
-                                        <option value="s">Small</option>
-                                        <option value="m">Medium</option>
-                                        <option value="l">Large</option>
-                                        <option value="xl">Extra Large</option>
+                                        <option value="">Select a size</option>
+                                        @foreach($getProduct->getSize as $size)
+                                            <option value="{{ $size->id }}">{{ $size->name }} </option>
+                                            <!-- @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif -->
+                                        @endforeach
                                     </select>
                                 </div>
-
-                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
                             </div>
+                            @endif
 
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
@@ -454,5 +451,6 @@
 
 @endsection
 @section('script')
-
+    <script src="{{ url('assets/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ url('assets/js/jquery.elevateZoom.min.js') }}"></script>
 @endsection

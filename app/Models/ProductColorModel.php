@@ -14,4 +14,8 @@ class ProductColorModel extends Model
     static public function DeleteRecord($product_id){
         self::where('product_id','=',$product_id)->delete();
     }
+
+    public function getColor(){
+        return $this->belongsTo(ColorModel::class, 'color_id');
+    }
 }
