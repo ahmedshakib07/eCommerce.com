@@ -47,7 +47,7 @@
                                     <tbody>
                                         @foreach($getRecord as $value)
                                             <tr>
-                                                <td>{{ $value->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $value->title }}</td>
                                                 <td>{{ $value->created_by_name }}</td>
                                                 <td>{{ ($value->status == 0) ? 'Active': 'Inactive' }}</td>
