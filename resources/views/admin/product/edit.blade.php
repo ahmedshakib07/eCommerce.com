@@ -68,7 +68,7 @@
                                                 <select class="form-control" name="sub_category_id" id="getSubCategory" required>
                                                     <option value="">Select</option>
                                                         @foreach($getSubCategory as $subcategory)
-                                                            <option {{ ($product->sub_category_id = $subcategory->id) ? 'selected' : ''}} value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                                            <option {{ ($product->sub_category_id == $subcategory->id)? 'selected' : ''}} value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                                                         @endforeach
                                                 </select>
                                             </div>
