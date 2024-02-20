@@ -24,8 +24,10 @@ class ProductController extends Controller
         if (!empty($getProductSingle)) {
             $data['meta_title'] = $getProductSingle->title;
             $data['meta_description'] = $getProductSingle->short_description;
-            $data['getProduct'] = $getProductSingle;
 
+            $data['getProduct'] = $getProductSingle;
+            $data['getRelatedProduct'] = ProductModel::getRelatedProduct($getProductSingle->id, $getProductSingle->sub_category_id);
+            
             return view('product.detail', $data);
         }
         else if(!empty($getCategory) && (!empty($getSubCategory))){
