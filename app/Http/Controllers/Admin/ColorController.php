@@ -54,6 +54,6 @@ class ColorController extends Controller
         $color->is_delete = 1;
         $color->save();
 
-        return redirect()->back()->with('success', "Color Successfully Deleted");
+        return redirect()->back();
     }
 }

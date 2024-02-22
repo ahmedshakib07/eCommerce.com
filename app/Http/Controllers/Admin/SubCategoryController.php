@@ -73,7 +73,7 @@ class SubCategoryController extends Controller
         $category->is_delete = 1;
         $category->save();
 
-        return redirect()->back()->with('success', "Sub Category Successfully Deleted");
+        return redirect()->back();
     }
 
     public function get_sub_category(Request $request){

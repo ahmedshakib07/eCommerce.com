@@ -68,6 +68,6 @@ class BrandController extends Controller
         $brand->is_delete = 1;
         $brand->save();
 
-        return redirect()->back()->with('success', "Brand Successfully Deleted");
+        return redirect()->back();
     }
 }

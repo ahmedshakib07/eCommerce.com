@@ -165,6 +165,6 @@ class ProductController extends Controller
         $product->is_delete = 1;
         $product->save();
 
-        return redirect()->back()->with('success', "product Successfully Deleted");
+        return redirect()->back();
     }
 }

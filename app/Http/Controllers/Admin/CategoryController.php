@@ -68,6 +68,6 @@ class CategoryController extends Controller
         $category->is_delete = 1;
         $category->save();
 
-        return redirect()->back()->with('success', "Category Successfully Deleted");
+        return redirect()->back();
     }
 }

@@ -34,7 +34,8 @@ class AdminController extends Controller
         $user->is_admin = 1;
         $user->save();
 
-        return redirect('admin/admin/list')->with('success', "Admin Successfully Created");
+        return redirect('admin/admin/list');
+        // ->with('success', "Admin Successfully Created");
     }
 
     public function edit ($id){
@@ -68,6 +69,6 @@ class AdminController extends Controller
         $user->is_delete = 1;
         $user->save();
 
-        return redirect()->back()->with('success', "Admin Successfully Deleted");
+        return redirect()->back();
     }
 }
