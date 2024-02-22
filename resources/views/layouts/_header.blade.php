@@ -30,8 +30,6 @@
                         <ul>
                             <li><a href="tel:#"><i class="icon-phone"></i>Call: +880 17 6705 6733</a></li>
                             <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>My Wishlist <span>(3)</span></a></li>
-                            <li><a href="{{ url('about') }}">About Us</a></li>
-                            <li><a href="{{ url('contact') }}">Contact Us</a></li>
                             <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                         </ul>
                     </li>
@@ -57,6 +55,13 @@
                         <li class="megamenu-container active">
                             <a href="{{ url('') }}">Home</a>
                         </li>
+                        <li>
+                            <a href="{{ url('about') }}">About Us</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('contact') }}">Contact Us</a>
+                        </li>
+
                         <!-- Shop -->
                         <li>
                             <a href="javaScript:;" class="sf-with-ul">Shop</a>
@@ -88,6 +93,7 @@
                                 </div>
                             </div>
                         </li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -98,7 +104,7 @@
                     <form action="{{ url('search') }}" method="get">
                         <div class="header-search-wrapper">
                             <label for="q" class="sr-only">Search</label>
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." value="{{ !empty(Request::get('q')) ? Request::get('q') : '' }}" required>
                         </div>
                     </form>
                 </div>
