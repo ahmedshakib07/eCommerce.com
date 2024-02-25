@@ -48,7 +48,7 @@ class ColorController extends Controller
         $color->save();
 
         toastr()->success('Color Updated Successfully!');
-        return redirect('admin/category/list');
+        return redirect('admin/color/list');
     }
 
     public function delete($id){
