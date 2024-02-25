@@ -62,7 +62,7 @@ class AdminController extends Controller
         $user->save();
 
         toastr()->success('Success! Admin Updated Successfully!');
-        return redirect()->back();
+        return redirect('admin/admin/list');
     }
 
     public function delete($id){

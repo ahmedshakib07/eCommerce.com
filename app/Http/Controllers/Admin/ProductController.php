@@ -129,7 +129,7 @@ class ProductController extends Controller
             }
 
             toastr()->success('Success! Product Updated Successfully!');
-            return redirect()->back();
+            return redirect('admin/product/list');
         }
         else{
             abort(404);
@@ -144,7 +144,7 @@ class ProductController extends Controller
         }
         $image->delete();
         toastr()->success('Success! Product Image Successfully Deleted!');
-        return redirect()->back();
+        return redirect('admin/product/list');
     }
 
     public function product_image_sortable(Request $request){

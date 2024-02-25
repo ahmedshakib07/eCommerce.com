@@ -25,7 +25,6 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                    @include('admin.layouts._message')
 
                         <div class="card card-primary">
                             <form action="" method="post" enctype="multipart/form-data">

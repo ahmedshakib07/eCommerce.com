@@ -25,7 +25,6 @@
                 <div class="row">
                     <div class="col-md-12">
                     
-                        @include('admin.layouts._message')
 
                         <div class="card">
                             <div class="card-header">
@@ -94,7 +93,7 @@
             if (result.isConfirmed) {
                 Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "Product has been deleted.",
                     icon: "success"
                 });
                 location.href = self.attr('href');

@@ -30,7 +30,7 @@ class ColorController extends Controller
         $color->save();
 
         toastr()->info('Success! Color Created Successfully!');
-        return redirect()->back();
+        return redirect('admin/color/list');
     }
 
     public function edit($id){
@@ -48,7 +48,7 @@ class ColorController extends Controller
         $color->save();
 
         toastr()->success('Success! Color Updated Successfully!');
-        return redirect()->back();
+        return redirect('admin/category/list');
     }
 
     public function delete($id){

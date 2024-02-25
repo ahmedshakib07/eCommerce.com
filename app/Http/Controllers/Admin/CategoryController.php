@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $category->save();
 
         toastr()->info('Success! Category Created Successfully!');
-        return redirect()->back();
+        return redirect('admin/category/list');
     }
 
     public function edit($id){
@@ -62,7 +62,7 @@ class CategoryController extends Controller
         $category->save();
 
         toastr()->success('Success! Category Updated Successfully!');
-        return redirect()->back();
+        return redirect('admin/category/list');
     }
 
     public function delete($id){

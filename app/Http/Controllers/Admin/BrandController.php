@@ -37,7 +37,7 @@ class BrandController extends Controller
         $brand->save();
 
         toastr()->info('Success! Brand Created Successfully!');
-        return redirect()->back();
+        return redirect('admin/brand/list');
     }
 
     public function edit($id){
@@ -62,7 +62,7 @@ class BrandController extends Controller
         $brand->save();
 
         toastr()->success('Success! Brand Updated Successfully!');
-        return redirect()->back();
+        return redirect('admin/brand/list');
     }
 
     public function delete($id){

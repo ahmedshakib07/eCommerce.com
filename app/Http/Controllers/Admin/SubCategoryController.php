@@ -40,7 +40,7 @@ class SubCategoryController extends Controller
         $subcategory->save();
 
         toastr()->info('Success! Sub Category Created Successfully!');
-        return redirect()->back();
+        return redirect('admin/sub_category/list');
     }
 
     public function edit($id){
@@ -67,7 +67,7 @@ class SubCategoryController extends Controller
         $subcategory->save();
 
         toastr()->success('Success! Sub Category Updated Successfully!');
-        return redirect()->back();
+        return redirect('admin/sub_category/list');
     }
 
     public function delete($id){

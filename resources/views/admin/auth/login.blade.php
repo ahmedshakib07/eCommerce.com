@@ -26,8 +26,6 @@
 
       <form action="#" method="post">
 
-        @include('admin.layouts._message')
-
         {{ csrf_field() }}
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email" required>
