@@ -65,7 +65,7 @@
 
     <div class="footer-bottom">
         <div class="container">
-            <p class="footer-copyright">Copyright &copy; {{ date ('Y')}} 69eCommerce.com. All Rights Reserved.</p>
+            <p class="footer-copyright">Copyright &copy; {{ date ('Y')}} eCommerce.com. All Rights Reserved.</p>
             <figure class="footer-payments">
                 <img src="{{url('assets/images/payments.png')}}" alt="Payment methods" width="272" height="20">
             </figure>

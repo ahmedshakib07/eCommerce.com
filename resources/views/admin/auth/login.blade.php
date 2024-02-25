@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>69 e</b>Commerce.com</a>
+    <a href="#"><b>e</b>Commerce.com</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

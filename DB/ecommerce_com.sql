@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 15, 2024 at 09:18 AM
+-- Generation Time: Feb 25, 2024 at 10:18 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `69ecommerce.com`
+-- Database: `ecommerce.com`
 --
 
 -- --------------------------------------------------------
@@ -56,7 +56,11 @@ INSERT INTO `brand` (`id`, `name`, `slug`, `meta_title`, `meta_description`, `me
 (8, 'Xiaomi', 'xiaomi', 'Xiaomi Global | Xiaomi Official Website', 'Xiaomi Global | Xiaomi Official Website', 'Xiaomi Global | Xiaomi Official Website', 1, 0, 0, '2024-01-31 11:34:59', '2024-02-11 10:50:50'),
 (9, 'Infinity', 'infinity', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 1, 0, 0, '2024-01-31 11:36:30', '2024-02-05 09:39:00'),
 (10, 'HATIL', 'hatil', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 2, 0, 0, '2024-02-11 11:35:24', '2024-02-11 11:38:09'),
-(11, 'OTOBI', 'otobi', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 2, 0, 0, '2024-02-11 11:37:41', '2024-02-11 11:37:41');
+(11, 'OTOBI', 'otobi', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 2, 0, 0, '2024-02-11 11:37:41', '2024-02-22 13:07:03'),
+(12, 'Alice', 'alice', 'Alice', '', '', 1, 0, 1, '2024-02-20 10:25:50', '2024-02-25 06:51:35'),
+(13, 'Alice', 'care-home', 'Care', '', '', 1, 0, 0, '2024-02-20 11:05:14', '2024-02-25 06:51:48'),
+(14, 'Lifestyle', 'lifestyle', 'Lifestyle', '', '', 1, 1, 1, '2024-02-25 06:44:07', '2024-02-25 06:44:26'),
+(15, 'mens-cloth', 'mens-cloth', 'Men\' Cloth', '', '', 1, 0, 0, '2024-02-25 06:59:39', '2024-02-25 06:59:39');
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,8 @@ INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, 
 (3, 'yellow', '#fbff00', 2, 0, 0, '2024-02-11 11:09:24', '2024-02-11 11:09:24'),
 (4, 'black', '#000000', 2, 0, 0, '2024-02-11 11:10:09', '2024-02-11 11:10:09'),
 (5, 'white', '#ffffff', 2, 0, 0, '2024-02-11 11:10:23', '2024-02-11 11:10:23'),
-(6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15');
+(6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15'),
+(7, 'Teal', '#7dd4ce', 1, 0, 0, '2024-02-20 11:08:26', '2024-02-20 11:09:28');
 
 -- --------------------------------------------------------
 
@@ -224,7 +229,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `title`, `slug`, `sku`, `category_id`, `sub_category_id`, `brand_id`, `old_price`, `price`, `short_description`, `description`, `additiona_information`, `shipping_return`, `is_delete`, `created_by`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Men\'s Bags', 'bag', 'Men\'s Bags', 6, 11, 2, 8, 20, 'text Short Description', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Description</span></p>', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Additiona Information&nbsp;</span></p>', '<p>text&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 1, 0, '2024-01-16 12:02:46', '2024-02-12 08:48:46'),
+(1, 'Men\'s Bags', 'bag', 'Men\'s Bags', 6, 11, 2, 8, 25, 'text Short Description', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Description</span></p>', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Additiona Information&nbsp;</span></p>', '<p>text&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 1, 0, '2024-01-16 12:02:46', '2024-02-20 06:11:13'),
 (2, 'Dark yellow lace cut out swing dress', 'dark-yellow-lace-cut-out-swing-dress', 'dummy-product-title', 3, 5, 1, 50, 45, 'dummy-product-title', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', 0, 1, 0, '2024-01-16 12:11:36', '2024-01-23 11:20:35'),
 (3, 'Women\'s Bag', 'dummy-product-title', 'womens-bag', 6, 12, 2, 15, 10, 'Dummy Product Short Description', '<p>Dummy Product<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">&nbsp;Description</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Additiona Information</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 1, 0, '2024-01-18 09:05:57', '2024-01-31 05:47:10'),
 (4, 'Cloth\'s', 'cloths', 'cloths', 3, 5, 1, 15, 10, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', 0, 1, 0, '2024-01-23 11:24:40', '2024-01-23 11:27:49'),
@@ -235,13 +240,14 @@ INSERT INTO `product` (`id`, `title`, `slug`, `sku`, `category_id`, `sub_categor
 (9, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', 'xiaomi-mi-v3-plm13zm-10000mah-power-bank', 'Power Bank', 4, 15, 8, 40, 50, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', '', '', '', 0, 2, 0, '2024-02-11 10:55:47', '2024-02-11 10:58:59'),
 (10, 'Akaso EK7000 12MP 4K WiFi Action Camera', 'akaso-ek7000-12mp-4k-wifi-action-camera', 'Akaso EK7000 12MP 4K WiFi Action Camera', 4, 6, 7, 45, 40, 'Akaso EK7000 12MP 4K WiFi Action Camera', '', '', '', 0, 2, 0, '2024-02-11 11:04:11', '2024-02-11 11:06:48'),
 (11, 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 'xiaomi-mi-34-144hz-freesync-curved-monitor', 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 4, 9, 8, 80, 100, 'Key Features\r\nModel: Xiaomi Mi 34\" 144Hz FreeSync Curved\r\nResolution: WQHD (3440x1440)\r\nDisplay: VA, 144Hz, 4ms\r\nPorts: HDMI, DP, Audio Jack\r\nFeatures: Low Blue Light', '', '', '', 0, 2, 0, '2024-02-11 11:12:19', '2024-02-11 11:13:43'),
-(12, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 8, 10, 55, 55, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 2, 0, '2024-02-12 06:44:49', '2024-02-12 08:51:32'),
+(12, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 2, 10, 55, 55, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 2, 0, '2024-02-12 06:44:49', '2024-02-20 09:46:06'),
 (13, 'Noah Patio Wicker Outdoor Garden Chair Set', 'noah-patio-wicker-outdoor-garden-chair-set', 'Noah Patio Wicker Outdoor Garden Chair Set', 2, 7, 11, 50, 70, 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 0, 1, 0, '2024-02-12 08:55:34', '2024-02-12 08:57:12'),
 (14, 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'learning-toys-and-stem-toys-we-love-reviews-by-wirecutter', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 3, 17, 3, 35, 30, 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 0, 1, 0, '2024-02-12 09:01:51', '2024-02-12 09:06:38'),
-(15, 'Brown Low Top Sneakers For Men', 'brown-low-top-sneakers-for-men', 'Brown Low Top Sneakers For Men', 3, 17, 2, 121, 121, 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 0, 1, 0, '2024-02-12 09:10:58', '2024-02-12 09:40:41'),
-(16, 'xyz', 'xyz', 'dummy-product-title', 2, 2, 7, 8, 10, 'tinymce-jquery.min', '<p>&amp;nbsp<br></p>', '<p>&amp;nbsp<br></p>', '<p>&amp;nbsp<br></p>', 0, 1, 0, '2024-02-12 10:24:49', '2024-02-14 08:59:00'),
-(17, 'abc', 'abc', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 1, 0, '2024-02-12 11:30:33', '2024-02-12 11:30:33'),
-(18, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 'ggg', 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 2, 2, 10, 160, 200, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', 0, 1, 0, '2024-02-15 09:01:40', '2024-02-15 09:08:53');
+(15, 'Brown Low Top Sneakers For Men', 'brown-low-top-sneakers-for-men', 'Brown Low Top Sneakers For Men', 3, 17, 2, 121, 121, 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 0, 1, 0, '2024-02-12 09:10:58', '2024-02-20 05:02:10'),
+(16, 'ArtStation', 'xyz', 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', 1, 16, 7, 8, 10, 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', 0, 1, 0, '2024-02-12 10:24:49', '2024-02-20 05:41:48'),
+(17, 'abc', 'abc', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 1, 1, 0, '2024-02-12 11:30:33', '2024-02-22 11:24:32'),
+(18, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 'ggg', 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 2, 2, 10, 160, 200, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', 0, 1, 0, '2024-02-15 09:01:40', '2024-02-15 09:08:53'),
+(19, 'ggg', 'ggg-19', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 1, 1, 0, '2024-02-15 11:03:32', '2024-02-22 11:14:24');
 
 -- --------------------------------------------------------
 
@@ -271,11 +277,12 @@ INSERT INTO `product_color` (`id`, `product_id`, `color_id`, `created_at`, `upda
 (65, 2, 3, '2024-02-11 11:09:53', '2024-02-11 11:09:53'),
 (66, 11, 4, '2024-02-11 11:13:43', '2024-02-11 11:13:43'),
 (70, 6, 2, '2024-02-11 11:27:37', '2024-02-11 11:27:37'),
-(72, 12, 2, '2024-02-12 08:51:32', '2024-02-12 08:51:32'),
 (74, 13, 4, '2024-02-12 08:57:12', '2024-02-12 08:57:12'),
 (76, 14, 2, '2024-02-12 09:06:38', '2024-02-12 09:06:38'),
-(81, 15, 2, '2024-02-14 08:20:18', '2024-02-14 08:20:18'),
-(82, 9, 2, '2024-02-14 08:34:03', '2024-02-14 08:34:03');
+(82, 9, 2, '2024-02-14 08:34:03', '2024-02-14 08:34:03'),
+(91, 15, 6, '2024-02-20 06:10:17', '2024-02-20 06:10:17'),
+(92, 15, 2, '2024-02-20 06:10:17', '2024-02-20 06:10:17'),
+(95, 12, 2, '2024-02-20 09:46:58', '2024-02-20 09:46:58');
 
 -- --------------------------------------------------------
 
@@ -298,10 +305,10 @@ CREATE TABLE `product_image` (
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `image_name`, `image_extension`, `order_by`, `created_at`, `updated_at`) VALUES
-(11, 1, '1gryunic35yeg8paejkab.jpg', 'jpg', 1, '2024-01-31 05:24:34', '2024-02-11 11:26:02'),
+(11, 1, '1gryunic35yeg8paejkab.jpg', 'jpg', 2, '2024-01-31 05:24:34', '2024-02-15 09:50:59'),
 (12, 1, '1fnh8fl1zieqoga524lkr.jpg', 'jpg', 4, '2024-01-31 05:24:34', '2024-02-11 11:26:00'),
-(13, 1, '1dpblw8an7zsrc9t5l7sh.jpeg', 'jpeg', 2, '2024-01-31 05:24:34', '2024-02-11 11:26:02'),
-(14, 1, '1tmsq2y7v2gfetzziipsk.jpeg', 'jpeg', 3, '2024-01-31 05:24:34', '2024-02-11 11:26:02'),
+(13, 1, '1dpblw8an7zsrc9t5l7sh.jpeg', 'jpeg', 3, '2024-01-31 05:24:34', '2024-02-15 09:50:58'),
+(14, 1, '1tmsq2y7v2gfetzziipsk.jpeg', 'jpeg', 1, '2024-01-31 05:24:34', '2024-02-15 09:50:59'),
 (15, 5, '5fhi8pqwhrc8wdd5n1abq.jpg', 'jpg', 2, '2024-01-31 05:37:52', '2024-01-31 05:40:50'),
 (16, 5, '549o8cj381gssd9vnkzdk.jpg', 'jpg', 1, '2024-01-31 05:40:46', '2024-01-31 05:40:50'),
 (17, 6, '69duchkuowzpc7ohl9zyu.jpg', 'jpg', 100, '2024-01-31 05:43:59', '2024-01-31 05:43:59'),
@@ -316,9 +323,12 @@ INSERT INTO `product_image` (`id`, `product_id`, `image_name`, `image_extension`
 (26, 12, '12cizoxhwsn9gr2tx7fozd.jpg', 'jpg', 100, '2024-02-12 08:51:32', '2024-02-12 08:51:32'),
 (27, 13, '13duzybevfuspajsuegnxl.jpg', 'jpg', 100, '2024-02-12 08:56:37', '2024-02-12 08:56:37'),
 (28, 14, '14jxsmlpvva6omdx3xrdjs.webp', 'webp', 100, '2024-02-12 09:04:13', '2024-02-12 09:04:13'),
-(29, 15, '15veuufgtioqhmkxmk2gcr.webp', 'webp', 100, '2024-02-12 09:40:00', '2024-02-12 09:40:00'),
-(30, 16, '16jqwjyqermrqayyeihqx2.png', 'png', 100, '2024-02-13 11:42:27', '2024-02-13 11:42:27'),
-(31, 18, '18yrybpbzgx3qurnktc0jv.webp', 'webp', 100, '2024-02-15 09:08:53', '2024-02-15 09:08:53');
+(29, 15, '15veuufgtioqhmkxmk2gcr.webp', 'webp', 2, '2024-02-12 09:40:00', '2024-02-19 10:00:20'),
+(31, 18, '18yrybpbzgx3qurnktc0jv.webp', 'webp', 100, '2024-02-15 09:08:53', '2024-02-15 09:08:53'),
+(32, 16, '1603j1kdrc3mnafpwfd7id.jpg', 'jpg', 100, '2024-02-15 09:32:10', '2024-02-15 09:32:10'),
+(33, 15, '15vizjopasxbssl9l4u0rp.jfif', 'jfif', 3, '2024-02-19 10:00:03', '2024-02-19 10:00:18'),
+(34, 15, '15bp6z5onacrdisomeudcy.avif', 'avif', 4, '2024-02-19 10:00:03', '2024-02-19 10:00:18'),
+(35, 15, '150lzdsu2cusludgeir5yy.webp', 'webp', 1, '2024-02-19 10:00:04', '2024-02-19 10:00:20');
 
 -- --------------------------------------------------------
 
@@ -349,18 +359,18 @@ INSERT INTO `product_size` (`id`, `product_id`, `name`, `price`, `created_at`, `
 (32, 2, 'm', 45, '2024-02-11 11:09:53', '2024-02-11 11:09:53'),
 (33, 11, 'm', 100, '2024-02-11 11:13:43', '2024-02-11 11:13:43'),
 (43, 6, 'M', 15, '2024-02-11 11:27:37', '2024-02-11 11:27:37'),
-(44, 1, 'S', 25, '2024-02-12 08:48:46', '2024-02-12 08:48:46'),
-(45, 1, 'M', 15, '2024-02-12 08:48:46', '2024-02-12 08:48:46'),
-(46, 1, 'L', 20, '2024-02-12 08:48:46', '2024-02-12 08:48:46'),
-(47, 12, 'L', 55, '2024-02-12 08:51:32', '2024-02-12 08:51:32'),
 (49, 13, 'S', 70, '2024-02-12 08:57:12', '2024-02-12 08:57:12'),
 (51, 14, 'M', 30, '2024-02-12 09:06:38', '2024-02-12 09:06:38'),
-(59, 15, 's', 121, '2024-02-14 08:20:18', '2024-02-14 08:20:18'),
 (60, 9, 'm', 50, '2024-02-14 08:34:03', '2024-02-14 08:34:03'),
-(61, 16, 'S', 10, '2024-02-14 08:59:00', '2024-02-14 08:59:00'),
-(62, 18, 'M', 150, '2024-02-15 09:08:53', '2024-02-15 09:08:53'),
-(63, 18, 'L', 200, '2024-02-15 09:08:53', '2024-02-15 09:08:53'),
-(64, 18, 'S', 170, '2024-02-15 09:08:53', '2024-02-15 09:08:53');
+(75, 16, 'S', 10, '2024-02-20 05:41:48', '2024-02-20 05:41:48'),
+(77, 15, 's', 121, '2024-02-20 06:10:17', '2024-02-20 06:10:17'),
+(78, 1, 'S', 25, '2024-02-20 06:11:13', '2024-02-20 06:11:13'),
+(79, 1, 'M', 15, '2024-02-20 06:11:13', '2024-02-20 06:11:13'),
+(80, 1, 'L', 20, '2024-02-20 06:11:13', '2024-02-20 06:11:13'),
+(83, 12, 'L', 55, '2024-02-20 09:46:58', '2024-02-20 09:46:58'),
+(84, 18, 'M', 150, '2024-02-25 06:59:20', '2024-02-25 06:59:20'),
+(85, 18, 'L', 200, '2024-02-25 06:59:20', '2024-02-25 06:59:20'),
+(86, 18, 'S', 170, '2024-02-25 06:59:20', '2024-02-25 06:59:20');
 
 -- --------------------------------------------------------
 
@@ -431,10 +441,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '2024-01-15 09:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'BsdBXWvtzoWocU9fOQy4C6fePSi72Xmaj8U0evmpSk5zZkQSPXHeO0tK20AR', 1, 0, 0, '2024-01-15 09:24:53', '2024-01-15 10:54:00'),
-(2, 'Test', 'test@gmail.com', NULL, '$2y$12$Jd/nlhrzDvC71TM6kTeWtekc0GdK5NMnX6Mo3sX9rPmTk0X5sHZWy', NULL, 1, 0, 0, '2024-01-15 09:37:14', '2024-02-08 00:54:32'),
+(1, 'admin', 'admin@gmail.com', '2024-01-15 09:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'YXdxkfdrdZlNq2hRW7gYmOT5vaAX6c4DDku3X3FuVzWDD8CKbj1dk3BTiZek', 1, 0, 0, '2024-01-15 09:24:53', '2024-01-15 10:54:00'),
+(2, 'Test', 'test@gmail.com', NULL, '$2y$12$Jd/nlhrzDvC71TM6kTeWtekc0GdK5NMnX6Mo3sX9rPmTk0X5sHZWy', NULL, 1, 0, 0, '2024-01-15 09:37:14', '2024-02-25 01:06:56'),
 (3, 'test admin 01', 'testadmin@gmail.com', NULL, '$2y$12$IvUjfVCZijf5A0NIAqRaje0.l5/ArpmM/LEo2fHNyqXuAfKUMBaHK', NULL, 1, 1, 1, '2024-01-15 09:41:50', '2024-02-11 22:24:05'),
-(4, 'admin2', 'admin2@gmail.com', NULL, '$2y$12$A.rwfHT9o5FkaiGUSSfRCuUNGp.586Nxr3MOBH.6m130.BmfcUCwO', NULL, 1, 1, 0, '2024-02-11 22:24:47', '2024-02-11 22:24:47');
+(4, 'admin2', 'admin2@gmail.com', NULL, '$2y$12$A.rwfHT9o5FkaiGUSSfRCuUNGp.586Nxr3MOBH.6m130.BmfcUCwO', NULL, 1, 1, 1, '2024-02-11 22:24:47', '2024-02-22 03:52:39');
 
 --
 -- Indexes for dumped tables
@@ -530,7 +540,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -542,7 +552,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -566,25 +576,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_color`
 --
 ALTER TABLE `product_color`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `sub_category`

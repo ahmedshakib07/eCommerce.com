@@ -6,7 +6,7 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; {{ date ('Y')}} 69eCommerce.com</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date ('Y')}} eCommerce.com</a>.</strong> All rights reserved.
   </footer>
 
 <!-- ./wrapper -->
