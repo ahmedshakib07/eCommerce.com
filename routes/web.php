@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProductController as ProductFront;
+use App\Http\Controllers\PaymentController;
 
 
 use App\Http\Controllers\HomeController;
@@ -95,6 +96,9 @@ Route::group(['middleware' => 'admin'], function () {
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
+
+Route::get('cart', [PaymentController::class, 'cart']);
+Route::post('product/add-to-cart', [PaymentController::class, 'addToCart']);
 
 Route::get('search', [ProductFront::class, 'getProductSearch']);
 Route::post('get_filter_product_ajax', [ProductFront::class, 'getFilterProductAjax']);

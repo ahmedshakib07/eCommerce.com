@@ -29,7 +29,8 @@ class ColorController extends Controller
         $color->created_by = Auth::user()->id;
         $color->save();
 
-        return redirect('admin/color/list')->with('success', "Color Successfully Created");
+        toastr()->info('Success! Color Created Successfully!');
+        return redirect()->back();
     }
 
     public function edit($id){
@@ -46,7 +47,8 @@ class ColorController extends Controller
         $color->status = trim($request->status);
         $color->save();
 
-        return redirect('admin/color/list')->with('success', "Color Successfully Updated");
+        toastr()->success('Success! Color Updated Successfully!');
+        return redirect()->back();
     }
 
     public function delete($id){

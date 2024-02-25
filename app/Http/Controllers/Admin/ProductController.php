@@ -127,8 +127,9 @@ class ProductController extends Controller
                     }
                 }
             }
-            
-            return redirect()->back()->with('success', "Product successfully updated");
+
+            toastr()->success('Success! Product Updated Successfully!');
+            return redirect()->back();
         }
         else{
             abort(404);
@@ -142,7 +143,8 @@ class ProductController extends Controller
             unlink('upload/product/'.$image->image_name);
         }
         $image->delete();
-        return redirect()->back()->with('success', "Product Image Successfully Deleted");
+        toastr()->success('Success! Product Image Successfully Deleted!');
+        return redirect()->back();
     }
 
     public function product_image_sortable(Request $request){

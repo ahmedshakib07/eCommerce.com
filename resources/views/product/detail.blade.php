@@ -64,50 +64,55 @@
                                 <p>{{ $getProduct->short_description }}</p>
                             </div>
 
-                            @if(!empty($getProduct->getColor->count()))
-                            <div class="details-filter-row details-row-size">
-                                <label for="size">Color:</label>
-                                <div class="select-custom">
-                                    <select name="size" id="size" class="form-control">
-                                        <option value="">Select a color</option>
-                                        @foreach($getProduct->getColor as $color)
-                                            <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
-                                        @endforeach
-                                    </select>
+                            <form action="{{ url('product/add-to-cart') }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="product_id" value="{{ $getProduct->id}}">
+                                @if(!empty($getProduct->getColor->count()))
+                                <div class="details-filter-row details-row-size">
+                                    <label for="size">Color:</label>
+                                    <div class="select-custom">
+                                        <select name="color_id" id="color_id" required class="form-control">
+                                            <option value="">Select a color</option>
+                                            @foreach($getProduct->getColor as $color)
+                                                <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            @endif
+                                @endif
 
-                            @if(!empty($getProduct->getSize->count()))
-                            <div class="details-filter-row details-row-size">
-                                <label for="size">Size:</label>
-                                <div class="select-custom">
-                                    <select name="size" id="size" class="form-control">
-                                        <option value="">Select a size</option>
-                                        @foreach($getProduct->getSize as $size)
-                                            <option value="{{ $size->id }}">{{ $size->name }} </option>
-                                            <!-- @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif -->
-                                        @endforeach
-                                    </select>
+                                @if(!empty($getProduct->getSize->count()))
+                                <div class="details-filter-row details-row-size">
+                                    <label for="size">Size:</label>
+                                    <div class="select-custom">
+                                        <select name="size_id" id="size_id" required class="form-control">
+                                            <option value="">Select a size</option>
+                                            @foreach($getProduct->getSize as $size)
+                                                <option value="{{ $size->id }}">{{ $size->name }} </option>
+                                                <!-- @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif -->
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            @endif
+                                @endif
 
-                            <div class="details-filter-row details-row-size">
-                                <label for="qty">Qty:</label>
-                                <div class="product-details-quantity">
-                                    <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                <div class="details-filter-row details-row-size">
+                                    <label for="qty">Qty:</label>
+                                    <div class="product-details-quantity">
+                                        <input type="number" id="qty" name="qty" class="form-control" value="1" min="1" max="100" step="1" data-decimals="0" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="product-details-action">
-                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                <div class="product-details-action">
+                                    <!-- <a href="#" class="btn-product btn-cart"><span>add to cart</span></a> -->
+                                    <button class="btn-product btn-cart" type="submit">Add to cart</button>
 
-                                <div class="details-action-wrapper">
-                                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
-                                    <!-- <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a> -->
+                                    <div class="details-action-wrapper">
+                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                        <!-- <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a> -->
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
 
                             <div class="product-details-footer">
                                 <div class="product-cat">
