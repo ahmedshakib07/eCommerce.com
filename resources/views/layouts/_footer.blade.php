@@ -52,8 +52,8 @@
 
                         <ul class="widget-list">
                             <li><a href="#signin-modal" data-toggle="modal">Sign In</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="{{ url('cart') }}">View Cart</a></li>
+                            <li><a href="{{ url('wishlist') }}">My Wishlist</a></li>
                             <li><a href="#">Track My Order</a></li>
                             <li><a href="#">Help</a></li>
                         </ul>
