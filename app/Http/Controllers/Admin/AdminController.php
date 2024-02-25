@@ -61,7 +61,7 @@ class AdminController extends Controller
         $user->is_admin = 1;
         $user->save();
 
-        toastr()->success('Success! Admin Updated Successfully!');
+        toastr()->success('Admin Updated Successfully!');
         return redirect('admin/admin/list');
     }
 

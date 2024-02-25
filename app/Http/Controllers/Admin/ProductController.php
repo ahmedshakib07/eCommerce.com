@@ -128,7 +128,7 @@ class ProductController extends Controller
                 }
             }
 
-            toastr()->success('Success! Product Updated Successfully!');
+            toastr()->success('Product Updated Successfully!');
             return redirect('admin/product/list');
         }
         else{
@@ -143,7 +143,7 @@ class ProductController extends Controller
             unlink('upload/product/'.$image->image_name);
         }
         $image->delete();
-        toastr()->success('Success! Product Image Successfully Deleted!');
+        toastr()->success('Product Image Successfully Deleted!');
         return redirect('admin/product/list');
     }
 

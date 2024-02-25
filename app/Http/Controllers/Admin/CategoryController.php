@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $category->created_by = Auth::user()->id;
         $category->save();
 
-        toastr()->info('Success! Category Created Successfully!');
+        toastr()->info('Category Created Successfully!');
         return redirect('admin/category/list');
     }
 
@@ -61,7 +61,7 @@ class CategoryController extends Controller
         $category->meta_keywords = trim($request->meta_keywords);
         $category->save();
 
-        toastr()->success('Success! Category Updated Successfully!');
+        toastr()->success('Category Updated Successfully!');
         return redirect('admin/category/list');
     }
 

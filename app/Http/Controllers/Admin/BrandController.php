@@ -36,7 +36,7 @@ class BrandController extends Controller
         $brand->created_by = Auth::user()->id;
         $brand->save();
 
-        toastr()->info('Success! Brand Created Successfully!');
+        toastr()->info('Brand Created Successfully!');
         return redirect('admin/brand/list');
     }
 
@@ -61,7 +61,7 @@ class BrandController extends Controller
         $brand->meta_keywords = trim($request->meta_keywords);
         $brand->save();
 
-        toastr()->success('Success! Brand Updated Successfully!');
+        toastr()->success('Brand Updated Successfully!');
         return redirect('admin/brand/list');
     }
 

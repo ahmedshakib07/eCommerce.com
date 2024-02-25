@@ -39,7 +39,7 @@ class SubCategoryController extends Controller
         $subcategory->created_by = Auth::user()->id;
         $subcategory->save();
 
-        toastr()->info('Success! Sub Category Created Successfully!');
+        toastr()->info('Sub Category Created Successfully!');
         return redirect('admin/sub_category/list');
     }
 
@@ -66,7 +66,7 @@ class SubCategoryController extends Controller
         $subcategory->meta_keywords = trim($request->meta_keywords);
         $subcategory->save();
 
-        toastr()->success('Success! Sub Category Updated Successfully!');
+        toastr()->success('Sub Category Updated Successfully!');
         return redirect('admin/sub_category/list');
     }
 
