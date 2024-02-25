@@ -29,6 +29,12 @@
                         <a href="#">Links</a>
                         <ul>
                             <li><a href="tel:#"><i class="icon-phone"></i>Call: +880 17 6705 6733</a></li>
+                            <li>
+                                <a href="{{ url('about') }}">About Us</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('contact') }}">Contact Us</a>
+                            </li>
                             <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>My Wishlist <span>(3)</span></a></li>
                             <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                         </ul>
@@ -54,12 +60,6 @@
                     <ul class="menu sf-arrows">
                         <li class="megamenu-container active">
                             <a href="{{ url('') }}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('about') }}">About Us</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('contact') }}">Contact Us</a>
                         </li>
 
                         <!-- Shop -->
