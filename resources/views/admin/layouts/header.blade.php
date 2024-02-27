@@ -11,6 +11,15 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
 
+            <div class="nav-item user-panel d-flex">
+                <div class="image">
+                    <img src="{{ url('public/assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2">
+                </div>
+                <div class="info">
+                    <a class="d-block">{{ Auth::user()->name }}</a>
+                </div>
+            </div>
+            
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -69,6 +78,7 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
             </li>
+
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -117,14 +127,14 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <img src="{{ url('public/assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2">
                 </div>
                 <div class="info">
                     <a class="d-block">{{ Auth::user()->name }}</a>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
