@@ -92,7 +92,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Color <span style="color:red">*</span> </label>
+                                                <label>Color</label>
                                                 @foreach($getColor as $color)
                                                     @php
                                                         $checked = '';
@@ -136,7 +136,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Size <span style="color:red">*</span> </label>
+                                                <label>Size</label>
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>

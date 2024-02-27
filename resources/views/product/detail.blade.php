@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="product-price">
-                                ${{ number_format($getProduct->price, 2) }}
+                                $ <span id="getTotalPrice">{{ number_format($getProduct->price, 2) }}</span>
                             </div>
 
                             <div class="product-content">
@@ -68,28 +68,27 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" name="product_id" value="{{ $getProduct->id}}">
                                 @if(!empty($getProduct->getColor->count()))
-                                <div class="details-filter-row details-row-size">
-                                    <label for="size">Color:</label>
-                                    <div class="select-custom">
-                                        <select name="color_id" id="color_id" required class="form-control">
-                                            <option value="">Select a color</option>
-                                            @foreach($getProduct->getColor as $color)
-                                                <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="details-filter-row details-row-size">
+                                        <label for="size">Color:</label>
+                                        <div class="select-custom">
+                                            <select name="color" id="color" required class="form-control">
+                                                <option value="">Select a color</option>
+                                                @foreach($getProduct->getColor as $color)
+                                                    <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
                                 @endif
 
                                 @if(!empty($getProduct->getSize->count()))
                                 <div class="details-filter-row details-row-size">
                                     <label for="size">Size:</label>
                                     <div class="select-custom">
-                                        <select name="size_id" id="size_id" required class="form-control">
-                                            <option value="">Select a size</option>
+                                        <select name="size" id="size" required class="form-control getSizePrice">
+                                            <option data-price="0" value="">Select a size</option>
                                             @foreach($getProduct->getSize as $size)
-                                                <option value="{{ $size->id }}">{{ $size->name }} </option>
-                                                <!-- @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif -->
+                                                <option data-price="{{ !empty($size->price) ? $size->price : 0 }}" value="{{ $size->id }}">{{ $size->name }}  @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -314,4 +313,13 @@
 @section('script')
     <script src="{{ url('assets/js/bootstrap-input-spinner.js') }}"></script>
     <script src="{{ url('assets/js/jquery.elevateZoom.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $('.getSizePrice').change(function() {
+            var prduct_price = '{{ $getProduct->price }}';
+            var price = $('option:selected', this).attr('data-price');
+            var total = parseFloat(prduct_price) + parseFloat(price);
+            $('#getTotalPrice').html(total.toFixed(2));
+        });
+</script>
 @endsection
