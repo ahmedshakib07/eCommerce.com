@@ -119,14 +119,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Price ($)<span style="color:red">*</span> </label>
+                                                <label>Price (৳)<span style="color:red">*</span> </label>
                                                 <input type="text" class="form-control" name="price" id="" value="{{ !empty($product->price) ? $product->price: '' }}" placeholder="Enter Product Price" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>OLD Price ($)<span style="color:red">*</span> </label>
+                                                <label>OLD Price (৳)<span style="color:red">*</span> </label>
                                                 <input type="text" class="form-control" name="old_price" id="" value="{{ !empty($product->old_price) ? $product->old_price: '' }}" placeholder="Enter Product OLD Price" required>
                                             </div>
                                         </div>
@@ -141,7 +141,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Name</th>
-                                                            <th>Price ($)</th>
+                                                            <th>Price (৳)</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>

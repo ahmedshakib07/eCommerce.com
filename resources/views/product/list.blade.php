@@ -11,7 +11,7 @@
 
 
 <main class="main">
-    <div class="page-header text-center" style="background-image: url(' {{ url('') }} /assets/images/page-header-bg.jpg')">
+    <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg')">
         <div class="container">
         @if(!empty($getSubCategory))
             <h1 class="page-title">{{ $getSubCategory->name }}</h1>
@@ -386,7 +386,7 @@
                 tooltips: true,
                 format: wNumb({
                     decimals: 0,
-                    prefix: '$'
+                    prefix: '৳ '
                 })
             });
 
