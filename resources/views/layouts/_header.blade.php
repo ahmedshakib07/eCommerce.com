@@ -28,7 +28,7 @@
                     <li>
                         <a href="#">Links</a>
                         <ul>
-                            <li><a href="tel:#"><i class="icon-phone"></i>Call: +880 17 6705 6733</a></li>
+                            <li><a href="tel:#"><i class="icon-phone"></i>Call: +880 17 #### ####</a></li>
                             <li>
                                 <a href="{{ url('about') }}">About Us</a>
                             </li>
