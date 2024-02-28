@@ -277,7 +277,7 @@
 
         $('.ChangeBrand').change(function() { 
             var ids = '';
-            $('.ChangeBrand').each(function() { 
+            $('.ChangeBrand').each(function() {
                 if(this.checked){
                     var id = $(this).val();
                     ids += id+',';
@@ -386,7 +386,7 @@
                 tooltips: true,
                 format: wNumb({
                     decimals: 0,
-                    prefix: '৳ '
+                    prefix: '$'
                 })
             });
 

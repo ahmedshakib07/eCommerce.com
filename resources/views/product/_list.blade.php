@@ -32,7 +32,7 @@
                         </div>
                         <h3 class="product-title"><a href="{{ url($value->slug) }}">{{ $value->title }}</a></h3>
                         <div class="product-price">
-                            ৳ {{ number_format($value->price, 2) }}
+                            ${{ number_format($value->price, 2) }}
                         </div>
                         <div class="ratings-container">
                             <div class="ratings">
