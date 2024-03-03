@@ -150,7 +150,7 @@
 
                     <li class="nav-item">
                         <a href="{{ url('admin/admin/list') }}" class="nav-link @if(Request::segment(2) == 'admin') active @endif">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-user-secret"></i>
                             <p> Admin </p>
                         </a>
                     </li>
