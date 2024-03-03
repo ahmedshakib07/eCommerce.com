@@ -10,7 +10,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category List</h1>
+                        <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Category list</li>
+                        </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
                         <a href="{{ url('admin/category/add') }}" class="btn btn-primary">Add New Category</a>
