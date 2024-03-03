@@ -16,7 +16,7 @@
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
-                        <a href="{{ url('admin/color/add') }}" class="btn btn-primary">Add New Color</a>
+                        <a href="{{ url('admin/color/add') }}" class="btn btn-outline-secondary"><i class="fa fa-plus-circle"></i> Color</a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

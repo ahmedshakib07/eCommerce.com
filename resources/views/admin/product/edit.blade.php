@@ -17,7 +17,7 @@
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
-                        <a href="{{ url('admin/product/list') }}" class="btn btn-primary"><i class="fa fa-backward"></i></a>
+                        <a href="{{ url('admin/product/list') }}" class="btn btn-outline-secondary"><i class="fa fa-backward"></i></a>
                     </div>
                 </div>
             </div>
@@ -267,7 +267,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">update</button>
+                                    <button type="submit" class="btn btn-outline-dark">update</button>
                                 </div>
                             </form>
                         </div>

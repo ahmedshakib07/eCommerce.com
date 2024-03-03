@@ -16,7 +16,7 @@
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
-                        <a href="{{ url('admin/brand/list') }}" class="btn btn-primary"><i class="fa fa-backward"></i></a>
+                        <a href="{{ url('admin/brand/list') }}" class="btn btn-outline-secondary"><i class="fa fa-backward"></i></a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -65,7 +65,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-outline-dark">Update</button>
                                 </div>
                             </form>
                         </div>
