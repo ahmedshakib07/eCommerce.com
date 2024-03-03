@@ -3,21 +3,21 @@
         <div class="container">
             <div class="header-left">
                 <div class="header-dropdown">
-                    <a href="#">Usd</a>
+                    <a href="#">BDT</a>
                     <div class="header-menu">
                         <ul>
                             <li><a href="#">BDT</a></li>
-                            <li><a href="#">Usd</a></li>
+                            <!-- <li><a href="#">Usd</a></li> -->
                         </ul>
                     </div>
                 </div>
 
                 <div class="header-dropdown">
-                    <a href="#">Eng</a>
+                    <a href="#">BAN</a>
                     <div class="header-menu">
                         <ul>
                             <li><a href="#">Bangla</a></li>
-                            <li><a href="#">English</a></li>
+                            <!-- <li><a href="#">English</a></li> -->
                         </ul>
                     </div>
                 </div>
