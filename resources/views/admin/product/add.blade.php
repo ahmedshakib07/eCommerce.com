@@ -16,7 +16,7 @@
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
-                        <a href="{{ url('admin/product/list') }}" class="btn btn-primary">Back</a>
+                        <a href="{{ url('admin/product/list') }}" class="btn btn-primary"><i class="fa fa-backward"></i></a>
                     </div>
                 </div>
             </div>
