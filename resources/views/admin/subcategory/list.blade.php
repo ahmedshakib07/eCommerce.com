@@ -16,7 +16,7 @@
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
-                        <a href="{{ url('admin/sub_category/add') }}" class="btn btn-outline-secondary"><i class="fa fa-plus-circle"></i> Sub-Category</a>
+                        <a href="{{ url('admin/sub_category/add') }}" class="btn btn-outline-info"><i class="fa fa-plus-circle"></i> Sub-Category</a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
