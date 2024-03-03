@@ -9,7 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Edit Brand</h1>
+                        <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('admin/brand/list') }}">Brand List</a></li>
+                        <li class="breadcrumb-item active">Edit Brand</li>
+                        </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
                         <a href="{{ url('admin/brand/list') }}" class="btn btn-primary">Back</a>
