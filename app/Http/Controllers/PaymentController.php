@@ -13,6 +13,7 @@ class PaymentController extends Controller
     public function cart(Request $request){
         dd(Cart::getContent());
     }
+
     public function addToCart(Request $request){
 
         $getProduct = ProductModel::getSingle($request->product_id);
@@ -42,5 +43,9 @@ class PaymentController extends Controller
 
         return redirect()->back();
         // dd($request->all());
+    }
+
+    public function checkout(Request $request){
+        
     }
 }
