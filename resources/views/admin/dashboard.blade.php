@@ -268,7 +268,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <h5 class="mb-2">Info Box</h5>
+                <!-- <h5 class="mb-2">Info Box</h5> -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="info-box">
@@ -328,7 +328,7 @@
                 <!-- =========================================================== -->
 
                 
-                <h5 class="mt-4 mb-2">Info Box With <code>bg-*</code></h5>
+                <!-- <h5 class="mt-4 mb-2">Info Box With <code>bg-*</code></h5> -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="info-box bg-info">
@@ -420,7 +420,7 @@
                 <!-- =========================================================== -->
 
                 <!-- Small Box (Stat card) -->
-                <h5 class="mb-2 mt-4">Small Box</h5>
+                <!-- <h5 class="mb-2 mt-4">Small Box</h5> -->
                 <div class="row">
                     <div class="col-lg-3 col-6">
                         <!-- small card -->
@@ -483,55 +483,6 @@
                         </div>
                         <div class="icon">
                             <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                </div>
-                <!-- /.row -->
-
-                <!-- Small Box (Stat card) -->
-                <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <!-- small card -->
-                        <div class="small-box bg-info">
-                        <!-- Loading (remove the following to stop the loading)-->
-                        <div class="overlay">
-                            <i class="fas fa-3x fa-sync-alt"></i>
-                        </div>
-                        <!-- end loading -->
-                        <div class="inner">
-                            <h3>150</h3>
-
-                            <p>New Orders</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small card -->
-                        <div class="small-box bg-success">
-                        <!-- Loading (remove the following to stop the loading)-->
-                        <div class="overlay dark">
-                            <i class="fas fa-3x fa-sync-alt"></i>
-                        </div>
-                        <!-- end loading -->
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                            <p>Bounce Rate</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
                         </div>
                         <a href="#" class="small-box-footer">
                             More info <i class="fas fa-arrow-circle-right"></i>
