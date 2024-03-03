@@ -18,7 +18,7 @@
         @elseif(!empty($getCategory))
             <h1 class="page-title">{{ $getCategory->name }}</h1>
         @else
-            <h1 class="page-title">Search for {{ Request::get('q') }}</h1>
+            <h1 class="page-title">Search for <span>{{ Request::get('q') }}</span></h1>
         @endif
             
         </div>
