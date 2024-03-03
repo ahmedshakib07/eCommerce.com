@@ -11,8 +11,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Brand</li>
+                            <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Brand List</li>
                         </ol>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
