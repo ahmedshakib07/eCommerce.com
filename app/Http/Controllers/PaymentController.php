@@ -13,7 +13,7 @@ class PaymentController extends Controller
     public function cart(Request $request){
         // dd(Cart::getContent());
 
-        $data['meta_title'] = 'Shopping Cart';
+        $data['meta_title'] = 'Cart';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 

@@ -11,7 +11,7 @@
 
 
 <main class="main">
-    <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg')">
+    <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg'); padding: 1.6rem 0 2rem;">
         <div class="container">
             @if(!empty($getSubCategory))
                 <h3 class="page-title">{{ $getSubCategory->name }}</h3>

@@ -5,7 +5,7 @@
 @section('content')
 
 <main class="main">
-    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg'); padding: 1.6rem 0 2rem;">
         <div class="container">
             <h3 class="page-title">Cart</h3>
             <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / Cart</span>
@@ -14,9 +14,9 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:;">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cart</li>
             </ol>
         </div>
     </nav>
@@ -161,8 +161,9 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h3>Your Cart Is Empty !</h3>
-                        <h6 class="mt-3">Add Items to it now.</h6>
-                        <a href="{{ url('') }}" class="btn btn-warning mt-4">Shop Now</a>
+                        <!-- <h6 class="mt-3">Add Items to it now.</h6> -->
+                        <span class="mt-3">Add Items to it now.</span> <br>
+                        <a href="{{ url('') }}" class="btn btn-primary mt-4">Shop Now</a>
                     </div>
                 </div>
                     <!-- <a href="{{ url('') }}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a> -->
