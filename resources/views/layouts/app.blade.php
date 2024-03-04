@@ -158,6 +158,7 @@
     <script src="{{ url('assets/js/superfish.min.js') }}"></script>
     <script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url('assets/js/bootstrap-input-spinner.js') }}"></script>
     <!-- Main JS File -->
     <script src="{{ url('assets/js/main.js') }}"></script>
 

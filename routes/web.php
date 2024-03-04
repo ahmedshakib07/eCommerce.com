@@ -98,6 +98,7 @@ Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('cart', [PaymentController::class, 'cart']);
+Route::get('cart/delete/{id}', [PaymentController::class, 'cartDelete']);
 Route::post('product/add-to-cart', [PaymentController::class, 'addToCart']);
 
 Route::get('search', [ProductFront::class, 'getProductSearch']);

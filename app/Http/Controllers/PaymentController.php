@@ -11,7 +11,20 @@ class PaymentController extends Controller
 {
 
     public function cart(Request $request){
-        dd(Cart::getContent());
+        // dd(Cart::getContent());
+
+        $data['meta_title'] = 'Shopping Cart';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('payment.cart', $data);
+    }
+
+    public function cartDelete($id){
+
+        Cart::remove($id);
+
+        return redirect()->back();
     }
 
     public function addToCart(Request $request){
