@@ -13,14 +13,14 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg')">
         <div class="container">
-        @if(!empty($getSubCategory))
-            <h1 class="page-title">{{ $getSubCategory->name }}</h1>
-        @elseif(!empty($getCategory))
-            <h1 class="page-title">{{ $getCategory->name }}</h1>
-        @else
-            <h1 class="page-title">Search for <span>{{ Request::get('q') }}</span></h1>
-        @endif
-            
+            @if(!empty($getSubCategory))
+                <h3 class="page-title">{{ $getSubCategory->name }}</h3>
+            @elseif(!empty($getCategory))
+                <h3 class="page-title">{{ $getCategory->name }}</h3>
+            @else
+                <h3 class="page-title">Search for <span>{{ Request::get('q') }}</span></h3>
+            @endif
+            <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / Shop</span>
         </div>
     </div>
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">

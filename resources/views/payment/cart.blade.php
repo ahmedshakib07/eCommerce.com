@@ -7,7 +7,8 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+            <h3 class="page-title">Cart</h3>
+            <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / Cart</span>
         </div>
     </div>
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -159,7 +160,7 @@
                 @else
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3>Your cart is empty !</h3>
+                        <h3>Your Cart Is Empty !</h3>
                         <h6 class="mt-3">Add Items to it now.</h6>
                         <a href="{{ url('') }}" class="btn btn-warning mt-4">Shop Now</a>
                     </div>
