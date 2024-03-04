@@ -104,7 +104,7 @@
 
                                 <div class="product-details-action">
                                     <!-- <a href="#" class="btn-product btn-cart"><span>add to cart</span></a> -->
-                                    <button class="btn-product btn-cart" type="submit">Add to cart</button>
+                                    <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button>
 
                                     <div class="details-action-wrapper">
                                         <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>

@@ -161,8 +161,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h3>Your Cart Is Empty !</h3>
-                        <!-- <h6 class="mt-3">Add Items to it now.</h6> -->
-                        <span class="mt-3">Add Items to it now.</span> <br>
+                        <p class="mt-2">Add Items to it now.</p>
                         <a href="{{ url('') }}" class="btn btn-primary mt-4">Shop Now</a>
                     </div>
                 </div>
