@@ -71,7 +71,7 @@
                     </div>
 
                     <div style="text-align: center;">
-                        <a href="javascript:;" @if(empty($page)) style="display: none;" @endif data-page="{{ $page }}" class="btn btn-primary LoadMore">Load More</a>
+                        <a href="javascript:;" @if(empty($page)) style="display: none;" @endif data-page="{{ $page }}" class="btn btn-dark LoadMore">Load More</a>
                     </div>
 
                 </div>
