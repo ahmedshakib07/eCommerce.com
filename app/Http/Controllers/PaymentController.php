@@ -58,6 +58,19 @@ class PaymentController extends Controller
         // dd($request->all());
     }
 
+    public function updateCart(Request $request){
+        // dd($request->all());
+        foreach ($request->cart as $cart) {
+            Cart::update($cart['id'], array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $cart['qty']
+                ),
+            ));
+        }
+        return redirect()->back();
+    }
+
     public function checkout(Request $request){
         
     }

@@ -27,72 +27,74 @@
                 @if(!empty(Cart::getContent()->count()))
                     <div class="row">
                         <div class="col-lg-9">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
+                            <form action="{{ url('updateCart') }}" method="post">
+                                {{ csrf_field() }}
+                                <table class="table table-cart table-mobile">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    @foreach(Cart::getContent() as $cart)
-                                        @php
-                                            $getCartProduct = App\Models\ProductModel::getSingle($cart->id);
-                                        @endphp
-
-                                        @if(!empty($getCartProduct))
-
+                                    <tbody>
+                                        @foreach(Cart::getContent() as $key => $cart)
                                             @php
-                                                $getProductImage = $getCartProduct->getImageSingle($getCartProduct->id);
+                                                $getCartProduct = App\Models\ProductModel::getSingle($cart->id);
                                             @endphp
 
-                                            <tr>
-                                                <td class="product-col">
-                                                    <div class="product">
-                                                        <figure class="product-media">
-                                                            <a href="{{ url($getCartProduct->slug) }}">
-                                                                <img src="{{ $getProductImage->getLogo() }}" alt="Product image">
-                                                            </a>
-                                                        </figure>
+                                            @if(!empty($getCartProduct))
 
-                                                        <h3 class="product-title">
-                                                            <a href="{{ url($getCartProduct->slug) }}">{{ $getCartProduct->title }}</a>
-                                                        </h3>
-                                                    </div>
-                                                </td>
-                                                <td class="price-col">${{ number_format($cart->price, 2) }}</td>
-                                                <td class="quantity-col">
-                                                    <div class="cart-product-quantity">
-                                                        <input type="number" class="form-control" value="{{ $cart->quantity }}" min="1" max="10" step="1" data-decimals="0" required>
-                                                    </div>
-                                                </td>
-                                                <td class="total-col">${{ number_format($cart->price * $cart->quantity, 2) }}</td>
-                                                <td class="remove-col"><a href="{{ url('cart/delete/'.$cart->id) }}" class="btn-remove"><i class="icon-close"></i></a></td>
-                                            </tr>
+                                                @php
+                                                    $getProductImage = $getCartProduct->getImageSingle($getCartProduct->id);
+                                                @endphp
 
-                                        @endif
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                                <tr>
+                                                    <td class="product-col">
+                                                        <div class="product">
+                                                            <figure class="product-media">
+                                                                <a href="{{ url($getCartProduct->slug) }}">
+                                                                    <img src="{{ $getProductImage->getLogo() }}" alt="Product image">
+                                                                </a>
+                                                            </figure>
 
-                            <div class="cart-bottom">
-                                <div class="cart-discount">
-                                    <form action="#">
+                                                            <h3 class="product-title">
+                                                                <a href="{{ url($getCartProduct->slug) }}">{{ $getCartProduct->title }}</a>
+                                                            </h3>
+                                                        </div>
+                                                    </td>
+                                                    <td class="price-col">${{ number_format($cart->price, 2) }}</td>
+                                                    <td class="quantity-col">
+                                                        <div class="cart-product-quantity">
+                                                            <input type="number" class="form-control" value="{{ $cart->quantity }}" name="cart[{{ $key }}][qty]" min="1" max="10" step="1" data-decimals="0" required>
+                                                        </div>
+                                                        <input type="hidden" value="{{ $cart->id }}" name="cart[{{ $key }}][id]">
+                                                    </td>
+                                                    <td class="total-col">${{ number_format($cart->price * $cart->quantity, 2) }}</td>
+                                                    <td class="remove-col"><a href="{{ url('cart/delete/'.$cart->id) }}" class="btn-remove"><i class="icon-close"></i></a></td>
+                                                </tr>
+
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                <div class="cart-bottom">
+                                    <div class="cart-discount">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" required placeholder="coupon code">
+                                            <input type="text" class="form-control" placeholder="coupon code">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="submit"><i class="icon-long-arrow-right"></i></button>
+                                                <button type="button" class="btn btn-outline-secondary" type="submit"><i class="icon-long-arrow-right"></i></button>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
 
-                                <a href="#" class="btn btn-outline-dark"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
-                            </div>
+                                    <button class="btn btn-outline-dark" type="submit"><span>UPDATE CART</span><i class="icon-refresh"></i></button>
+                                </div>
+                            </form>
                         </div>
                         <aside class="col-lg-3">
                             <div class="summary summary-cart">
