@@ -87,7 +87,7 @@
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="coupon code">
                                             <div class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary" type="submit"><i class="icon-long-arrow-right"></i></button>
+                                                <button type="button" class="btn btn-dark" type="submit"><i class="icon-long-arrow-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
