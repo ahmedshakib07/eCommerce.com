@@ -35,7 +35,7 @@
                             <li>
                                 <a href="{{ url('contact') }}">Contact Us</a>
                             </li>
-                            <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>My Wishlist <span>(3)</span></a></li>
+                            <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>Wishlist<span>(3)</span></a></li>
                             <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                         </ul>
                     </li>
