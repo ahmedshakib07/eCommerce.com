@@ -162,7 +162,7 @@
                     <div class="col-md-12 text-center">
                         <h3>Your Cart Is Empty !</h3>
                         <p class="mt-2">Add Items to it now.</p>
-                        <a href="{{ url('') }}" class="btn btn-primary mt-4">Shop Now</a>
+                        <a href="{{ url('') }}" class="btn btn-warning mt-5">Shop Now</a>
                     </div>
                 </div>
                     <!-- <a href="{{ url('') }}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a> -->
