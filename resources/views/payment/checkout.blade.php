@@ -184,14 +184,14 @@
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="heading-4">
+                                        <div class="card-header" id="heading-5">
                                             <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
                                                     Rocket <small class="float-right paypal-link">....</small>
                                                 </a>
                                             </h2>
                                         </div>
-                                        <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
+                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
                                             <div class="card-body">
                                                 Some Notes...................!
                                             </div>
@@ -199,15 +199,15 @@
                                     </div>
 
                                     <div class="card">
-                                        <div class="card-header" id="heading-5">
+                                        <div class="card-header" id="heading-6">
                                             <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
                                                     Credit Card (Stripe)
                                                     <img src="assets/images/payments-summary.png" alt="payments cards">
                                                 </a>
                                             </h2>
                                         </div>
-                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
+                                        <div id="collapse-6" class="collapse" aria-labelledby="heading-6" data-parent="#accordion-payment">
                                             <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
                                             </div>
                                         </div>
