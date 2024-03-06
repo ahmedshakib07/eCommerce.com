@@ -132,7 +132,7 @@
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
                                                         <div class="input-group-append">
-                                                            <button type="button" class="btn btn-dark" type="submit" style="height: 40px;"><i class="icon-long-arrow-right"></i></button>
+                                                            <button type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-long-arrow-right"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                <button type="submit" class="btn btn-dark btn-order btn-block">
                                     <span class="btn-text">Place Order</span>
                                     <span class="btn-hover-text">Proceed to Checkout</span>
                                 </button>
