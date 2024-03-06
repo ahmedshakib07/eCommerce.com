@@ -107,15 +107,20 @@
                                             <td>${{ number_format(Cart::getSubTotal(), 2) }}</td>
                                         </tr>
 
-                                        <!-- <tr class="summary-shipping-estimate">
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>Free shipping</td>
+                                        </tr>
+
+                                        <tr class="summary-shipping-estimate">
                                             <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
                                             <td>&nbsp;</td>
-                                        </tr> -->
+                                        </tr>
 
-                                        <!-- <tr class="summary-total">
+                                        <tr class="summary-total">
                                             <td>Total:</td>
                                             <td>${{ number_format(Cart::getSubTotal(), 2) }}</td>
-                                        </tr> -->
+                                        </tr>
                                     </tbody>
                                 </table>
 

@@ -23,7 +23,6 @@ class PaymentController extends Controller
     public function cartDelete($id){
 
         Cart::remove($id);
-
         return redirect()->back();
     }
 
