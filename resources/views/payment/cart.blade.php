@@ -113,7 +113,7 @@
                                         </tr>
 
                                         <tr class="summary-shipping-estimate">
-                                            <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
+                                            <th>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></th>
                                             <td>&nbsp;</td>
                                         </tr>
 
