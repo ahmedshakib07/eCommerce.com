@@ -6,7 +6,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+                    
                     <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
+                        <!-- @php
+                            $getCategoryHeader = App\Models\CategoryModel::getRecordActive();
+                        @endphp
+                        @foreach($getCategoryHeader as $value_category_header) -->
+
                         <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl" data-owl-options='{
                                 "nav": false, 
                                 "responsive": {
@@ -27,7 +33,8 @@
                                     <h3 class="intro-subtitle">Topsale Collection</h3>
                                     <h1 class="intro-title">Living Room<br>Furniture</h1>
 
-                                    <a href="category.html" class="btn btn-outline-white">
+                                    <a href="" class="btn btn-outline-white"> 
+                                         <!-- {{ url($value_category_header->slug) }} -->
                                         <span>SHOP NOW</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </a>
@@ -71,11 +78,14 @@
                                     </a>
                                 </div>
                             </div>
+
                         </div>
                         
                         <span class="slider-loader"></span>
+                        <!-- @endforeach -->
                     </div>
                 </div>
+
                 <div class="col-lg-4">
                     <div class="intro-banners">
                         <div class="row row-sm">
