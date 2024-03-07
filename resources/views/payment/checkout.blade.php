@@ -9,7 +9,7 @@
         <div class="container">
             <h3 class="page-title">Checkout</h3>
             <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / </span>
-            <a href="{{ url('cart') }}"><span>Cart </span></a>
+            <a href="javascript:;"><span>Shop </span></a>
             <a href="{{ url('') }}"></a><span> / Checkout</span>
         </div>
     </div>
