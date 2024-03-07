@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin - {{ !empty($header_title) ? $header_title : ''}}</title> <!-- eCommerce.com -->
+    <title>{{ !empty($header_title) ? $header_title : ''}} | Admin - eCommerce </title> <!-- eCommerce.com -->
     <link rel="shortcut icon" href="{{ url('public/assets/dist/img/icons/favicon.ico') }}">
 
     <!-- Google Font: Source Sans Pro -->
