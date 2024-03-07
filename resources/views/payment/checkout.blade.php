@@ -9,8 +9,8 @@
         <div class="container">
             <h3 class="page-title">Checkout</h3>
             <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / </span>
-            <a href="javascript:;"><span>Shop </span></a>
-            <a href="{{ url('') }}"></a><span> / Checkout</span>
+            <span>Shop </span>
+            <span> / Checkout</span>
         </div>
     </div>
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
