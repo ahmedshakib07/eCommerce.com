@@ -132,7 +132,7 @@
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
                                                         <div class="input-group-append">
-                                                            <button type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-long-arrow-right"></i></button>
+                                                            <button type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-refresh"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
