@@ -190,6 +190,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ url('admin/coupon_code/list') }}" class="nav-link @if(Request::segment(2) == 'coupon_code') active @endif">
+                            <i class="nav-icon fas fa-palette"></i>
+                            <p> Coupon Code </p>
+                        </a>
+                    </li>
+
 
                     <li class="nav-item">
                         <a href="{{ url('admin/logout') }}" class="nav-link">

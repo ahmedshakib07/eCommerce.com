@@ -9,11 +9,11 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\ProductController as ProductFront;
-use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\Admin\CouponCodeController;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as ProductFront;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,6 +89,14 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/product/image_delete/{id}', [ProductController::class, 'image_delete']);
     Route::post('admin/product_image_sortable', [ProductController::class, 'product_image_sortable']);
+
+    Route::get('admin/coupon_code/list', [CouponCodeController::class, 'list']);
+
+    Route::get('admin/coupon_code/add', [CouponCodeController::class, 'add']);
+    Route::post('admin/coupon_code/add', [CouponCodeController::class, 'insert']);
+    Route::get('admin/coupon_code/edit/{id}', [CouponCodeController::class, 'edit']);
+    Route::post('admin/coupon_code/edit/{id}', [CouponCodeController::class, 'update']);
+    Route::get('admin/coupon_code/delete/{id}', [CouponCodeController::class, 'delete']);
 
 });
 
