@@ -130,9 +130,9 @@
                                             <td  colspan="2">
                                                 <div class="cart-discount">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
+                                                        <input id="getCouponCode" type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
                                                         <div class="input-group-append">
-                                                            <button type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-refresh"></i></button>
+                                                            <button id="applyCoupon" type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-refresh"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -144,12 +144,12 @@
                                         </tr>
                                         <tr>
                                             <td>Discount:</td>
-                                            <td>$0.00</td>
+                                            <td>$<span id="getDiscountAmount">0.00</span></td>
                                         </tr>
 
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>$160.00</td>
+                                            <td>$<span id="getPayableTotal">{{ number_format(Cart::getSubTotal(), 2) }}</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -230,4 +230,29 @@
 @endsection
 
 @section('script')
+<script>
+    $('body').delegate('#applyCoupon', 'click', function() { 
+        var coupon_code = $('#getCouponCode').val(); 
+
+        $.ajax({
+            type: "POST",
+            url: "{{ url('checkout/apply_coupon_code') }}",
+            data: {
+                coupon_code : coupon_code,
+                "_token": "{{ csrf_token() }}",
+            },
+            dataType: "json",
+            success: function(data) {
+                $('#getDiscountAmount').html(data.coupon_amount)
+                $('#getPayableTotal').html(data.payable_total)
+                if(data.status == false){
+                    alert(data.message);
+                }
+            },
+            error: function (data) {
+
+            }
+        });
+    });
+</script>
 @endsection

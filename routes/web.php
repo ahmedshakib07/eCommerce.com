@@ -111,6 +111,7 @@ Route::get('cart/delete/{id}', [PaymentController::class, 'cartDelete']);
 Route::post('product/add-to-cart', [PaymentController::class, 'addToCart']);
 
 Route::get('checkout', [PaymentController::class, 'checkout']);
+Route::post('checkout/apply_coupon_code', [PaymentController::class, 'applyCouponCode']);
 
 Route::get('search', [ProductFront::class, 'getProductSearch']);
 Route::post('get_filter_product_ajax', [ProductFront::class, 'getFilterProductAjax']);

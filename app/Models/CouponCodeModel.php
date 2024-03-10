@@ -21,4 +21,13 @@ class CouponCodeModel extends Model
                     ->orderBy('coupon_code.id', 'desc')
                     ->paginate(10);
     }
+
+    static public function checkCoupon($coupon_code){ 
+        return self::select('coupon_code.*')
+                    ->where('coupon_code.is_delete', '=', 0)
+                    ->where('coupon_code.status', '=', 0)
+                    ->where('coupon_code.name', '=', $coupon_code)
+                    ->where('coupon_code.exper_date', '>=', date('y-m-d'))
+                    ->first();
+    }
 }
