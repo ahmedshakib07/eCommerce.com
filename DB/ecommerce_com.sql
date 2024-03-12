@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 12, 2024 at 07:44 AM
+-- Generation Time: Mar 12, 2024 at 09:38 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -55,8 +55,8 @@ INSERT INTO `brand` (`id`, `name`, `slug`, `meta_title`, `meta_description`, `me
 (7, 'samsung', 'samsung', 'Samsung Bangladesh', 'Samsung Bangladesh', 'Samsung Bangladesh', 1, 0, 0, '2024-01-31 11:34:18', '2024-02-11 10:51:56'),
 (8, 'Xiaomi', 'xiaomi', 'Xiaomi Global | Xiaomi Official Website', 'Xiaomi Global | Xiaomi Official Website', 'Xiaomi Global | Xiaomi Official Website', 1, 0, 0, '2024-01-31 11:34:59', '2024-02-11 10:50:50'),
 (9, 'Infinity', 'infinity', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 'Infinity Mega Mall: Best Online Shopping Place in Bangladesh', 1, 0, 0, '2024-01-31 11:36:30', '2024-02-05 09:39:00'),
-(10, 'HATIL', 'hatil', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 2, 0, 0, '2024-02-11 11:35:24', '2024-02-11 11:38:09'),
-(11, 'OTOBI', 'otobi', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 2, 0, 0, '2024-02-11 11:37:41', '2024-02-22 13:07:03'),
+(10, 'HATIL', 'hatil', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 'HATIL Furniture - Modern Furniture Crafted with Elegance', 1, 0, 0, '2024-02-11 11:35:24', '2024-02-11 11:38:09'),
+(11, 'OTOBI', 'otobi', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 'OTOBI | Leading Furniture Brand in Bangladesh', 1, 0, 0, '2024-02-11 11:37:41', '2024-02-22 13:07:03'),
 (12, 'Alice', 'alice', 'Alice', '', '', 1, 0, 1, '2024-02-20 10:25:50', '2024-02-25 06:51:35'),
 (13, 'Alice', 'care-home', 'Care', '', '', 1, 0, 1, '2024-02-20 11:05:14', '2024-02-25 11:35:54'),
 (14, 'Lifestyle', 'lifestyle', 'Lifestyle', '', '', 1, 1, 1, '2024-02-25 06:44:07', '2024-02-25 06:44:26'),
@@ -87,13 +87,13 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `slug`, `meta_title`, `meta_description`, `meta_keywords`, `created_by`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Toys And Games', 'toys-games', 'Toys And Games', 'Toys And Games Product', 'Toys, Games, Shopping', 1, 0, 1, '2024-01-16 05:17:36', '2024-03-07 07:05:15'),
+(1, 'Toys And Games', 'toys-games', 'Toys And Games', 'Toys And Games Product', 'Toys, Games, Shopping', 1, 0, 0, '2024-01-16 05:17:36', '2024-03-07 07:05:15'),
 (2, 'Home & Furniture', 'home-furniture', 'Home and Furniture', 'Home and Furniture', 'Home, Furniture', 1, 0, 0, '2024-01-16 06:25:52', '2024-01-22 09:00:46'),
-(3, 'Fashion', 'fashion', 'Fashion', 'Fashion', 'Fashion', 1, 0, 1, '2024-01-16 06:41:03', '2024-03-07 07:05:29'),
+(3, 'Fashion', 'fashion', 'Fashion', 'Fashion', 'Fashion', 1, 0, 0, '2024-01-16 06:41:03', '2024-03-07 07:05:29'),
 (4, 'Electronics', 'electronics', 'Electronic Products', 'Electronic Products', 'All Electronic Products, Electronics', 1, 0, 0, '2024-01-16 08:57:18', '2024-01-22 11:34:49'),
 (5, 'Books, Movies and Music', 'books-movies-music', 'Books, Movies & Music', 'Books, Movies and Music', 'Books, Movies, Music', 1, 0, 0, '2024-01-22 09:00:29', '2024-01-22 09:00:29'),
-(6, 'Bags', 'bags', 'Bags', 'Bags', 'Bags', 1, 0, 1, '2024-01-31 05:27:56', '2024-03-07 07:05:38'),
-(7, 'Baby products', 'baby-products', 'Baby products', 'Baby products', 'Baby products', 1, 0, 1, '2024-01-31 05:55:41', '2024-03-07 07:05:08'),
+(6, 'Bags', 'bags', 'Bags', 'Bags', 'Bags', 1, 0, 0, '2024-01-31 05:27:56', '2024-03-07 07:05:38'),
+(7, 'Baby products', 'baby-products', 'Baby products', 'Baby products', 'Baby products', 1, 0, 0, '2024-01-31 05:55:41', '2024-03-07 07:05:08'),
 (8, 'Lighting', 'lighting', 'Lighting', 'Lighting', 'Lighting', 1, 0, 0, '2024-01-31 12:36:26', '2024-01-31 12:36:26'),
 (9, 'Kitchen & Utensil', 'kitchen-utensil', 'Kitchen & Utensil', 'Kitchen & Utensil', 'Kitchen & Utensil', 1, 0, 0, '2024-01-31 12:37:00', '2024-01-31 12:37:00'),
 (10, 'Outdoor', 'outdoor', 'Outdoor', 'Outdoor', 'Outdoor', 1, 0, 0, '2024-01-31 12:37:21', '2024-01-31 12:37:21');
@@ -122,9 +122,9 @@ CREATE TABLE `color` (
 INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
 (1, 'Red', '#ea1a1a', 1, 1, 0, '2024-01-17 06:00:23', '2024-02-11 13:08:22'),
 (2, 'Gray', '#a8a3a3', 1, 0, 0, '2024-01-17 06:01:20', '2024-01-17 06:09:05'),
-(3, 'yellow', '#fbff00', 2, 0, 0, '2024-02-11 11:09:24', '2024-02-11 11:09:24'),
-(4, 'black', '#000000', 2, 1, 0, '2024-02-11 11:10:09', '2024-02-25 11:07:57'),
-(5, 'white', '#ffffff', 2, 0, 0, '2024-02-11 11:10:23', '2024-02-11 11:10:23'),
+(3, 'yellow', '#fbff00', 1, 0, 0, '2024-02-11 11:09:24', '2024-02-11 11:09:24'),
+(4, 'black', '#000000', 1, 1, 0, '2024-02-11 11:10:09', '2024-02-25 11:07:57'),
+(5, 'white', '#ffffff', 1, 0, 0, '2024-02-11 11:10:23', '2024-02-11 11:10:23'),
 (6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15'),
 (7, 'Teal', '#7dd4ce', 1, 0, 0, '2024-02-20 11:08:26', '2024-02-20 11:09:28'),
 (8, 'Sky Blue', '#87ceeb', 1, 0, 0, '2024-02-27 07:03:35', '2024-02-27 07:04:07');
@@ -266,10 +266,10 @@ INSERT INTO `product` (`id`, `title`, `slug`, `sku`, `category_id`, `sub_categor
 (6, 'Office Bag', 'office-bag', 'office-bag', 6, 14, 2, 8, 15, 'Office Bag', '', '', '', 0, 1, 0, '2024-01-31 05:42:59', '2024-02-11 11:27:37'),
 (7, 'Organic Baby Clothes In Coimbatore', 'organic-baby-clothes-in-coimbatore', 'organic-baby-clothes-in-coimbatore', 3, 13, 1, 8, 10, 'Organic Baby Clothes In Coimbatore - Prices, Manufacturers & Suppliers', '', '', '', 0, 1, 0, '2024-01-31 05:57:06', '2024-01-31 05:58:20'),
 (8, 'Men\'s Clothing Essentials', 'buy-mens-clothing-essentials-online-at-best-prices-in-bangladesh-2024', 'men\'s-clothing', 3, 4, 1, 8, 10, 'Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', 0, 1, 0, '2024-01-31 06:00:12', '2024-02-27 06:49:21'),
-(9, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', 'xiaomi-mi-v3-plm13zm-10000mah-power-bank', 'Power Bank', 4, 15, 8, 40, 50, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', '', '', '', 0, 2, 0, '2024-02-11 10:55:47', '2024-02-11 10:58:59'),
-(10, 'Akaso EK7000 12MP 4K WiFi Action Camera', 'akaso-ek7000-12mp-4k-wifi-action-camera', 'Akaso EK7000 12MP 4K WiFi Action Camera', 4, 6, 7, 45, 40, 'Akaso EK7000 12MP 4K WiFi Action Camera', '', '', '', 0, 2, 0, '2024-02-11 11:04:11', '2024-02-11 11:06:48'),
-(11, 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 'xiaomi-mi-34-144hz-freesync-curved-monitor', 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 4, 9, 8, 80, 100, 'Key Features\r\nModel: Xiaomi Mi 34\" 144Hz FreeSync Curved\r\nResolution: WQHD (3440x1440)\r\nDisplay: VA, 144Hz, 4ms\r\nPorts: HDMI, DP, Audio Jack\r\nFeatures: Low Blue Light', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', 0, 2, 0, '2024-02-11 11:12:19', '2024-02-27 06:47:53'),
-(12, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 2, 10, 55, 55, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 2, 0, '2024-02-12 06:44:49', '2024-02-20 09:46:06'),
+(9, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', 'xiaomi-mi-v3-plm13zm-10000mah-power-bank', 'Power Bank', 4, 15, 8, 40, 50, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', '', '', '', 0, 1, 0, '2024-02-11 10:55:47', '2024-02-11 10:58:59'),
+(10, 'Akaso EK7000 12MP 4K WiFi Action Camera', 'akaso-ek7000-12mp-4k-wifi-action-camera', 'Akaso EK7000 12MP 4K WiFi Action Camera', 4, 6, 7, 45, 40, 'Akaso EK7000 12MP 4K WiFi Action Camera', '', '', '', 0, 1, 0, '2024-02-11 11:04:11', '2024-02-11 11:06:48'),
+(11, 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 'xiaomi-mi-34-144hz-freesync-curved-monitor', 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 4, 9, 8, 80, 100, 'Key Features\r\nModel: Xiaomi Mi 34\" 144Hz FreeSync Curved\r\nResolution: WQHD (3440x1440)\r\nDisplay: VA, 144Hz, 4ms\r\nPorts: HDMI, DP, Audio Jack\r\nFeatures: Low Blue Light', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', 0, 1, 0, '2024-02-11 11:12:19', '2024-02-27 06:47:53'),
+(12, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 2, 10, 55, 55, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 1, 0, '2024-02-12 06:44:49', '2024-02-20 09:46:06'),
 (13, 'Noah Patio Wicker Outdoor Garden Chair Set', 'noah-patio-wicker-outdoor-garden-chair-set', 'Noah Patio Wicker Outdoor Garden Chair Set', 2, 7, 11, 50, 70, 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 0, 1, 0, '2024-02-12 08:55:34', '2024-02-12 08:57:12'),
 (14, 'Men\'s Footwear', 'learning-toys-and-stem-toys-we-love-reviews-by-wirecutter', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 3, 17, 3, 35, 30, 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 0, 1, 0, '2024-02-12 09:01:51', '2024-02-27 06:33:00'),
 (15, 'Brown Low Top Sneakers For Men', 'brown-low-top-sneakers-for-men', 'Brown Low Top Sneakers For Men', 3, 17, 2, 7, 10, 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 0, 1, 0, '2024-02-12 09:10:58', '2024-02-27 05:49:44'),
@@ -430,7 +430,7 @@ CREATE TABLE `shipping_charge` (
 --
 
 INSERT INTO `shipping_charge` (`id`, `name`, `price`, `is_delete`, `status`, `created_at`, `updated_at`) VALUES
-(1, '1st Shipping', '10', 0, 0, '2024-03-10 13:11:39', '2024-03-10 13:15:12'),
+(1, 'Home Delivery', '10', 0, 0, '2024-03-10 13:11:39', '2024-03-12 09:19:17'),
 (2, 'Free Shipping', '0', 0, 0, '2024-03-11 07:06:36', '2024-03-11 07:06:36');
 
 -- --------------------------------------------------------
@@ -473,7 +473,7 @@ INSERT INTO `sub_category` (`id`, `category_id`, `name`, `slug`, `meta_title`, `
 (12, 6, 'Women\'s Bags', 'women\'s-bags', 'Women\'s Bags', 'Women\'s Bags', 'Women\'s Bags', 1, 0, 0, '2024-01-31 05:30:28', '2024-01-31 05:30:28'),
 (13, 3, 'Children\'s Cloth', 'childrens-cloth', 'Children\'s Cloth', 'Children\'s Cloth', 'Children\'s Cloth', 1, 0, 0, '2024-01-31 05:33:35', '2024-01-31 05:33:35'),
 (14, 6, 'Office Bag', 'office-bag', 'Office Bag', 'Office Bag', 'Office Bag', 1, 0, 0, '2024-01-31 05:40:04', '2024-01-31 05:40:04'),
-(15, 4, 'Power Bank', 'power-bank', 'Power Bank', 'Power Bank', 'Power Bank', 2, 0, 0, '2024-02-11 10:57:13', '2024-02-11 10:57:13'),
+(15, 4, 'Power Bank', 'power-bank', 'Power Bank', 'Power Bank', 'Power Bank', 1, 0, 0, '2024-02-11 10:57:13', '2024-02-11 10:57:13'),
 (16, 1, 'Vehicles', 'vehicles', 'Vehicles', 'Vehicles', 'Vehicles', 1, 0, 0, '2024-02-12 06:53:09', '2024-02-12 06:56:19'),
 (17, 3, 'Shoes', 'shoes', 'Shoes', 'Shoes', 'Shoes', 1, 0, 0, '2024-02-12 09:06:22', '2024-02-12 09:06:22');
 
