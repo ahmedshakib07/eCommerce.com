@@ -138,10 +138,26 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="summary-shipping">
                                             <td>Shipping:</td>
-                                            <td>Free shipping</td>
+                                            <td>&nbsp;</td>
                                         </tr>
+
+                                        @foreach($getShipping as $shipping)
+                                            <tr class="summary-shipping-row">
+                                                <td>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="free-shipping{{ $shipping->id }}" name="shipping" data-price="{{ !empty($shipping->price) ? $shipping->price : 0 }}" class="custom-control-input getShippingCharge">
+                                                        <label class="custom-control-label" for="free-shipping{{ $shipping->id }}">{{ $shipping->name }}</label>
+                                                    </div><!-- End .custom-control -->
+                                                </td>
+                                                <td>
+                                                @if(!empty($shipping->price))    
+                                                    ${{ number_format($shipping->price, 2) }}
+                                                @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         <tr>
                                             <td>Discount:</td>
                                             <td>$<span id="getDiscountAmount">0.00</span></td>
@@ -153,6 +169,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                     
+                                <input type="hidden" id="getShippingChargeTotal" value="0">
+                                <input type="hidden" id="PayableTotal" value="{{ Cart::getSubTotal() }}">
 
                                 <div class="accordion-summary" id="accordion-payment">
                                     <div class="card">
@@ -231,6 +250,17 @@
 
 @section('script')
 <script>
+    $('body').delegate('.getShippingCharge', 'change', function() {
+        var price = $(this).attr('data-price');
+        // console.log(price);
+        var total = $('#PayableTotal').val();
+
+        $('#getShippingChargeTotal').val(price);
+        var final_total = parseFloat(price) + parseFloat(total);
+        $('#getPayableTotal').html(final_total.toFixed(2));
+    });
+
+
     $('body').delegate('#applyCoupon', 'click', function() { 
         var coupon_code = $('#getCouponCode').val(); 
 
@@ -243,8 +273,13 @@
             },
             dataType: "json",
             success: function(data) {
-                $('#getDiscountAmount').html(data.coupon_amount)
-                $('#getPayableTotal').html(data.payable_total)
+                $('#getDiscountAmount').html(data.coupon_amount);
+
+                var shipping = $('#getShippingChargeTotal').val();
+                var final_total = parseFloat(shipping) + parseFloat(data.payable_total);
+
+                $('#getPayableTotal').html(final_total.toFixed(2));
+                $('#PayableTotal').val(data.payable_total);
                 if(data.status == false){
                     alert(data.message);
                 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductModel;
 use App\Models\ProductSizeModel;
 use App\Models\CouponCodeModel;
+use App\Models\ShippingChargeModel;
 use Cart;
 
 class PaymentController extends Controller
@@ -77,6 +78,8 @@ class PaymentController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
+        $data['getShipping'] = ShippingChargeModel::getRecordActive();
+
         return view('payment.checkout', $data);
     }
 
@@ -99,12 +102,12 @@ class PaymentController extends Controller
 
             $json['status'] = true;
             $json['coupon_amount'] = number_format($coupon_amount, 2);
-            $json['payable_total'] = number_format($payable_total, 2);
+            $json['payable_total'] = $payable_total;
             $json['message'] = "Success";
         } else {
             $json['status'] = false;
             $json['coupon_amount'] = '0.00';
-            $json['payable_total'] = number_format(Cart::getSubTotal(), 2);
+            $json['payable_total'] = Cart::getSubTotal();
             $json['message'] = "Coupon Code Invalid";
         }
         echo json_encode($json);
