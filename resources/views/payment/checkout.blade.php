@@ -249,6 +249,7 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $('body').delegate('.getShippingCharge', 'change', function() {
         var price = $(this).attr('data-price');
@@ -281,7 +282,12 @@
                 $('#getPayableTotal').html(final_total.toFixed(2));
                 $('#PayableTotal').val(data.payable_total);
                 if(data.status == false){
-                    alert(data.message);
+                    // alert(data.message);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Please Enter Your Valid Coupon Code!",
+                    });
                 }
             },
             error: function (data) {

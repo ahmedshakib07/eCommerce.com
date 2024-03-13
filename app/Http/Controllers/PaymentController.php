@@ -108,7 +108,7 @@ class PaymentController extends Controller
             $json['status'] = false;
             $json['coupon_amount'] = '0.00';
             $json['payable_total'] = Cart::getSubTotal();
-            $json['message'] = "Coupon Code Invalid";
+            // $json['message'] = "Please Enter Your Coupon Code!";
         }
         echo json_encode($json);
     }
