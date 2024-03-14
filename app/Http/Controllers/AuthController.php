@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Hash;
 use Auth;
+use Mail;
 
 use Illuminate\Http\Request;
-use App\Model\User;
+use App\Models\User;
+use App\Mail\RegisterMail;
 
 
 class AuthController extends Controller
@@ -38,7 +40,7 @@ class AuthController extends Controller
     }
 
 
-    public function authRegister(Request $request){
+    public function auth_register(Request $request){
         // dd($request->all());
         $checkEmail = User::checkEmail($request->email);
         if (empty($checkEmail)) {
@@ -48,12 +50,24 @@ class AuthController extends Controller
             $save->password = Hash::make($request->password);
             $save->save();
 
+            Mail::to($save->email)->send(new RegisterMail($save));
+
             $json['status'] = true;
-            $json['message'] = "your account successfully created";
+            $json['message'] = "your account successfully created. Please verify your email address.";
         } else {
             $json['status'] = false;
             $json['message'] = "This email already register please choose another";
         }
         echo json_encode($json);
+    }
+
+    public function activate_email($id){
+        $id = base64_decode($id);
+        $user = User::getSingle($id);
+        $user->email_verified_at = date('Y-m-d H:i:s');
+        $user->save();
+
+        toastr()->info('Your Email Successfully Verifird!');
+        return redirect()->back();
     }
 }

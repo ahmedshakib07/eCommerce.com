@@ -62,12 +62,12 @@
                                 <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
                                     <form action="#">
                                         <div class="form-group">
-                                            <label for="singin-email">Username or email address *</label>
+                                            <label for="singin-email">Username or email address <span style = "color:red">*</span></label>
                                             <input type="text" class="form-control" id="singin-email" name="singin-email" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="singin-password">Password *</label>
+                                            <label for="singin-password">Password <span style = "color:red">*</span></label>
                                             <input type="password" class="form-control" id="singin-password" name="singin-password" required>
                                         </div><!-- End .form-group -->
 
@@ -113,7 +113,7 @@
 
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="register-policy" required>
-                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> <span style = "color:red">*</span></label>
                                             </div>
                                         </div> 
                                     </form>

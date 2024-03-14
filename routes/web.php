@@ -109,7 +109,8 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 
-Route::post('authRegister', [AuthController::class, 'authRegister']);
+Route::post('auth_register', [AuthController::class, 'auth_register']);
+Route::get('activate/{id}', [AuthController::class, 'activate_email']);
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/about', [HomeController::class, 'about']);
