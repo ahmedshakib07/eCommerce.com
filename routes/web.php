@@ -110,6 +110,7 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 Route::post('auth_register', [AuthController::class, 'auth_register']);
+Route::post('auth_login', [AuthController::class, 'auth_login']);
 Route::get('activate/{id}', [AuthController::class, 'activate_email']);
 
 Route::get('/', [HomeController::class, 'home']);

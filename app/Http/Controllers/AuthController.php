@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     public function logout_admin(){
         Auth::logout();
-        return redirect('admin');
+        return redirect(url(''));
     }
 
 
@@ -61,13 +61,39 @@ class AuthController extends Controller
         echo json_encode($json);
     }
 
+    public function auth_login(Request $request){
+        // dd($request->all());
+        $remember = !empty($request->is_remember) ? true : false;
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 0, 'is_delete' => 0], $remember)){
+            
+            if (!empty(Auth::user()->email_verified_at)) {
+                $json['status'] = true;
+                $json['message'] = "Successfully Login";
+            }
+            else {
+                $save = User::getSingle(Auth::user()->id);
+                Mail::to($save->email)->send(new RegisterMail($save));
+                Auth::logout();
+
+                $json['status'] = false;
+                $json['message'] = "Your email not verifiedc, Please verify your email.";
+            }
+
+        }
+        else{
+            $json['status'] = false;
+            $json['message'] = "Please enter currect email and password!";
+        }
+        echo json_encode($json);
+    }
+
     public function activate_email($id){
         $id = base64_decode($id);
         $user = User::getSingle($id);
         $user->email_verified_at = date('Y-m-d H:i:s');
         $user->save();
 
-        toastr()->info('Your Email Successfully Verifird!');
-        return redirect()->back();
+        // toastr()->info('Your Email Successfully Verifird!');
+        return redirect(url(''))->with('success', "Your Email Successfully Verifird!");
     }
 }
