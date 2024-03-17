@@ -110,7 +110,14 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 Route::post('auth_register', [AuthController::class, 'auth_register']);
+
 Route::post('auth_login', [AuthController::class, 'auth_login']);
+
+Route::get('forget-password', [AuthController::class, 'forget_password']);
+Route::post('forget-password', [AuthController::class, 'auth_forget_password']);
+Route::get('reset/{token}', [AuthController::class, 'reset']);
+Route::post('reset/{token}', [AuthController::class, 'auth_reset']);
+
 Route::get('activate/{id}', [AuthController::class, 'activate_email']);
 
 Route::get('/', [HomeController::class, 'home']);

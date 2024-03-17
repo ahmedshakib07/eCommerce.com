@@ -83,7 +83,7 @@
                                                 <label class="custom-control-label" for="signin-remember">Remember Me</label>
                                             </div>
 
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                            <a href="{{ url('forget-password') }}" class="forgot-link">Forgot Your Password?</a>
                                         </div>
                                     </form>
                                 </div>
