@@ -110,8 +110,8 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 Route::post('auth_register', [AuthController::class, 'auth_register']);
-
 Route::post('auth_login', [AuthController::class, 'auth_login']);
+Route::get('user/logout', [AuthController::class, 'logout_user']);
 
 Route::get('forget-password', [AuthController::class, 'forget_password']);
 Route::post('forget-password', [AuthController::class, 'auth_forget_password']);
@@ -131,6 +131,7 @@ Route::post('product/add-to-cart', [PaymentController::class, 'addToCart']);
 
 Route::get('checkout', [PaymentController::class, 'checkout']);
 Route::post('checkout/apply_coupon_code', [PaymentController::class, 'applyCouponCode']);
+Route::post('checkout/place_order', [PaymentController::class, 'placeOrder']);
 
 Route::get('search', [ProductFront::class, 'getProductSearch']);
 Route::post('get_filter_product_ajax', [ProductFront::class, 'getFilterProductAjax']);

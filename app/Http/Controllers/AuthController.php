@@ -15,6 +15,8 @@ use App\Mail\ForgotPasswordMail;
 
 class AuthController extends Controller
 {
+    // ....................ADMIN PART
+
     public function login_admin(){
         if(!empty(Auth::check()) && Auth::user()->is_admin == 1){
             toastr()->info('Successfully Login!');
@@ -38,9 +40,14 @@ class AuthController extends Controller
 
     public function logout_admin(){
         Auth::logout();
-        return redirect(url(''));
+        return redirect('admin/dashboard');
     }
+    // ........./.........ADMIN PART END
 
+
+
+
+    // ...........USER OR CITIZEN PART
 
     public function auth_register(Request $request){
         // dd($request->all());
@@ -87,6 +94,11 @@ class AuthController extends Controller
             $json['message'] = "Please enter currect email and password!";
         }
         echo json_encode($json);
+    }
+
+    public function logout_user(){
+        Auth::logout();
+        return redirect(url(''));
     }
 
     public function activate_email($id){
@@ -144,4 +156,5 @@ class AuthController extends Controller
             return redirect()->back()->with('error', "Password and confirm password does not match");
         }
     }
+    // ...........USER OR CITIZEN PART
 }

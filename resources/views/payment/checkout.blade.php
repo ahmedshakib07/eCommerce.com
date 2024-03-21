@@ -32,72 +32,69 @@
                         <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
                     </form>
                 </div> -->
-                <form action="#">
+                <form action="{{ url('checkout/place_order') }}" method="post">
+                {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-9">
                             <h2 class="checkout-title">Billing Details</h2>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>First Name *</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>First Name <span style = "color:red">*</span></label>
+                                    <input type="text" name="firstName" class="form-control" required>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <label>Last Name *</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>Last Name <span style = "color:red">*</span></label>
+                                    <input type="text" name="lastName" class="form-control" required>
                                 </div>
                             </div>
 
                             <label>Company Name (Optional)</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="companyName" class="form-control">
 
-                            <label>Country *</label>
-                            <input type="text" class="form-control" required>
+                            <label>Country <span style = "color:red">*</span></label>
+                            <input type="text" name="country" class="form-control" required>
 
-                            <label>Street address *</label>
-                            <input type="text" class="form-control" placeholder="House number and Street name" required>
-                            <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
+                            <label>Street address <span style = "color:red">*</span></label>
+                            <input type="text" name="address_one" class="form-control" placeholder="House number and Street name" required>
+                            <input type="text" name="address_two" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Town / City *</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>Town / City <span style = "color:red">*</span></label>
+                                    <input type="text" name="city" class="form-control" required>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <label>State / County *</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>State <span style = "color:red">*</span></label>
+                                    <input type="text" name="state" class="form-control" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Postcode / ZIP *</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>Postcode / ZIP <span style = "color:red">*</span></label>
+                                    <input type="text" name="postcode" class="form-control" required>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <label>Phone *</label>
-                                    <input type="tel" class="form-control" required>
+                                    <label>Phone <span style = "color:red">*</span></label>
+                                    <input type="tel" name="phone" class="form-control" required>
                                 </div>
                             </div>
 
-                            <label>Email address *</label>
-                            <input type="email" class="form-control" required>
+                            <label>Email address <span style = "color:red">*</span></label>
+                            <input type="email" name="email" class="form-control" required>
 
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
                                 <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
                             </div>
 
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-                                <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
-                            </div>
-
                             <label>Order notes (optional)</label>
-                            <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            <textarea class="form-control" name="notes" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
                         </div>
+
                         <aside class="col-lg-3">
                             <div class="summary">
                                 <h3 class="summary-title">Your Order</h3>
@@ -130,7 +127,7 @@
                                             <td  colspan="2">
                                                 <div class="cart-discount">
                                                     <div class="input-group">
-                                                        <input id="getCouponCode" type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
+                                                        <input id="getCouponCode" name="discountCode" type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
                                                         <div class="input-group-append">
                                                             <button id="applyCoupon" type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-refresh"></i></button>
                                                         </div>
@@ -147,9 +144,9 @@
                                             <tr class="summary-shipping-row">
                                                 <td>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="free-shipping{{ $shipping->id }}" name="shipping" data-price="{{ !empty($shipping->price) ? $shipping->price : 0 }}" class="custom-control-input getShippingCharge">
-                                                        <label class="custom-control-label" for="free-shipping{{ $shipping->id }}">{{ $shipping->name }}</label>
-                                                    </div><!-- End .custom-control -->
+                                                        <input type="radio" value="{{ $shipping->id }}" id="free-shipping{{ $shipping->id }}" name="shipping" data-price="{{ !empty($shipping->price) ? $shipping->price : 0 }}" class="custom-control-input getShippingCharge">
+                                                        <label class="custom-control-label" for="free-shipping{{ $shipping->id }}" required>{{ $shipping->name }}</label>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                 @if(!empty($shipping->price))    
@@ -174,7 +171,23 @@
                                 <input type="hidden" id="PayableTotal" value="{{ Cart::getSubTotal() }}">
 
                                 <div class="accordion-summary" id="accordion-payment">
-                                    <div class="card">
+
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" value="cash" id="Cashondelivery" name="payment_method" class="custom-control-input">
+                                        <label class="custom-control-label" for="Cashondelivery" required> Cash on delivery</label>
+                                    </div>
+                                    <!-- <div class="custom-control custom-radio">
+                                        <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
+                                        <label class="custom-control-label" for="free-shipping"> Cash on delivery</label>
+                                    </div> -->
+                                    <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
+                                        <input type="radio" value="stripe" id="CreditCard" name="payment_method" class="custom-control-input">
+                                        <label class="custom-control-label" for="CreditCard" required> Credit Card (Stripe)</label>
+                                        <br>
+                                        <img src="{{ url('assets/images/payments-summary.png') }}" alt="payments cards">
+                                    </div>
+
+                                    <!-- <div class="card">
                                         <div class="card-header" id="heading-3">
                                             <h2 class="card-title">
                                                 <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
@@ -230,7 +243,7 @@
                                             <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <button type="submit" class="btn btn-dark btn-order btn-block">

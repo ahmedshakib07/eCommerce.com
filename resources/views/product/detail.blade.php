@@ -71,7 +71,7 @@
                                     <div class="details-filter-row details-row-size">
                                         <label for="size">Color:</label>
                                         <div class="select-custom">
-                                            <select name="color" id="color" required class="form-control">
+                                            <select name="color_id" id="color_id" required class="form-control">
                                                 <option value="">Select a color</option>
                                                 @foreach($getProduct->getColor as $color)
                                                     <option value="{{ $color->getColor->id }}">{{ $color->getColor->name }}</option>
@@ -85,7 +85,7 @@
                                 <div class="details-filter-row details-row-size">
                                     <label for="size">Size:</label>
                                     <div class="select-custom">
-                                        <select name="size" id="size" required class="form-control getSizePrice">
+                                        <select name="size_id" id="size_id" required class="form-control getSizePrice">
                                             <option data-price="0" value="">Select a size</option>
                                             @foreach($getProduct->getSize as $size)
                                                 <option data-price="{{ !empty($size->price) ? $size->price : 0 }}" value="{{ $size->id }}">{{ $size->name }}  @if(!empty($size->price)) (${{ number_format($size->price,2) }}) @endif </option>
