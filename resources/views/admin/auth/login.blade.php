@@ -16,21 +16,16 @@
 </head>
 
 <style>
+  .login-page {
+    background-image: url("public/assets/dist/img/loginpage.jpg");
 
-
-.login-page {
-  background-image: url("public/assets/dist/img/loginpage.jpg");
-
-  background-position: center;
-  background-size: cover;
-}
-
+    background-position: center;
+    background-size: cover;
+  }
 </style>
 
 <body class="hold-transition login-page">
-  
   <div class="login-box" style="width: 450px; margin-right: 550px;">
-
     <!-- /.login-logo -->
     <div class="card">
       <div class="login-logo">
