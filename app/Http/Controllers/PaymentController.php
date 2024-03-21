@@ -168,5 +168,6 @@ class PaymentController extends Controller
             $order_item->save();
             
         }
+        return redirect()->back()->with('success', 'Your order has been placed!');
     }
 }
