@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 21, 2024 at 04:52 AM
+-- Generation Time: Mar 12, 2024 at 09:38 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -127,8 +127,7 @@ INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, 
 (5, 'white', '#ffffff', 1, 0, 0, '2024-02-11 11:10:23', '2024-02-11 11:10:23'),
 (6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15'),
 (7, 'Teal', '#7dd4ce', 1, 0, 0, '2024-02-20 11:08:26', '2024-02-20 11:09:28'),
-(8, 'Sky Blue', '#87ceeb', 1, 0, 0, '2024-02-27 07:03:35', '2024-02-27 07:04:07'),
-(9, 'Green', '#067a2e', 1, 0, 0, '2024-03-21 03:39:49', '2024-03-21 03:39:49');
+(8, 'Sky Blue', '#87ceeb', 1, 0, 0, '2024-02-27 07:03:35', '2024-02-27 07:04:07');
 
 -- --------------------------------------------------------
 
@@ -195,75 +194,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `id` int NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `firstName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
-  `companyName` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `address_one` varchar(255) DEFAULT NULL,
-  `address_two` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `postcode` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `notes` text,
-  `discountCode` varchar(255) DEFAULT NULL,
-  `discount_amount` varchar(25) NOT NULL DEFAULT '0',
-  `shipping_id` int DEFAULT NULL,
-  `shipping_amount` varchar(25) NOT NULL DEFAULT '0',
-  `total_amount` varchar(25) NOT NULL DEFAULT '0',
-  `payment_method` varchar(25) DEFAULT NULL,
-  `status` tinyint NOT NULL DEFAULT '0',
-  `is_delete` tinyint NOT NULL DEFAULT '0',
-  `is_payment` tinyint NOT NULL DEFAULT '0',
-  `payment_data` text,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `discountCode`, `discount_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '123', '456', 'test@gmail.com', 'testtesttesttesttesttesttesttesttesttesttesttesttesttest', 'test', '0', 2, '0', '0', 'cash', 0, 0, 0, NULL, '2024-03-21 04:49:57', '2024-03-21 04:49:57');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders_item`
---
-
-CREATE TABLE `orders_item` (
-  `id` int NOT NULL,
-  `order_id` int DEFAULT NULL,
-  `product_id` int DEFAULT NULL,
-  `quantity` int NOT NULL DEFAULT '0',
-  `price` varchar(25) DEFAULT '0',
-  `color_name` varchar(255) DEFAULT NULL,
-  `size_name` varchar(255) DEFAULT NULL,
-  `size_amount` varchar(25) NOT NULL DEFAULT '0',
-  `total_price` varchar(25) NOT NULL DEFAULT '0',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `orders_item`
---
-
-INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 4, 1, '15', 'yellow', 'M', '5', '15', '2024-03-21 04:49:57', '2024-03-21 04:49:57');
 
 -- --------------------------------------------------------
 
@@ -572,8 +502,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', '6DCDjqX3jhIgYbOWoHP9EXjOHKq8ECAuas0fVsMOsG3G7mvCzlVdbrme9gUf', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
-(2, 'User', 'user@gmail.com', '2024-03-17 22:32:52', '$2y$12$GEFpaCRTILFBxIZiDwziyOPif.A5hl/ozkzKvJyby7HnD4Q/IK6tG', '8Ky2E17jtwQ5TWoKa7jXHH2FfDadW1OdVm2QAwziJpN5ANCHaVML9bqCN9Ie', 0, 0, 0, '2024-03-17 22:18:08', '2024-03-18 01:50:05');
+(1, 'admin', 'admin@gmail.com', '2024-01-15 03:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'YXdxkfdrdZlNq2hRW7gYmOT5vaAX6c4DDku3X3FuVzWDD8CKbj1dk3BTiZek', 1, 0, 0, '2024-01-15 03:24:53', '2024-01-15 04:54:00');
 
 --
 -- Indexes for dumped tables
@@ -614,18 +543,6 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders_item`
---
-ALTER TABLE `orders_item`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -705,7 +622,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `coupon_code`
@@ -724,18 +641,6 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `orders_item`
---
-ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -783,7 +688,7 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
