@@ -122,8 +122,8 @@ class PaymentController extends Controller
 
     public function placeOrder(Request $request){
 
-        dd($request->all());
-        
+        // dd($request->all());
+
         $order = new OrderModel;
         $order->firstName = trim($request->firstName);
         $order->lastName = trim($request->lastName);
@@ -143,7 +143,7 @@ class PaymentController extends Controller
         $order->save();
 
         foreach(Cart::getContent() as $key => $cart){
-            dd($cart);
+            // dd($cart);
             
             $order_item = new OrderItemModel;
             $order_item->order_id = $order->id;
