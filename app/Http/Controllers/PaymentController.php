@@ -122,13 +122,38 @@ class PaymentController extends Controller
 
     public function placeOrder(Request $request){
 
+        $getShipping = ShippingChargeModel::getSingle($request->shipping);
+        $payable_total = Cart::getSubTotal();
+        $coupon_amount = 0;
+        $coupon_code = '';
+
+        if (!empty($request->coupon_code)) {
+            $getCoupon = CouponCodeModel::checkCoupon($request->coupon_code);
+
+            if (!empty($getCoupon)) {
+
+                $coupon_code = $request->coupon_code;
+                if($getCoupon->type == 'Amount'){
+                    $coupon_amount = $getCoupon->percent_amount;
+                    $payable_total = ($payable_total - $getCoupon->percent_amount);
+                }
+                else {
+                    $coupon_amount = ($payable_total * $getCoupon->percent_amount)/100;
+                    $payable_total = ($payable_total - $coupon_amount);
+                }
+            }
+        }
+        // dd($payable_total);
+
+        $shipping_amount = !empty($getShipping->price) ? $getShipping->price : 0;
+        $total_amount = ($payable_total + $shipping_amount);
         // dd($request->all());
 
         $order = new OrderModel;
         $order->firstName = trim($request->firstName);
         $order->lastName = trim($request->lastName);
         $order->companyName = trim($request->companyName);
-        $order->country = trim($request->firstName);
+        $order->country = trim($request->country);
         $order->address_one = trim($request->address_one);
         $order->address_two = trim($request->address_two);
         $order->city = trim($request->city);
@@ -137,8 +162,15 @@ class PaymentController extends Controller
         $order->phone = trim($request->phone);
         $order->email = trim($request->email);
         $order->notes = trim($request->notes);
-        $order->coupon_code = trim($request->coupon_code);
+
+        $order->coupon_amount = trim($coupon_amount);
+        $order->coupon_code = trim($coupon_code);
+
+        $order->shipping_amount = trim($shipping_amount);
         $order->shipping_id = trim($request->shipping);
+
+        $order->total_amount = trim($total_amount);
+
         $order->payment_method = trim($request->payment_method);        
         $order->save();
 
@@ -168,6 +200,7 @@ class PaymentController extends Controller
             $order_item->save();
             
         }
-        return redirect()->back()->with('success', 'Your order has been placed!');
+        // return redirect()->back()->with('success', 'Your order has been placed!');
+        die;
     }
 }
