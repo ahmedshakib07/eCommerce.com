@@ -217,7 +217,7 @@ CREATE TABLE `orders` (
   `phone` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `notes` text,
-  `discountCode` varchar(255) DEFAULT NULL,
+  `coupon_code` varchar(255) DEFAULT NULL,
   `discount_amount` varchar(25) NOT NULL DEFAULT '0',
   `shipping_id` int DEFAULT NULL,
   `shipping_amount` varchar(25) NOT NULL DEFAULT '0',
@@ -235,7 +235,7 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `discountCode`, `discount_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
+INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `discount_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '123', '456', 'test@gmail.com', 'testtesttesttesttesttesttesttesttesttesttesttesttesttest', 'test', '0', 2, '0', '0', 'cash', 0, 0, 0, NULL, '2024-03-21 04:49:57', '2024-03-21 04:49:57');
 
 -- --------------------------------------------------------

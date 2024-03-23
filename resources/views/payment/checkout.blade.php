@@ -127,7 +127,7 @@
                                             <td  colspan="2">
                                                 <div class="cart-discount">
                                                     <div class="input-group">
-                                                        <input id="getCouponCode" name="discountCode" type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
+                                                        <input id="getCouponCode" name="coupon_code" type="text" class="form-control" placeholder="Have a coupon? Click here to enter your code.">
                                                         <div class="input-group-append">
                                                             <button id="applyCoupon" type="button" class="btn btn-secondary" type="submit" style="height: 40px;"><i class="icon-refresh"></i></button>
                                                         </div>

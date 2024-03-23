@@ -137,7 +137,7 @@ class PaymentController extends Controller
         $order->phone = trim($request->phone);
         $order->email = trim($request->email);
         $order->notes = trim($request->notes);
-        $order->discountCode = trim($request->discountCode);
+        $order->coupon_code = trim($request->coupon_code);
         $order->shipping_id = trim($request->shipping);
         $order->payment_method = trim($request->payment_method);        
         $order->save();
