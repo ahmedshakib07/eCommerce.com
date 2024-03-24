@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 24, 2024 at 06:34 AM
+-- Generation Time: Mar 21, 2024 at 04:52 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -128,8 +128,7 @@ INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, 
 (6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15'),
 (7, 'Teal', '#7dd4ce', 1, 0, 0, '2024-02-20 11:08:26', '2024-02-20 11:09:28'),
 (8, 'Sky Blue', '#87ceeb', 1, 0, 0, '2024-02-27 07:03:35', '2024-02-27 07:04:07'),
-(9, 'Green', '#067a2e', 1, 0, 0, '2024-03-21 03:39:49', '2024-03-21 03:39:49'),
-(10, 'tests', '#000000', 1, 0, 1, '2024-03-21 08:35:40', '2024-03-21 08:35:59');
+(9, 'Green', '#067a2e', 1, 0, 0, '2024-03-21 03:39:49', '2024-03-21 03:39:49');
 
 -- --------------------------------------------------------
 
@@ -154,7 +153,7 @@ CREATE TABLE `coupon_code` (
 --
 
 INSERT INTO `coupon_code` (`id`, `name`, `type`, `percent_amount`, `exper_date`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Opening11', 'Amount', '11', '2024-04-14', 0, 0, '2024-03-07 06:01:43', '2024-03-10 09:24:08'),
+(1, 'Opening11', 'Amount', '11', '2024-03-08', 0, 0, '2024-03-07 06:01:43', '2024-03-10 09:24:08'),
 (2, 'GrandOpening', 'Percent', '2', '2024-03-08', 0, 0, '2024-03-07 06:19:19', '2024-03-10 12:05:55'),
 (3, 'EidDiscount', 'Amount', '30', '2024-03-14', 0, 0, '2024-03-07 06:21:55', '2024-03-10 11:19:34'),
 (4, 'WinterDiscount', 'Percent', '3', '2024-03-14', 0, 0, '2024-03-07 06:22:13', '2024-03-10 12:06:03');
@@ -218,8 +217,8 @@ CREATE TABLE `orders` (
   `phone` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `notes` text,
-  `coupon_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `coupon_amount` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
+  `coupon_code` varchar(255) DEFAULT NULL,
+  `discount_amount` varchar(25) NOT NULL DEFAULT '0',
   `shipping_id` int DEFAULT NULL,
   `shipping_amount` varchar(25) NOT NULL DEFAULT '0',
   `total_amount` varchar(25) NOT NULL DEFAULT '0',
@@ -236,9 +235,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '123', '456', 'test@gmail.com', 'payable_total', 'Opening11', '11', 1, '10', '44', 'cash', 0, 0, 0, NULL, '2024-03-23 08:22:28', '2024-03-23 08:22:28'),
-(2, NULL, 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', '1234', '12345098765432', 'test@gmail.com', 'Order notes (optional). Opening11', 'Opening11', '11', 1, '10', '124', 'cash', 0, 0, 0, NULL, '2024-03-23 08:35:54', '2024-03-23 08:35:54');
+INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `discount_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '123', '456', 'test@gmail.com', 'testtesttesttesttesttesttesttesttesttesttesttesttesttest', 'test', '0', 2, '0', '0', 'cash', 0, 0, 0, NULL, '2024-03-21 04:49:57', '2024-03-21 04:49:57');
 
 -- --------------------------------------------------------
 
@@ -265,9 +263,7 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 1, '45', 'Brown', 'L', '0', '45', '2024-03-23 08:22:28', '2024-03-23 08:22:28'),
-(2, 2, 2, 1, '45', 'Brown', 'L', '0', '45', '2024-03-23 08:35:54', '2024-03-23 08:35:54'),
-(3, 2, 10, 1, '80', 'Red', 'm', '40', '80', '2024-03-23 08:35:54', '2024-03-23 08:35:54');
+(1, 1, 4, 1, '15', 'yellow', 'M', '5', '15', '2024-03-21 04:49:57', '2024-03-21 04:49:57');
 
 -- --------------------------------------------------------
 
@@ -576,7 +572,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'slJvvR66p0LU6z1TcyXexKTjxxh6eoXHyte8OQyccZEI4okvewLbuNqRvHkj', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
+(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', '6DCDjqX3jhIgYbOWoHP9EXjOHKq8ECAuas0fVsMOsG3G7mvCzlVdbrme9gUf', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
 (2, 'User', 'user@gmail.com', '2024-03-17 22:32:52', '$2y$12$GEFpaCRTILFBxIZiDwziyOPif.A5hl/ozkzKvJyby7HnD4Q/IK6tG', '8Ky2E17jtwQ5TWoKa7jXHH2FfDadW1OdVm2QAwziJpN5ANCHaVML9bqCN9Ie', 0, 0, 0, '2024-03-17 22:18:08', '2024-03-18 01:50:05');
 
 --
@@ -709,7 +705,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `coupon_code`
@@ -733,13 +729,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
