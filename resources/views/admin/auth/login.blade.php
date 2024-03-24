@@ -19,7 +19,6 @@
 <style>
   .login-page {
     background-image: url("public/assets/dist/img/loginpage.jpg");
-
     background-position: center;
     background-size: cover;
   }
