@@ -163,11 +163,11 @@ class PaymentController extends Controller
         $order->email = trim($request->email);
         $order->notes = trim($request->notes);
 
-        $order->coupon_amount = trim($coupon_amount);
         $order->coupon_code = trim($coupon_code);
+        $order->coupon_amount = trim($coupon_amount);
 
-        $order->shipping_amount = trim($shipping_amount);
         $order->shipping_id = trim($request->shipping);
+        $order->shipping_amount = trim($shipping_amount);
 
         $order->total_amount = trim($total_amount);
 
