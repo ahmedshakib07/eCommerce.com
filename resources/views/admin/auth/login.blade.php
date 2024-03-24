@@ -26,12 +26,12 @@
 
 <body class="hold-transition login-page">
   <div class="login-box" style="width: 450px; margin-right: 550px;">
+    <div class="login-logo">
+      <a href="#"><b><b>e</b>Commerce.com</a></b>
+    </div>
+
     <!-- /.login-logo -->
     <div class="card">
-      <div class="login-logo">
-        <a href="#"><b>e</b>Commerce.com</a>
-      </div>
-
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
