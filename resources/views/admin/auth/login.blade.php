@@ -25,6 +25,7 @@
 </style>
 
 <body class="hold-transition login-page">
+  <!-- <img src="{{ url('assets/images/logo.png') }}" alt="" width="115" height="55" style=""> -->
   <div class="login-box" style="width: 450px; margin-right: 550px;">
     <div class="login-logo">
       <a href="#"><b><b>e</b>Commerce.com</a></b>
