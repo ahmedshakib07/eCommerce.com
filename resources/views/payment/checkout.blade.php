@@ -183,10 +183,14 @@
                                         <input type="radio" value="cash" id="Cashondelivery" name="payment_method" class="custom-control-input">
                                         <label class="custom-control-label" for="Cashondelivery" required> Cash on delivery</label>
                                     </div>
-                                    <!-- <div class="custom-control custom-radio">
-                                        <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-                                        <label class="custom-control-label" for="free-shipping"> Cash on delivery</label>
-                                    </div> -->
+                                    <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
+                                        <input type="radio" value="bkash" id="bkash" name="payment_method" class="custom-control-input">
+                                        <label class="custom-control-label" for="bkash" required> Bkash</label>
+                                    </div>
+                                    <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
+                                        <input type="radio" value="nagad" id="nagad" name="payment_method" class="custom-control-input">
+                                        <label class="custom-control-label" for="nagad" required> Nagad</label>
+                                    </div>
                                     <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
                                         <input type="radio" value="stripe" id="CreditCard" name="payment_method" class="custom-control-input">
                                         <label class="custom-control-label" for="CreditCard" required> Credit Card (Stripe)</label>
@@ -338,6 +342,9 @@
             success: function(data) {
                 if (data.status == false) {
                     alert(data.message);
+                }
+                else{
+                    window.location.href = data.redirect;
                 }
             },
             error: function (data) {

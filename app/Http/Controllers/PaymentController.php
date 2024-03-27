@@ -150,7 +150,8 @@ class PaymentController extends Controller
                     $user_id = $save->id;
                 }
                 
-            } else {
+            } 
+            else {
                 $user_id = '';
             }
         }
@@ -244,6 +245,7 @@ class PaymentController extends Controller
             }
             $json['status'] = true;
             $json['message'] = "Order placed";
+            $json['redirect'] = url('checkout/payment?order_id='.base64_encode($order->id));;
         }
         else {
             $json['status'] = false;
@@ -252,5 +254,37 @@ class PaymentController extends Controller
         // return redirect()->back()->with('success', 'Your order has been placed!');
         // die;
         echo json_encode($json);
+    }
+
+    public function checkout_payment(Request $request) {
+        if (!empty(Cart::getSubTotal()) && !empty($request->order_id)) {
+            $order_id = base64_decode($request->order_id);
+            $getOrder = OrderModel::getSingle($order_id);
+
+            if (!empty($getOrder)) {
+                if ($getOrder->payment_method == 'cash') {
+                    $getOrder->is_payment = 1;
+                    $getOrder->save();
+
+                    Cart::clear();
+                    return redirect('cart')->with('success', "Order Successfully Placed");
+                }
+                elseif ($getOrder->payment_method == 'bkash') {
+                    # code...
+                }
+                elseif ($getOrder->payment_method == 'nagad') {
+                    # code...
+                }
+                elseif ($getOrder->payment_method == 'stripe') {
+                    # code...
+                }
+            } else {
+                abort(404);
+            }
+            
+        } else {
+            abort(404);
+        }
+        
     }
 }
