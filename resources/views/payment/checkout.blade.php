@@ -32,8 +32,8 @@
                         <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
                     </form>
                 </div> -->
-                <form action="{{ url('checkout/place_order') }}" method="post">
-                {{ csrf_field() }}
+                <form action="#" id="SubmitForm" method="post">
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-9">
                             <h2 class="checkout-title">Billing Details</h2>
@@ -86,10 +86,17 @@
                             <label>Email address <span style = "color:red">*</span></label>
                             <input type="email" name="email" class="form-control" required>
 
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-                            </div>
+                            @if(empty(Auth::check()))
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="is_create" class="custom-control-input createAccount" id="checkout-create-acc">
+                                    <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+                                </div>
+
+                                <div id="showPassword" style="display: none">
+                                    <label>Password <span style = "color:red">*</span></label>
+                                    <input type="text" id="inputPassword" name="password" class="form-control">
+                                </div>
+                            @endif
 
                             <label>Order notes (optional)</label>
                             <textarea class="form-control" name="notes" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
@@ -308,5 +315,36 @@
             }
         });
     });
+
+    $('body').delegate('.createAccount', 'change', function() {
+        if (this.checked) {
+            $('#showPassword').show();
+            $("#inputPassword").prop("required", true);
+        } else {
+            $('#showPassword').hide();
+            $("#inputPassword").prop("required", false);
+        }
+    });
+
+    $('body').delegate('#SubmitForm', 'submit', function(e) { 
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "{{ url('checkout/place_order') }}",
+            data: new FormData (this),
+            processData:false,
+            contentType:false,
+            dataType: "json",
+            success: function(data) {
+                if (data.status == false) {
+                    alert(data.message);
+                }
+            },
+            error: function (data) {
+
+            }
+        });
+    });
+
 </script>
 @endsection

@@ -10,7 +10,10 @@ use App\Models\ShippingChargeModel;
 use App\Models\OrderModel;
 use App\Models\OrderItemModel;
 use App\Models\ColorModel;
+use App\Models\User;
 use Cart;
+use Hash;
+use Auth;
 
 class PaymentController extends Controller
 {
@@ -122,85 +125,132 @@ class PaymentController extends Controller
 
     public function placeOrder(Request $request){
 
-        $getShipping = ShippingChargeModel::getSingle($request->shipping);
-        $payable_total = Cart::getSubTotal();
-        $coupon_amount = 0;
-        $coupon_code = '';
-
-        if (!empty($request->coupon_code)) {
-            $getCoupon = CouponCodeModel::checkCoupon($request->coupon_code);
-
-            if (!empty($getCoupon)) {
-
-                $coupon_code = $request->coupon_code;
-                if($getCoupon->type == 'Amount'){
-                    $coupon_amount = $getCoupon->percent_amount;
-                    $payable_total = ($payable_total - $getCoupon->percent_amount);
-                }
-                else {
-                    $coupon_amount = ($payable_total * $getCoupon->percent_amount)/100;
-                    $payable_total = ($payable_total - $coupon_amount);
-                }
-            }
-        }
-        // dd($payable_total);
-
-        $shipping_amount = !empty($getShipping->price) ? $getShipping->price : 0;
-        $total_amount = ($payable_total + $shipping_amount);
         // dd($request->all());
 
-        $order = new OrderModel;
-        $order->firstName = trim($request->firstName);
-        $order->lastName = trim($request->lastName);
-        $order->companyName = trim($request->companyName);
-        $order->country = trim($request->country);
-        $order->address_one = trim($request->address_one);
-        $order->address_two = trim($request->address_two);
-        $order->city = trim($request->city);
-        $order->state = trim($request->state);
-        $order->postcode = trim($request->postcode);
-        $order->phone = trim($request->phone);
-        $order->email = trim($request->email);
-        $order->notes = trim($request->notes);
+        $validate = 0;
+        $message = '';
 
-        $order->coupon_code = trim($coupon_code);
-        $order->coupon_amount = trim($coupon_amount);
-
-        $order->shipping_id = trim($request->shipping);
-        $order->shipping_amount = trim($shipping_amount);
-
-        $order->total_amount = trim($total_amount);
-
-        $order->payment_method = trim($request->payment_method);        
-        $order->save();
-
-        foreach(Cart::getContent() as $key => $cart){
-            // dd($cart);
+        if (!empty(Auth::check())) {
+            $user_id = Auth::user()->id;
+        }
+        else {
             
-            $order_item = new OrderItemModel;
-            $order_item->order_id = $order->id;
-            $order_item->product_id = $cart->id;
-            $order_item->quantity = $cart->quantity;
-            $order_item->price = $cart->price;
-
-            $color_id = $cart->attributes->color_id;
-            if (!empty($color_id)) {
-                $getColor = ColorModel::getSingle($color_id);
-                $order_item->color_name = $getColor->name;
+            if (!empty($request->is_create)) {
+                $checkEmail = User::checkEmail($request->email);
+                if (!empty($checkEmail)) {
+                    $message = "This email already register please choose another";
+                    $validate = 1;
+                } else {
+                    $save = new User;
+                    $save->name = trim($request->firstName);
+                    $save->email = trim($request->email);
+                    $save->password = Hash::make($request->password);
+                    $save->save();
+    
+                    $user_id = $save->id;
+                }
+                
+            } else {
+                $user_id = '';
             }
+        }
 
-            $size_id = $cart->attributes->size_id;
-            if (!empty($size_id)) {
-                $getSize = ProductSizeModel::getSingle($size_id);
-                $order_item->size_name = $getSize->name;
-                $order_item->size_amount = $getSize->price;
+        if (empty($validate)) {
+
+            $getShipping = ShippingChargeModel::getSingle($request->shipping);
+            $payable_total = Cart::getSubTotal();
+            $coupon_amount = 0;
+            $coupon_code = '';
+
+            if (!empty($request->coupon_code)) {
+                $getCoupon = CouponCodeModel::checkCoupon($request->coupon_code);
+
+                if (!empty($getCoupon)) {
+
+                    $coupon_code = $request->coupon_code;
+                    if($getCoupon->type == 'Amount'){
+                        $coupon_amount = $getCoupon->percent_amount;
+                        $payable_total = ($payable_total - $getCoupon->percent_amount);
+                    }
+                    else {
+                        $coupon_amount = ($payable_total * $getCoupon->percent_amount)/100;
+                        $payable_total = ($payable_total - $coupon_amount);
+                    }
+                }
             }
+            // dd($payable_total);
 
-            $order_item->total_price = $cart->price;
-            $order_item->save();
+            $shipping_amount = !empty($getShipping->price) ? $getShipping->price : 0;
+            $total_amount = ($payable_total + $shipping_amount);
+            // dd($request->all());
+
+            $order = new OrderModel;
+
+            if (!empty($user_id)) {
+                $order->user_id = trim($user_id);
+            } else {
+                # code...
+            }
             
+            $order->firstName = trim($request->firstName);
+            $order->lastName = trim($request->lastName);
+            $order->companyName = trim($request->companyName);
+            $order->country = trim($request->country);
+            $order->address_one = trim($request->address_one);
+            $order->address_two = trim($request->address_two);
+            $order->city = trim($request->city);
+            $order->state = trim($request->state);
+            $order->postcode = trim($request->postcode);
+            $order->phone = trim($request->phone);
+            $order->email = trim($request->email);
+            $order->notes = trim($request->notes);
+
+            $order->coupon_code = trim($coupon_code);
+            $order->coupon_amount = trim($coupon_amount);
+
+            $order->shipping_id = trim($request->shipping);
+            $order->shipping_amount = trim($shipping_amount);
+
+            $order->total_amount = trim($total_amount);
+
+            $order->payment_method = trim($request->payment_method);        
+            $order->save();
+
+            foreach(Cart::getContent() as $key => $cart){
+                // dd($cart);
+                
+                $order_item = new OrderItemModel;
+                $order_item->order_id = $order->id;
+                $order_item->product_id = $cart->id;
+                $order_item->quantity = $cart->quantity;
+                $order_item->price = $cart->price;
+
+                $color_id = $cart->attributes->color_id;
+                if (!empty($color_id)) {
+                    $getColor = ColorModel::getSingle($color_id);
+                    $order_item->color_name = $getColor->name;
+                }
+
+                $size_id = $cart->attributes->size_id;
+                if (!empty($size_id)) {
+                    $getSize = ProductSizeModel::getSingle($size_id);
+                    $order_item->size_name = $getSize->name;
+                    $order_item->size_amount = $getSize->price;
+                }
+
+                $order_item->total_price = $cart->price;
+                $order_item->save();
+                
+            }
+            $json['status'] = true;
+            $json['message'] = "Order placed";
+        }
+        else {
+            $json['status'] = false;
+            $json['message'] = $message;
         }
         // return redirect()->back()->with('success', 'Your order has been placed!');
-        die;
+        // die;
+        echo json_encode($json);
     }
 }
