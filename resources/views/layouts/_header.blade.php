@@ -126,35 +126,35 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 @foreach(Cart::getContent() as $header_cart)
-                                @php
-                                    $getCartProduct = App\Models\ProductModel::getSingle($header_cart->id);
-                                @endphp
+                                    @php
+                                        $getCartProduct = App\Models\ProductModel::getSingle($header_cart->id);
+                                    @endphp
 
-                                @if(!empty($getCartProduct))
+                                    @if(!empty($getCartProduct))
 
-                                @php
-                                    $getProductImage = $getCartProduct->getImageSingle($getCartProduct->id);
-                                @endphp
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="{{ url($getCartProduct->slug) }}">{{ $getCartProduct->title }}</a>
-                                            </h4>
+                                    @php
+                                        $getProductImage = $getCartProduct->getImageSingle($getCartProduct->id);
+                                    @endphp
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="{{ url($getCartProduct->slug) }}">{{ $getCartProduct->title }}</a>
+                                                </h4>
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">{{ $header_cart->quantity }}</span>
-                                                x ${{ number_format($header_cart->price, 2) }}
-                                            </span>
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">{{ $header_cart->quantity }}</span>
+                                                    x ${{ number_format($header_cart->price, 2) }}
+                                                </span>
+                                            </div>
+
+                                            <figure class="product-image-container">
+                                                <a href="{{ url($getCartProduct->slug) }}" class="product-image">
+                                                    <img src="{{ $getProductImage->getLogo() }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="{{ url('cart/delete/'.$header_cart->id) }}" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                                         </div>
-
-                                        <figure class="product-image-container">
-                                            <a href="{{ url($getCartProduct->slug) }}" class="product-image">
-                                                <img src="{{ $getProductImage->getLogo() }}" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="{{ url('cart/delete/'.$header_cart->id) }}" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div>
-                                @endif
+                                    @endif
                                 
                                 @endforeach
                             </div>
