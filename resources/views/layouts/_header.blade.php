@@ -84,7 +84,7 @@
 
                                                 @foreach($getCategoryHeader as $value_category_header)
                                                     @if(!empty($value_category_header->getSubCategory->count()))
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <a href="{{ url($value_category_header->slug) }}" class="menu-title">{{ $value_category_header->name }}</a>
                                                             <ul>
                                                                 @foreach($value_category_header->getSubCategory as $value_h_sub)
