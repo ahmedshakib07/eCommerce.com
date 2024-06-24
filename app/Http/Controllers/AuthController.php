@@ -15,7 +15,7 @@ use App\Mail\ForgotPasswordMail;
 
 class AuthController extends Controller
 {
-    // ....................ADMIN PART
+    // ....................ADMIN PART.................
 
     public function login_admin(){
         if(!empty(Auth::check()) && Auth::user()->is_admin == 1){
@@ -42,12 +42,12 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('admin/dashboard');
     }
-    // ........./.........ADMIN PART END
+    // ........./.........ADMIN PART END.................
 
 
 
 
-    // ...........USER OR CITIZEN PART
+    // ...........USER OR CITIZEN PART.................
 
     public function auth_register(Request $request){
         // dd($request->all());
@@ -156,5 +156,5 @@ class AuthController extends Controller
             return redirect()->back()->with('error', "Password and confirm password does not match");
         }
     }
-    // ...........USER OR CITIZEN PART
+    // ...........USER OR CITIZEN PART.................
 }
