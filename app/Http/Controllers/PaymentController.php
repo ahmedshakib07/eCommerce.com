@@ -275,6 +275,7 @@ class PaymentController extends Controller
                 //     # code...
                 // }
                 elseif ($getOrder->payment_method == 'paypal') {
+                    exit("ON TEST");
 
                     $query                  = array();
                     $query['business']      = "imtiaz@business.com";
@@ -340,6 +341,7 @@ class PaymentController extends Controller
     }
 
     public function paypal_success_payment(Request $request){
+        exit("ON TEST");
         dd($request->all());
     }
 
