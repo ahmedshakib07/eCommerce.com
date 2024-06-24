@@ -275,9 +275,9 @@ class PaymentController extends Controller
                 elseif ($getOrder->payment_method == 'paypal') {
 
                     $query                  = array();
-                    $query['business']      = "imtiaz@business.com";
+                    $query['business']      = "receivepayment@business.com";
                     $query['cmd']           = '_xclick';
-                    $query['item_name']     = "e-Commerce";
+                    $query['item_name']     = "eCommerce_com";
                     $query['no_shipping']   = '1';
                     $query['item_number']   = $getOrder->id;
                     $query['amount']        = $getOrder->total_amount;
@@ -310,5 +310,27 @@ class PaymentController extends Controller
 
     public function paypal_success_payment(Request $request){
         dd($request->all());
+        // !empty($request->item_number) && !empty($request->st) && $request->st == 'Completed'
+        if (!empty($request->PayerID)) {
+            $getOrder = OrderModel::getSingle($request->PayerID); // PayerID এর জাগায় item_number হবে
+
+            dd($getOrder);
+            if (!empty($getOrder)) {
+                $getOrder->is_payment           = 1;
+                // $getOrder->transection_id    = $request->tx;
+                // $getOrder->payment_data         = json_encode($request->all());
+                $getOrder->save();
+
+                Cart::clear();
+                return redirect('cart')->with('success', "Order Successfully Placed");
+            } else {
+                abort(404);
+            }
+            
+            
+        } else {
+            abort(404);
+        }
+        
     }
 }
