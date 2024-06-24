@@ -134,6 +134,7 @@ Route::post('checkout/apply_coupon_code', [PaymentController::class, 'applyCoupo
 Route::post('checkout/place_order', [PaymentController::class, 'placeOrder']);
 Route::get('checkout/payment', [PaymentController::class, 'checkout_payment']);
 Route::get('paypal/success-payment', [PaymentController::class, 'paypal_success_payment']);
+Route::get('stripe/payment_success', [PaymentController::class, 'stripe_success_payment']);
 
 Route::get('search', [ProductFront::class, 'getProductSearch']);
 Route::post('get_filter_product_ajax', [ProductFront::class, 'getFilterProductAjax']);
