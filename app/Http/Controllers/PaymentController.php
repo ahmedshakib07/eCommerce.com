@@ -274,17 +274,12 @@ class PaymentController extends Controller
                 // }
                 elseif ($getOrder->payment_method == 'paypal') {
 
-                    // $amount                 = $getOrder->total_amount;
-                    // $paypalId               = "imtiaz@business.com";
-
                     $query                  = array();
-                    // $query['business']      = $paypalId;
                     $query['business']      = "imtiaz@business.com";
                     $query['cmd']           = '_xclick';
                     $query['item_name']     = "e-Commerce";
                     $query['no_shipping']   = '1';
                     $query['item_number']   = $getOrder->id;
-                    // $query['amount']        = $amount;
                     $query['amount']        = $getOrder->total_amount;
                     $query['currency_code'] = 'USD';
 
