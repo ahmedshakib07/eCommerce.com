@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i class="fa fa-home"></i></a></li>
-                        <li class="breadcrumb-item active">Orders list</li>
+                        <li class="breadcrumb-item active">Orders list ( Total: {{ $getRecord->total() }})</li>
                         </ol>
                     </div>
                 </div>
@@ -24,7 +24,66 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                    
+
+                        <!-- Search -->
+                        <form action="" method="get">
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Search Order</h3>
+                                </div>
+                                
+                                <div class="card-body" style="overflow: auto;">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">ID</label>
+                                                <input type="text" placeholder="ID" name="id" class="form-control" value="{{ Request::get('id') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">Phone</label>
+                                                <input type="text" placeholder="phone" name="phone" class="form-control" value="{{ Request::get('phone') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">Email</label>
+                                                <input type="text" placeholder="email" name="email" class="form-control" value="{{ Request::get('email') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">City</label>
+                                                <input type="text" placeholder="city" name="city" class="form-control" value="{{ Request::get('city') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">From Date</label>
+                                                <input type="date" style="padding: 6px" name="from_date" class="form-control" value="{{ Request::get('from_date') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="">To Date</label>
+                                                <input type="date" style="padding: 6px" name="to_date" class="form-control" value="{{ Request::get('to_date') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <button class="btn btn-primary">Search</button>
+                                                <a href="{{ url('admin/orders/list') }}" class="btn btn-primary">Reset</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- End Search -->
 
                         <div class="card">
                             <div class="card-header">
