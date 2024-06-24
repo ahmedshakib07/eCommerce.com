@@ -48,6 +48,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/admin/edit/{id}', [AdminController::class, 'update']);
     Route::get('admin/admin/delete/{id}', [AdminController::class, 'delete']);
 
+
+    Route::get('admin/Customer/list', [AdminController::class, 'customer_list']);
+
     Route::get('admin/orders/list', [OrdersController::class, 'list']);
     Route::get('admin/orders/detail/{id}', [OrdersController::class, 'orders_detail']);
     Route::get(' admin/order_status', [OrdersController::class, 'order_status']);

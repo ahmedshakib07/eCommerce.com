@@ -72,4 +72,11 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+
+    public function customer_list(){
+        $data['getRecord'] = User::getCustomer();
+        $data['header_title'] = 'Customer';
+        return view('admin.customer.list', $data);
+    }
 }
