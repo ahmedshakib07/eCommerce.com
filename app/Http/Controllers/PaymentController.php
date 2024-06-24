@@ -14,6 +14,8 @@ use App\Models\User;
 use Cart;
 use Hash;
 use Auth;
+use Stripe\Stripe;
+use Session;
 
 class PaymentController extends Controller
 {
@@ -273,6 +275,7 @@ class PaymentController extends Controller
                 //     # code...
                 // }
                 elseif ($getOrder->payment_method == 'paypal') {
+                    exit("ON TEST");
 
                     $query                  = array();
                     $query['business']      = "receivepayment@business.com";
@@ -296,7 +299,36 @@ class PaymentController extends Controller
                     exit();
                 }
                 elseif ($getOrder->payment_method == 'stripe') {
-                    # code...
+                    Stripe::setApiKey(env('STRIPE_SECRET'));
+                    $finalprice = $getOrder->total_amount * 100;
+
+                    $session = \Stripe\Checkout\Session::create([
+                        'customer_email' => $getOrder->email,
+                        'payment_method_types' => ['card'],
+                        'line_items' => [[
+                            'price_data' => [
+                                'currency' => 'usd',
+                                'product_data' => [
+                                    'name' => 'E-Commerce',
+                                ],
+                                'unit_amount' => intval($finalprice),
+                            ],
+                            'quantity' => 1,
+                        ]],
+                        'mode' => 'payment',
+                        
+                        'success_url' => url('stripe/payment_success'),
+                        'cancel_url' => url('checkout'),
+                    ]);
+
+                    $getOrder->stripe_session_id = $session['id']; 
+                    $getOrder->save();
+
+                    $data['session_id'] = $session['id'];
+                    Session::put('stripe_session_id', $session ['id']); 
+                    $data['setPublicKey'] = env('STRIPE_KEY');
+
+                    return view('payment.stripe_charge', $data);
                 }
             } else {
                 abort(404);
@@ -309,6 +341,7 @@ class PaymentController extends Controller
     }
 
     public function paypal_success_payment(Request $request){
+        exit("ON TEST");
         dd($request->all());
         // !empty($request->item_number) && !empty($request->st) && $request->st == 'Completed'
         if (!empty($request->PayerID)) {
@@ -332,5 +365,27 @@ class PaymentController extends Controller
             abort(404);
         }
         
+    }
+
+    public function stripe_success_payment(Request $request){
+        $trans_id = Session::get('stripe_session_id');
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $getdata = \Stripe\Checkout\Session::retrieve($trans_id);
+        // dd($getdata);
+
+        $getOrder = OrderModel::where('stripe_session_id', '=', $getdata->id)->first();
+
+        if(!empty($getOrder) && !empty($getdata->id) && $getdata->id == $getOrder->stripe_session_id){
+            $getOrder->is_payment = 1;
+            $getOrder->transaction_id = $getdata->id;
+            $getOrder->payment_data = json_encode($getdata);
+            $getOrder->save();
+
+            Cart::clear();
+
+            return redirect('cart')->with('success', "Order successfully placed");
+        }else {
+            return redirect('cart')->with('error', "Please try again");
+        }
     }
 }
