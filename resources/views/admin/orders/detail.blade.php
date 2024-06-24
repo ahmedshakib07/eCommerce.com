@@ -110,8 +110,6 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-
                                             <th>Image</th>
                                             <th>Product Name</th>
                                             <th>Quantity</th>
@@ -128,19 +126,18 @@
                                                 $getProductImage = $item->getProduct->getImageSingle($item->getProduct->id);
                                             @endphp
                                             <tr>
-                                                <td> {{ $loop->iteration }} </td>
                                                 <td> 
                                                     <img style="width: 100px;height: 100px;" src="{{ $getProductImage->getLogo() }}" alt=""> 
                                                 </td>
                                                 <td>
                                                     <a href="{{ url($item->getProduct->slug) }}" target="_blank">{{ $item->getProduct->title }}</a>
                                                 </td>
-                                                <td>{{ $item->getProduct->quantity }}</td>
-                                                <td>{{ $item->getProduct->price }}</td>
-                                                <td>{{ $item->getProduct->size_name }}</td>
-                                                <td>{{ $item->getProduct->color_name }}</td>
-                                                <td>{{ number_format($item->getProduct->size_amount, 2) }}</td>
-                                                <td>{{ number_format($item->getProduct->total_price, 2) }}</td>
+                                                <td>{{ $item->quantity }}</td>
+                                                <td>{{ $item->price }}</td>
+                                                <td>{{ $item->size_name }}</td>
+                                                <td>{{ $item->color_name }}</td>
+                                                <td>{{ number_format($item->size_amount, 2) }}</td>
+                                                <td>{{ number_format($item->total_price, 2) }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
