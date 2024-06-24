@@ -50,7 +50,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/orders/list', [OrdersController::class, 'list']);
     Route::get('admin/orders/detail/{id}', [OrdersController::class, 'orders_detail']);
-
+    Route::get(' admin/order_status', [OrdersController::class, 'order_status']);
 
     Route::get('admin/category/list', [CategoryController::class, 'list']);
 

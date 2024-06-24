@@ -21,6 +21,9 @@ class OrderModel extends Model
         if (!empty(Request::get('id'))) {
             $return = $return->where('id', '=', Request::get('id'));
         }
+        if (!empty(Request::get('order_number'))) {
+            $return = $return->where('order_number', 'like', '%'.Request::get('order_number').'%');
+        }
         if (!empty(Request::get('phone'))) {
             $return = $return->where('phone', 'like', '%'.Request::get('phone').'%');
         }
@@ -40,7 +43,7 @@ class OrderModel extends Model
         $return = $return->where('is_payment', '=', 1)
                 ->where('is_delete', '=', 0)
                 ->orderBy('id', 'desc')
-                ->paginate(20);
+                ->paginate(10);
 
         return $return;
     }

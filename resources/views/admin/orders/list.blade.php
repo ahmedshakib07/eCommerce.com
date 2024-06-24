@@ -37,8 +37,8 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">ID</label>
-                                                <input type="text" placeholder="ID" name="id" class="form-control" value="{{ Request::get('id') }}">
+                                                <label for="">Order Number</label>
+                                                <input type="text" placeholder="Order Number" name="order_number" class="form-control" value="{{ Request::get('order_number') }}">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -96,6 +96,7 @@
                                         <tr>
                                             <th>#</th>
 
+                                            <th>Order Number</th>
                                             <th>Name</th>
                                             <th>Company Name</th>
                                             <th>Country</th>
@@ -111,7 +112,7 @@
                                             <th>Total Amount</th>
                                             <th>Payment Method</th>
 
-                                            <th>Status</th>
+                                            <th>status</th>
                                             <th>Created Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -119,8 +120,9 @@
                                     <tbody>
                                         @foreach($getRecord as $value)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $value->id }}</td>
 
+                                                <td>{{ $value->order_number }}</td>
                                                 <td>{{ $value->firstName }} {{ $value->lastName }}</td>
                                                 <td>{{ $value->companyName }}</td>
                                                 <td>{{ $value->country }}</td>
@@ -136,7 +138,16 @@
                                                 <td>{{ number_format($value->total_amount, 2) }}</td>
                                                 <td style="text-transform: capitalize;">{{ $value->payment_method }}</td>
 
-                                                <td>{{ ($value->status == 0) ? 'Active': 'Inactive' }}</td>
+                                                <td>
+                                                    <select class="form-control ChangeStatus" name="" id="{{ $value->id }}" style="width: 110px;">
+                                                        <option {{ ($value->status == 0) ? 'selected' : '' }} value="0"> Pending </option>
+                                                        <option {{ ($value->status == 1) ? 'selected' : '' }} value="1"> In Progress </option>
+                                                        <option {{ ($value->status == 2) ? 'selected' : '' }} value="2"> Delivered </option>
+                                                        <option {{ ($value->status == 3) ? 'selected' : '' }} value="3"> Completed </option>
+                                                        <option {{ ($value->status == 4) ? 'selected' : '' }} value="4"> Cancelled </option>
+                                                    </select>
+                                                </td>
+
                                                 <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
                                                 <td>
                                                     <a href="{{ url('admin/orders/detail/'.$value->id) }}" class="fa fa-eye"></a>
@@ -157,31 +168,24 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $('.delete').on('click', function (e) {
-        e.preventDefault();
-        var self = $(this);
-        console.log(self.data('title'));
+$('body').delegate('.ChangeStatus', 'change', function() {
+    var status = $(this).val();
+    var order_id = $(this).attr('id');
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Category has been deleted.",
-                    icon: "success"
-                });
-                location.href = self.attr('href');
-            }
-        });
-    })
+    $.ajax({
+        type: "GET",
+        url: "{{ url('admin/order_status') }}",
+        data: {
+            status: status,
+            order_id: order_id
+        },
+        dataType: "json",
+        success: function(data) {
+            alert(data.message);
+        }
+    });
+});
+
 </script>
 @endsection
