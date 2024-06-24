@@ -183,13 +183,13 @@
                                         <input type="radio" value="cash" id="Cashondelivery" name="payment_method" class="custom-control-input">
                                         <label class="custom-control-label" for="Cashondelivery" required> Cash on delivery</label>
                                     </div>
-                                    <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
+                                    <!-- <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
                                         <input type="radio" value="bkash" id="bkash" name="payment_method" class="custom-control-input">
                                         <label class="custom-control-label" for="bkash" required> Bkash</label>
-                                    </div>
+                                    </div> -->
                                     <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
-                                        <input type="radio" value="nagad" id="nagad" name="payment_method" class="custom-control-input">
-                                        <label class="custom-control-label" for="nagad" required> Nagad</label>
+                                        <input type="radio" value="paypal" id="paypal" name="payment_method" class="custom-control-input">
+                                        <label class="custom-control-label" for="paypal" required> Paypal</label>
                                     </div>
                                     <div class="custom-control custom-radio" style="margin-top: -1.2rem;">
                                         <input type="radio" value="stripe" id="CreditCard" name="payment_method" class="custom-control-input">

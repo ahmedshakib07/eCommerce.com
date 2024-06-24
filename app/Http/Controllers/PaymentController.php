@@ -269,11 +269,36 @@ class PaymentController extends Controller
                     Cart::clear();
                     return redirect('cart')->with('success', "Order Successfully Placed");
                 }
-                elseif ($getOrder->payment_method == 'bkash') {
-                    # code...
-                }
-                elseif ($getOrder->payment_method == 'nagad') {
-                    # code...
+                // elseif ($getOrder->payment_method == 'bkash') {
+                //     # code...
+                // }
+                elseif ($getOrder->payment_method == 'paypal') {
+
+                    // $amount                 = $getOrder->total_amount;
+                    // $paypalId               = "imtiaz@business.com";
+
+                    $query                  = array();
+                    // $query['business']      = $paypalId;
+                    $query['business']      = "imtiaz@business.com";
+                    $query['cmd']           = '_xclick';
+                    $query['item_name']     = "e-Commerce";
+                    $query['no_shipping']   = '1';
+                    $query['item_number']   = $getOrder->id;
+                    // $query['amount']        = $amount;
+                    $query['amount']        = $getOrder->total_amount;
+                    $query['currency_code'] = 'USD';
+
+                    $query['cancel_return'] = url('checkout');
+                    $query['return']        = url('paypal/success-payment');
+                    
+                    $query_string           = http_build_query($query);
+
+                    header('Location: https://www.sandbox.paypal.com/cgi-bin/webscr?' . $query_string);
+                    
+                    // LIVE.....
+                    // header('Location: https://www.paypal.com/cgi-bin/webscr?'.$query_string);
+
+                    exit();
                 }
                 elseif ($getOrder->payment_method == 'stripe') {
                     # code...
@@ -286,5 +311,9 @@ class PaymentController extends Controller
             abort(404);
         }
         
+    }
+
+    public function paypal_success_payment(Request $request){
+        dd($request->all());
     }
 }
