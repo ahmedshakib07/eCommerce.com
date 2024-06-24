@@ -16,6 +16,8 @@ use Hash;
 use Auth;
 use Stripe\Stripe;
 use Session;
+use Mail;
+use App\Mail\OrderInvoiceMail;
 
 class PaymentController extends Controller
 {
@@ -195,6 +197,7 @@ class PaymentController extends Controller
                 # code...
             }
             
+            $order->order_number = mt_rand(1000000000, 9999999999);            ;
             $order->firstName = trim($request->firstName);
             $order->lastName = trim($request->lastName);
             $order->companyName = trim($request->companyName);
@@ -354,6 +357,7 @@ class PaymentController extends Controller
                 // $getOrder->payment_data         = json_encode($request->all());
                 $getOrder->save();
 
+                Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
                 Cart::clear();
                 return redirect('cart')->with('success', "Order Successfully Placed");
             } else {
@@ -381,6 +385,8 @@ class PaymentController extends Controller
             $getOrder->payment_data = json_encode($getdata);
             $getOrder->save();
 
+            Mail::to($getOrder->email)->send(new OrderInvoiceMail($getOrder));
+            
             Cart::clear();
 
             return redirect('cart')->with('success', "Order successfully placed");
