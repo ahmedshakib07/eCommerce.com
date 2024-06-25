@@ -49,7 +49,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/admin/delete/{id}', [AdminController::class, 'delete']);
 
 
-    Route::get('admin/Customer/list', [AdminController::class, 'customer_list']);
+    Route::get('admin/customer/list', [AdminController::class, 'customer_list']);
 
     Route::get('admin/orders/list', [OrdersController::class, 'list']);
     Route::get('admin/orders/detail/{id}', [OrdersController::class, 'orders_detail']);
