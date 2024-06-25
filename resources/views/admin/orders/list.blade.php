@@ -120,7 +120,7 @@
                                     <tbody>
                                         @foreach($getRecord as $value)
                                             <tr>
-                                                <td>{{ $value->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
 
                                                 <td>{{ $value->order_number }}</td>
                                                 <td>{{ $value->firstName }} {{ $value->lastName }}</td>
