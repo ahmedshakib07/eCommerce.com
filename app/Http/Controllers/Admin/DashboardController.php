@@ -26,9 +26,6 @@ class DashboardController extends Controller
             $year = date('Y');
         }
         
-
-        
-
         $getTotalUserRegistrationsMonth = '';
         $getTotalOrderMonth = '';
         $getTotalAmountMonth = '';

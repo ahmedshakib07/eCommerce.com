@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\CouponCodeController;
 use App\Http\Controllers\Admin\ShippingChargeController;
 use App\Http\Controllers\Admin\OrdersController;
 
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ProductFront;
 use App\Http\Controllers\PaymentController;
@@ -116,6 +118,15 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/shipping_charge/delete/{id}', [ShippingChargeController::class, 'delete']);
 });
 
+
+Route::group(['middleware' => 'user'], function (){
+
+    Route::get('user/dashboard', [UserController::class, 'dashboard']);
+    Route::get('user/orders', [UserController::class, 'orders']);
+    Route::get('user/edit-profile', [UserController::class, 'edit_profile']);
+    Route::get('user/change-password', [UserController::class, 'change_password']);
+
+});
 
 Route::post('auth_register', [AuthController::class, 'auth_register']);
 Route::post('auth_login', [AuthController::class, 'auth_login']);
