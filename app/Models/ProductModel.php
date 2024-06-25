@@ -139,4 +139,12 @@ class ProductModel extends Model
     public function getSubCategory(){
         return $this->belongsTo(SubCategoryModel::class, 'sub_category_id');
     }
+
+
+    static public function getTotalProduct(){
+        return self::select('id')->where('status', '=', 0)
+                                ->where('is_delete', '=', 0)
+                                ->count();
+
+    }
 }

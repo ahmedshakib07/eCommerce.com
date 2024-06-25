@@ -86,4 +86,11 @@ class User extends Authenticatable
                 ->paginate(10);
         return $return;
     }
+
+    static public function getUserRegistrations(){
+        return self::select('id')->where('is_admin', '=', 0)
+                                ->where('is_delete', '=', 0)
+                                ->count();
+
+    }
 }

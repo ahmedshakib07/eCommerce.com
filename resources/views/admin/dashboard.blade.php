@@ -21,43 +21,38 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <h5 class="mb-2">Info Box</h5>
+                <!-- <h5 class="mb-2">Info Box</h5> -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="info-box">
-                        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+                            <span class="info-box-icon bg-info"><i class="fas fa-shopping-cart"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Messages</span>
-                            <span class="info-box-number">1,410</span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total Order</span>
+                                <span class="info-box-number">{{ $TotalOrder }}</span>
+                            </div>
                         </div>
-                        
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-warning"><i class="far fa-credit-card"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total Amount</span>
+                                <span class="info-box-number">$ {{ number_format($TotalAmount, 2) }}</span>
+                            </div>
                         </div>
                         
                     </div>
-                    
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="info-box">
                             <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Bookmarks</span>
-                                <span class="info-box-number">410</span>
+                                <span class="info-box-text">Today Payment</span>
+                                <span class="info-box-number">$ {{ number_format($TodayPayment, 2) }}</span>
                             </div>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Uploads</span>
-                                <span class="info-box-number">13,648</span>
-                            </div>
-                            
                         </div>
                         
                     </div>
@@ -70,7 +65,6 @@
                                 <span class="info-box-text">Likes</span>
                                 <span class="info-box-number">93,139</span>
                             </div>
-                            
                         </div>
                         
                     </div>
@@ -85,14 +79,14 @@
                         <!-- small card -->
                         <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ $NewOrder }}</h3>
 
                             <p>New Orders</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('admin/orders/list') }}" class="small-box-footer">
                             More info <i class="fas fa-arrow-circle-right"></i>
                         </a>
                         </div>
@@ -102,14 +96,14 @@
                         
                         <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>{{ $TotalProduct }}<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Total Product</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('admin/product/list') }}" class="small-box-footer">
                             More info <i class="fas fa-arrow-circle-right"></i>
                         </a>
                         </div>
@@ -119,14 +113,14 @@
                         
                         <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{ $UserRegistrations }}</h3>
 
                             <p>User Registrations</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-user-plus"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="{{ url('admin/customer/list') }}" class="small-box-footer">
                             More info <i class="fas fa-arrow-circle-right"></i>
                         </a>
                         </div>
@@ -156,7 +150,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header border-0">
                                     <div class="d-flex justify-content-between">
@@ -196,7 +190,7 @@
     
                             <div class="card">
                                 <div class="card-header border-0">
-                                    <h3 class="card-title">Products</h3>
+                                    <h3 class="card-title">Latest Orders</h3>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-sm">
                                             <i class="fas fa-download"></i>
@@ -207,7 +201,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body table-responsive p-0">
-                                    <table class="table table-striped table-valign-middle">
+                                    <!-- <table class="table table-striped table-valign-middle">
                                         <thead>
                                             <tr>
                                                 <th>Product</th>
@@ -295,12 +289,54 @@
                                                 </td>
                                             </tr>
                                         </tbody>
+                                    </table> -->
+                                    <table class="table table-striped table-valign-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+
+                                                <th>Order Number</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Coupon Code</th>
+                                                <th>Coupon Amount</th>
+                                                <th>Shipping Amount</th>
+                                                <th>Total Amount</th>
+                                                <th>Payment Method</th>
+
+                                                <th>Created Date</th>
+                                                <th>More</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($LatestOrders as $value)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+
+                                                    <td>{{ $value->order_number }}</td>
+                                                    <td>{{ $value->firstName }} {{ $value->lastName }}</td>
+                                                    <td>{{ $value->phone }}</td>
+                                                    <td>{{ $value->email }}</td>
+                                                    <td>{{ $value->coupon_code }}</td>
+                                                    <td>{{ number_format($value->coupon_amount, 2) }}</td>
+                                                    <td>{{ number_format($value->shipping_amount, 2) }}</td>
+                                                    <td>{{ number_format($value->total_amount, 2) }}</td>
+                                                    <td style="text-transform: capitalize;">{{ $value->payment_method }}</td>
+
+                                                    <td>{{ date('d-m-Y h:i A', strtotime($value->created_at)) }}</td>
+                                                    <td>
+                                                        <a href="{{ url('admin/orders/detail/'.$value->id) }}" class="fa fa-eye"></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-header border-0">
                                     <div class="d-flex justify-content-between">
@@ -389,7 +425,7 @@
                                     
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     
                     </div>
                     
