@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 24, 2024 at 06:34 AM
+-- Generation Time: Jun 25, 2024 at 04:43 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -205,6 +205,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` int NOT NULL,
+  `transaction_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `stripe_session_id` varchar(255) DEFAULT NULL,
+  `order_number` varchar(255) DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `firstName` varchar(255) DEFAULT NULL,
   `lastName` varchar(255) DEFAULT NULL,
@@ -224,7 +227,7 @@ CREATE TABLE `orders` (
   `shipping_amount` varchar(25) NOT NULL DEFAULT '0',
   `total_amount` varchar(25) NOT NULL DEFAULT '0',
   `payment_method` varchar(25) DEFAULT NULL,
-  `status` tinyint NOT NULL DEFAULT '0',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT '0 = Pending\r\n1 = Inprogress\r\n2 = Delivered\r\n3 = Completed\r\n4 = Cancelled',
   `is_delete` tinyint NOT NULL DEFAULT '0',
   `is_payment` tinyint NOT NULL DEFAULT '0',
   `payment_data` text,
@@ -236,9 +239,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '123', '456', 'test@gmail.com', 'payable_total', 'Opening11', '11', 1, '10', '44', 'cash', 0, 0, 0, NULL, '2024-03-23 08:22:28', '2024-03-23 08:22:28'),
-(2, NULL, 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', '1234', '12345098765432', 'test@gmail.com', 'Order notes (optional). Opening11', 'Opening11', '11', 1, '10', '124', 'cash', 0, 0, 0, NULL, '2024-03-23 08:35:54', '2024-03-23 08:35:54');
+INSERT INTO `orders` (`id`, `transaction_id`, `stripe_session_id`, `order_number`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
+(1, 'cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy', 'cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy', NULL, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test@test.com', 'testtesttesttesttesttesttesttesttesttest', '', '0', 2, '0', '160', 'stripe', 1, 0, 1, '{\"id\":\"cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":16000,\"amount_total\":16000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719237156,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"test@test.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"test@test.com\",\"expires_at\":1719323556,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVDKqE2FZcg7aAh1ZKGq1GN\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 13:52:52', '2024-06-24 19:44:04'),
+(2, 'cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG', 'cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG', NULL, NULL, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2', '', '0', 1, '10', '100', 'stripe', 0, 0, 1, '{\"id\":\"cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":10000,\"amount_total\":10000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719237570,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"test2@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"test2@gmail.com\",\"expires_at\":1719323970,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVDQzE2FZcg7aAh08CXzY4K\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 13:59:47', '2024-06-24 14:00:15'),
+(3, 'cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge', 'cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge', '1977232904', NULL, 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'testmailinv@gmail.com', 'test mail invtest mail invtest mail invtest mail inv', '', '0', 1, '10', '85', 'stripe', 2, 0, 1, '{\"id\":\"cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":8500,\"amount_total\":8500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719251837,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"testmailinv@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"testmailinv@gmail.com\",\"expires_at\":1719338237,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVH9XE2FZcg7aAh0dG48Ygc\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 17:57:32', '2024-06-24 19:27:53'),
+(4, 'cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX', 'cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX', '1766711916', NULL, 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststustest@gmail.com', 'ststus testststus testststus testststus test', '', '0', 2, '0', '10', 'stripe', 0, 0, 1, '{\"id\":\"cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":1000,\"amount_total\":1000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719257016,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"ststustest@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"ststustest@gmail.com\",\"expires_at\":1719343416,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVIUhE2FZcg7aAh0OrMJ3u6\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 19:23:53', '2024-06-24 19:24:26');
 
 -- --------------------------------------------------------
 
@@ -265,9 +270,10 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 1, '45', 'Brown', 'L', '0', '45', '2024-03-23 08:22:28', '2024-03-23 08:22:28'),
-(2, 2, 2, 1, '45', 'Brown', 'L', '0', '45', '2024-03-23 08:35:54', '2024-03-23 08:35:54'),
-(3, 2, 10, 1, '80', 'Red', 'm', '40', '80', '2024-03-23 08:35:54', '2024-03-23 08:35:54');
+(1, 1, 10, 2, '80', 'Red', 'm', '40', '80', '2024-06-24 13:52:52', '2024-06-24 13:52:52'),
+(2, 2, 2, 2, '45', 'Brown', 'M', '0', '45', '2024-06-24 13:59:47', '2024-06-24 13:59:47'),
+(3, 3, 1, 3, '25', NULL, NULL, '0', '25', '2024-06-24 17:57:32', '2024-06-24 17:57:32'),
+(4, 4, 5, 1, '10', 'Brown', NULL, '0', '10', '2024-06-24 19:23:53', '2024-06-24 19:23:53');
 
 -- --------------------------------------------------------
 
@@ -576,8 +582,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'slJvvR66p0LU6z1TcyXexKTjxxh6eoXHyte8OQyccZEI4okvewLbuNqRvHkj', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
-(2, 'User', 'user@gmail.com', '2024-03-17 22:32:52', '$2y$12$GEFpaCRTILFBxIZiDwziyOPif.A5hl/ozkzKvJyby7HnD4Q/IK6tG', '8Ky2E17jtwQ5TWoKa7jXHH2FfDadW1OdVm2QAwziJpN5ANCHaVML9bqCN9Ie', 0, 0, 0, '2024-03-17 22:18:08', '2024-03-18 01:50:05');
+(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'MgxLI8rGhxANdv0DRWFwPWd6sTNUpjisDU87G2ILfWj4l0FiO9NwpLcQNqTG', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
+(2, 'User', 'user@gmail.com', '2024-03-24 04:02:45', '$2y$12$qpWkTp8P3ubF6JkiuulzquFWPROGfJroJe9IQgTr2BrO2HXm0h1CO', 'In9eiXtU6gJNFe7WvykuXFMGOdWvMaEunrUsYCNA9pvSK58jsynfpgNpCmkF', 0, 0, 0, '2024-03-17 22:18:08', '2024-03-24 04:02:45'),
+(3, 'test1', 'test@test.com', NULL, '$2y$12$tH46Z2fApPJZwEbejQVgj.fihwGHgY46iNRq7D6eEyXRSIo4m18BW', NULL, 0, 0, 1, '2024-03-27 02:48:06', '2024-06-24 14:10:07');
 
 --
 -- Indexes for dumped tables
@@ -733,13 +740,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -787,7 +794,7 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
