@@ -93,4 +93,12 @@ class User extends Authenticatable
                                 ->count();
 
     }
+
+    static public function getTotalUserRegistrationsMonth($start_date, $end_date){
+        return self::select('id')->where('is_admin', '=', 0)
+                                ->where('is_delete', '=', 0)
+                                ->whereDate('created_at', '>=', $start_date)
+                                ->whereDate('created_at', '<=', $end_date)
+                                ->count();
+    }
 }
