@@ -149,21 +149,21 @@
 
                 <li class="nav-item">
                     <a href="{{ url('admin/admin/list') }}" class="nav-link @if(Request::segment(2) == 'admin') active @endif">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon far fa-user-circle"></i>
                         <p> Admin </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ url('admin/customer/list') }}" class="nav-link @if(Request::segment(2) == 'Customer') active @endif">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p> Customers </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ url('admin/orders/list') }}" class="nav-link @if(Request::segment(2) == 'orders') active @endif">
-                        <i class="nav-icon fas fa-list"></i>
+                        <i class="nav-icon fas fa-cart-arrow-down"></i>
                         <p> Orders </p>
                     </a>
                 </li>
@@ -184,7 +184,7 @@
 
                 <li class="nav-item">
                     <a href="{{ url('admin/brand/list') }}" class="nav-link @if(Request::segment(2) == 'brand') active @endif">
-                        <i class="nav-icon fas  fa-tag"></i>
+                        <i class="nav-icon fas fa-brands fa-wpexplorer"></i>
                         <p> Brand </p>
                     </a>
                 </li>
