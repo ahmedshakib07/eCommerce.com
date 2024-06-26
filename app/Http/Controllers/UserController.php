@@ -34,4 +34,11 @@ class UserController extends Controller
         $data['meta_keywords'] = '';
         return view('user.change_password', $data);
     }
+
+    public function track_my_order() {
+        $data['meta_title'] = 'Track My Order';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('user.track_my_order', $data);
+    }
 }
