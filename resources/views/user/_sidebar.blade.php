@@ -14,7 +14,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('') }}">Sign Out</a>
+            <a class="nav-link" href="{{ url('user/logout') }}">Log Out</a>
         </li>
     </ul>
 </aside>
