@@ -127,7 +127,6 @@ class OrderModel extends Model
                 ->where('user_id', '=', $user_id)
                 ->where('is_delete', '=', 0)
                 ->count();
-
     }
 
     static public function getTotalAmountUser($user_id){
@@ -136,7 +135,6 @@ class OrderModel extends Model
                 ->where('user_id', '=', $user_id)
                 ->where('is_delete', '=', 0)
                 ->sum('total_amount');
-
     }
 
     static public function getStatusUser($user_id, $status){
@@ -146,7 +144,24 @@ class OrderModel extends Model
                 ->where('status', '=', $status)
                 ->where('is_delete', '=', 0)
                 ->count();
+    }
 
+    static public function getOrderRecordUser($user_id){
+        return  OrderModel::select('orders.*')
+                ->where('is_payment', '=', 1)
+                ->where('user_id', '=', $user_id)
+                ->where('is_delete', '=', 0)
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+    }
+
+        static public function getSingleOrderUser($user_id, $id){
+        return  OrderModel::select('orders.*')
+                ->where('is_payment', '=', 1)
+                ->where('user_id', '=', $user_id)
+                ->where('id', '=', $id)
+                ->where('is_delete', '=', 0)
+                ->first();
     }
 
     // End User Part

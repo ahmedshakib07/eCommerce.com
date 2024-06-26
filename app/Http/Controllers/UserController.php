@@ -29,7 +29,22 @@ class UserController extends Controller
         $data['meta_title'] = 'Orders';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
+
+        $data['showOrders'] = OrderModel::getOrderRecordUser(Auth::user()->id);
         return view('user.orders', $data);
+    }
+
+    public function orders_detail($id) {
+        $data['showOrdersdetails'] = OrderModel::getSingleOrderUser(Auth::user()->id, $id);
+        if (!empty($data['showOrdersdetails'])) {
+            $data['meta_title'] = 'Orders Detail';
+            $data['meta_description'] = '';
+            $data['meta_keywords'] = '';
+        } else {
+            abort(404);
+        }
+        
+        return view('user.orders_detail', $data);
     }
 
     public function edit_profile() {

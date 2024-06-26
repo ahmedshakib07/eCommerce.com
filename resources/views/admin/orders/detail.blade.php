@@ -33,6 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-primary">
+
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>ID: <span style="font-weight: normal;"> {{ $getRecord->id }} </span> </label>
@@ -89,7 +90,19 @@
                                     <label>Note: <span style="font-weight: normal;"> {{ $getRecord->notes }} </span> </label>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status: </label>
+                                    <label>Status: 
+                                        @if($getRecord->status == 0)
+                                            Pending
+                                        @elseif($getRecord->status == 1)
+                                            Inprogress
+                                        @elseif($getRecord->status == 2)
+                                            Delivered
+                                        @elseif($getRecord->status == 3)
+                                            Completed
+                                        @elseif($getRecord->status == 4)
+                                            Cancelled
+                                        @endif
+                                    </label>
                                 </div>
                                 <div class="form-group">
                                     <label>Created Date: <span style="font-weight: normal;"> {{ date('d-m-Y h:i A', strtotime($getRecord->created_at)) }} </span> </label>
