@@ -111,4 +111,24 @@ class OrderModel extends Model
                                 ->sum('total_amount');
     }
 
+
+
+    // For User
+
+    static public function getTotalOrderUser($user_id){
+        return self::select('id')->where('is_payment', '=', 1)
+                                ->where('user_id', '=', $user_id)
+                                ->where('is_delete', '=', 0)
+                                ->count();
+
+    }
+
+    static public function getTotalAmountUser($user_id){
+        return self::select('id')->where('is_payment', '=', 1)
+                                ->where('user_id', '=', $user_id)
+                                ->where('is_delete', '=', 0)
+                                ->sum('total_amount');
+
+    }
+
 }

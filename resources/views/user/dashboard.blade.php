@@ -81,7 +81,7 @@
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="info">
-                                                <div class="number">0</div>
+                                                <div class="number">{{ $TotalOrder }}</div>
                                                 <div class="text">Total Orders</div>
                                             </div>
                                             <svg width="64px" width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -95,7 +95,7 @@
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="info">
-                                                <div class="number">0</div>
+                                                <div class="number">$ {{ number_format($TotalAmount, 2) }}</div>
                                                 <div class="text">Total Amount</div>
                                             </div>
                                             <svg width="64px" width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
