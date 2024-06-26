@@ -16,6 +16,12 @@ class UserController extends Controller
         $data['TotalOrder'] = OrderModel::getTotalOrderUser(Auth::user()->id);
         $data['TotalAmount'] = OrderModel::getTotalAmountUser(Auth::user()->id);
 
+        $data['UserPendingOrders'] = OrderModel::getStatusUser(Auth::user()->id, 0);
+        $data['UserOrdersInProgress'] = OrderModel::getStatusUser(Auth::user()->id, 1);
+        $data['UserCompletedOrders'] = OrderModel::getStatusUser(Auth::user()->id, 2);
+        // $data['UserTotalAmount'] = OrderModel::getStatusUser(Auth::user()->id, 3);
+        $data['UserCancelledOrders'] = OrderModel::getStatusUser(Auth::user()->id, 4);
+
         return view('user.dashboard', $data);
     }
 

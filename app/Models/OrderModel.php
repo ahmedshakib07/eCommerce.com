@@ -57,32 +57,36 @@ class OrderModel extends Model
     }
 
     static public function getTotalOrder(){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->count();
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->count();
 
     }
 
     static public function getNewOrder(){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->whereDate('created_at', '=', date('Y-m-d'))
-                                ->count();
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->whereDate('created_at', '=', date('Y-m-d'))
+                ->count();
 
     }
 
     static public function getTotalAmount(){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->sum('total_amount');
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->sum('total_amount');
 
     }
 
     static public function getTodayPayment(){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->whereDate('created_at', '=', date('Y-m-d'))
-                                ->sum('total_amount');
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->whereDate('created_at', '=', date('Y-m-d'))
+                ->sum('total_amount');
 
     }
 
@@ -96,39 +100,55 @@ class OrderModel extends Model
     }
 
     static public function getTotalOrderMonth($start_date, $end_date){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->whereDate('created_at', '>=', $start_date)
-                                ->whereDate('created_at', '<=', $end_date)
-                                ->count();
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->whereDate('created_at', '>=', $start_date)
+                ->whereDate('created_at', '<=', $end_date)
+                ->count();
     }
 
     static public function getTotalAmountMonth($start_date, $end_date){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('is_delete', '=', 0)
-                                ->whereDate('created_at', '>=', $start_date)
-                                ->whereDate('created_at', '<=', $end_date)
-                                ->sum('total_amount');
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->whereDate('created_at', '>=', $start_date)
+                ->whereDate('created_at', '<=', $end_date)
+                ->sum('total_amount');
     }
 
 
 
-    // For User
+    // For User Part
 
     static public function getTotalOrderUser($user_id){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('user_id', '=', $user_id)
-                                ->where('is_delete', '=', 0)
-                                ->count();
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('user_id', '=', $user_id)
+                ->where('is_delete', '=', 0)
+                ->count();
 
     }
 
     static public function getTotalAmountUser($user_id){
-        return self::select('id')->where('is_payment', '=', 1)
-                                ->where('user_id', '=', $user_id)
-                                ->where('is_delete', '=', 0)
-                                ->sum('total_amount');
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('user_id', '=', $user_id)
+                ->where('is_delete', '=', 0)
+                ->sum('total_amount');
 
     }
+
+    static public function getStatusUser($user_id, $status){
+        return self::select('id')
+                ->where('is_payment', '=', 1)
+                ->where('user_id', '=', $user_id)
+                ->where('status', '=', $status)
+                ->where('is_delete', '=', 0)
+                ->count();
+
+    }
+
+    // End User Part
 
 }
