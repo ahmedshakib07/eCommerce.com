@@ -130,7 +130,9 @@ Route::group(['middleware' => 'user'], function (){
     Route::post('user/edit-profile', [UserController::class, 'update_profile']);
 
     Route::get('user/track-my-order', [UserController::class, 'track_my_order']);
+
     Route::get('user/change-password', [UserController::class, 'change_password']);
+    Route::post('user/change-password', [UserController::class, 'update_password']);
 
 });
 
