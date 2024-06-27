@@ -103,14 +103,10 @@
                                 </div>
 
                                 <div class="product-details-action">
-                                    @if(!empty(Auth::check()))
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                        <!-- <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button> -->
-                                    @else
-                                        <a href="#signin-modal" data-toggle="modal" class="btn-product btn-cart"><span>add to cart</span></a>
-                                        <!-- <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button> -->
-                                    @endif
-
+                                    
+                                    <!-- <a href="#" class="btn-product btn-cart"><span>add to cart</span></a> -->
+                                    <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button>
+                                    
                                     <div class="details-action-wrapper">
                                         @if(!empty(Auth::check()))
                                             <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
@@ -287,9 +283,9 @@
 
                             <div class="product-action-vertical">
                                 @if(!empty(Auth::check()))
-                                    <a class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                    <a class="btn-product-icon btn-wishlist btn-expandable"><span>Add to wishlist</span></a>
                                 @else
-                                    <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                    <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable"><span>Add to wishlist</span></a>
                                 @endif
                             </div>
                         </figure>
