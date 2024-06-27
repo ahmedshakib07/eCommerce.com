@@ -25,6 +25,13 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     @yield('style')
+
+    <style>
+        .btn-wishlist-add::before {
+            content: '\f233' !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -217,6 +224,29 @@
                 }
             });
         });
+
+        
+        $('body').delegate('.addToWishlist', 'click', function(e){
+            var product_id = $(this).attr('id');
+
+            $.ajax({
+                type: "POST",
+                url: "{{ url('add_to_wishlist') }}",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    product_id: product_id,
+                },
+                dataType: "json",
+                success: function(data) {
+                    if (data.is_wishlist) {
+                        $('.addToWishlist'+product_id).removeClass('btn-wishlist-add');
+                    } else {
+                        $('.addToWishlist'+product_id).addClass('btn-wishlist-add');
+                    }
+                }
+            });
+        });
+
     </script>
 </body>
 

@@ -109,7 +109,7 @@
                                     
                                     <div class="details-action-wrapper">
                                         @if(!empty(Auth::check()))
-                                            <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                            <a href="javascript:;" id="{{ $getProduct->id }}" class="addToWishlist addToWishlist{{ $getProduct->id }} {{ !empty($getProduct->checkWishlist($getProduct->id)) ? 'btn-wishlist-add' : '' }} btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                                             <!-- <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a> -->
                                         @else
                                             <a href="#signin-modal" data-toggle="modal" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
@@ -283,9 +283,11 @@
 
                             <div class="product-action-vertical">
                                 @if(!empty(Auth::check()))
-                                    <a class="btn-product-icon btn-wishlist btn-expandable"><span>Add to wishlist</span></a>
+                                    <!-- <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a> -->
+
+                                    <a href="javascript:;" data-toggle="modal" id="{{ $value->id }}" class="addToWishlist addToWishlist{{ $value->id }} btn-product-icon btn-wishlist btn-expandable {{ !empty($value->checkWishlist($value->id)) ? 'btn-wishlist-add' : '' }}" title="Wishlist"><span>add to wishlist</span></a>
                                 @else
-                                    <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable"><span>Add to wishlist</span></a>
+                                    <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable" title="Wishlist"><span>add to wishlist</span></a>
                                 @endif
                             </div>
                         </figure>

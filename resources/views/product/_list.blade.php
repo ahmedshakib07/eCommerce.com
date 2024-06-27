@@ -16,7 +16,11 @@
                         </a>
 
                         <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                            @if(!empty(Auth::check()))
+                                <a href="javascript:;" data-toggle="modal" id="{{ $value->id }}" class="addToWishlist addToWishlist{{ $value->id }} btn-product-icon btn-wishlist btn-expandable {{ !empty($value->checkWishlist($value->id)) ? 'btn-wishlist-add' : '' }}" title="Wishlist"><span>add to wishlist</span></a>
+                            @else
+                                <a href="#signin-modal" data-toggle="modal" class="btn-product-icon btn-wishlist btn-expandable" title="Wishlist"><span>add to wishlist</span></a>
+                            @endif
                             <!-- <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
                             <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a> -->
                         </div>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Request;
+use Auth;
 
 class ProductModel extends Model
 {
@@ -146,5 +147,9 @@ class ProductModel extends Model
                                 ->where('is_delete', '=', 0)
                                 ->count();
 
+    }
+
+    static public function checkWishlist($product_id){
+        return ProductWishlistModel::checkProduct($product_id, Auth::user()->id);
     }
 }

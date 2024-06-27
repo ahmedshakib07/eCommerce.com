@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\OrderModel;
 use App\Models\User;
+use App\Models\ProductWishlistModel;
 use Auth;
 use Hash;
 
@@ -86,7 +87,7 @@ class UserController extends Controller
         return view('user.change_password', $data);
     }
 
-    public function update_password(Request $request){
+    public function update_password(Request $request) {
         $user = User::getSingle(Auth::user()->id);
 
         if (Hash::check($request->OldPassword, $user->password)) {
@@ -110,5 +111,26 @@ class UserController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
         return view('user.track_my_order', $data);
+    }
+
+    public function add_to_wishlist(Request $request) {
+        $check = ProductWishlistModel::checkProduct($request->product_id, Auth::user()->id);
+        if(empty($check)){
+            $save = new ProductWishListModel;
+            $save->product_id = $request->product_id;
+            $save->user_id = Auth::user()->id;
+            $save->save();
+
+            $json['is_wishlist'] = 1;
+        }
+        else {
+            ProductWishlistModel::DeleteRecord($request->product_id, Auth::user()->id);
+
+            $json['is_wishlist'] = 0;
+        }
+
+        $json['status'] = true;
+        echo json_encode($json);
+
     }
 }
