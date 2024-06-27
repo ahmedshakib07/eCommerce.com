@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\OrderModel;
+use App\Models\User;
 use Auth;
 
 class UserController extends Controller
@@ -51,7 +52,30 @@ class UserController extends Controller
         $data['meta_title'] = 'Edit Profile';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
+
+        $data['getUser'] = User::getSingle(Auth::user()->id);
+
         return view('user.edit_profile', $data);
+    }
+
+    public function update_profile(Request $request) {
+        $user = User::getSingle(Auth::user()->id);
+
+        $user->name = trim($request->Name);
+        $user->lastName = trim($request->lastName);
+        $user->companyName = trim($request->companyName);
+        $user->country = trim($request->country);
+        $user->address_one = trim($request->address_one);
+        $user->address_two = trim($request->address_two);
+        $user->city = trim($request->city);
+        $user->state = trim($request->state);
+        $user->postcode = trim($request->postcode);
+        $user->phone = trim($request->phone);
+        $user->email = trim($request->email);
+
+        $user->save();
+
+        return redirect()->back()->with('success', "Profile successfully Updated");
     }
 
     public function change_password() {

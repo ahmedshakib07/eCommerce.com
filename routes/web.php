@@ -122,9 +122,13 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'user'], function (){
 
     Route::get('user/dashboard', [UserController::class, 'dashboard']);
+
     Route::get('user/orders', [UserController::class, 'orders']);
     Route::get('user/orders/detail/{id}', [UserController::class, 'orders_detail']);
+
     Route::get('user/edit-profile', [UserController::class, 'edit_profile']);
+    Route::post('user/edit-profile', [UserController::class, 'update_profile']);
+
     Route::get('user/track-my-order', [UserController::class, 'track_my_order']);
     Route::get('user/change-password', [UserController::class, 'change_password']);
 
