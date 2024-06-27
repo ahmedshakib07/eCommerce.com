@@ -7,7 +7,7 @@
             <a class="nav-link @if(Request::segment(2) == 'edit-profile') active @endif " href="{{ url('user/edit-profile') }}">Edit Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if(Request::segment(2) == 'orders') active @endif " href="{{ url('user/orders') }}">Orders</a>
+            <a class="nav-link @if(Request::segment(2) == 'orders') active @endif " href="{{ url('user/orders') }}">Order Details</a>
         </li>
         <li class="nav-item">
             <a class="nav-link @if(Request::segment(2) == 'track-my-order') active @endif " href="{{ url('user/track-my-order') }}">Track My Order</a>
