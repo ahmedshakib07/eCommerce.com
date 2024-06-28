@@ -144,5 +144,11 @@ class ProductController extends Controller
         return view('product.list', $data);
     }
 
+    public function wishlist() {
+        $data['meta_title'] = 'My Wishlist';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
 
+        return view('product.wishlist', $data);
+    }
 }
