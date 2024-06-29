@@ -8,6 +8,7 @@ use App\Models\SubCategoryModel;
 use App\Models\ProductModel;
 use App\Models\ColorModel;
 use App\Models\BrandModel;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -148,6 +149,8 @@ class ProductController extends Controller
         $data['meta_title'] = 'My Wishlist';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
+
+        $data['getProduct'] = ProductModel::getWishlist(Auth::user()->id);
 
         return view('product.wishlist', $data);
     }
