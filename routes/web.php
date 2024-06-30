@@ -137,6 +137,8 @@ Route::group(['middleware' => 'user'], function (){
     Route::post('add_to_wishlist', [UserController::class, 'add_to_wishlist']);
     Route::get('wishlist', [ProductFront::class, 'wishlist']);
 
+    Route::post('user/make-review', [UserController::class, 'make_review']);
+
 });
 
 Route::post('auth_register', [AuthController::class, 'auth_register']);

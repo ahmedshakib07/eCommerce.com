@@ -37,7 +37,7 @@
                             </li>
                             @if(!empty(Auth::check()))
                                 <li>
-                                    <a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>My Wishlist<span>(3)</span></a>
+                                    <a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>My Wishlist</a>
                                 </li>
                             @else
                                 <li>

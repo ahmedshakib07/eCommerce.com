@@ -133,12 +133,37 @@
                                                     <td> 
                                                         <img style="width: 100px;height: 100px;" src="{{ $getProductImage->getLogo() }}" alt=""> 
                                                     </td>
-                                                    <td>
+                                                    <td style="max-width: 250px">
                                                         <a href="{{ url($item->getProduct->slug) }}" target="_blank">{{ $item->getProduct->title }}</a>
                                                         <br>
-                                                        Size: {{ $item->size_name }}
+
+                                                        @if(!empty($item->size_name))
+                                                        <b>Size:</b> {{ $item->size_name }}
+                                                        @endif
                                                         <br>
-                                                        Color: {{ $item->color_name }}
+
+                                                        @if(!empty($item->color_name))
+                                                        <b>Color:</b> {{ $item->color_name }}
+                                                        @endif
+                                                        <br>
+
+                                                        @if($showOrdersdetails->status == 3)
+                                                            @php
+                                                                $getReview = $item->getReview($item->getProduct->id, $item->id);
+                                                            @endphp
+
+                                                            @if(!empty($getReview))
+                                                                <b>Rating:</b> {{ $getReview->rating }} <br>
+                                                                <b>Review:</b> {{ $getReview->review }}
+
+                                                            @else
+                                                                <button class="btn btn-primary makeReview" id="{{ $item->getProduct->id }}" data-order="{{ $item->id }}">Make Review</button>
+                                                            @endif
+
+                                                            @php
+                                                                $getReview = $item->getReview($item->getProduct->id, $item->id);
+                                                            @endphp
+                                                        @endif
                                                     </td>
                                                     <td>{{ $item->quantity }}</td>
                                                     <td>{{ $item->price }}</td>
@@ -160,8 +185,60 @@
     </div>
 </main>
 
+<!-- Modal -->
+<div class="modal fade" id="makeReviewModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Make Review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ url('user/make-review') }}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="product_id" id="getProductId" require>
+                <input type="hidden" name="order_id" id="getOrderId" require>
+                <div class="modal-body" style="padding: 20px">
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label for="">How many rating? *</label>
+                        <select name="rating" id="" class="form-control" require>
+                            <option value="">select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Review *</label>
+                        <textarea name="review" id="" class="form-control" require></textarea>
+                    </div>
+                </div>
+            
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 @endsection
 @section('script')
+<script>
+    $('body').delegate('.makeReview', 'click', function() {
+        var product_id = $(this).attr('id');
+        var order_id = $(this).attr('data-order');
 
+        $('#getProductId').val(product_id);
+        $('#getOrderId').val(order_id);
+
+        $('#makeReviewModalCenter').modal('show');
+    });
+</script>
 @endsection
