@@ -104,8 +104,11 @@
 
                                 <div class="product-details-action">
                                     
-                                    <!-- <a href="#" class="btn-product btn-cart"><span>add to cart</span></a> -->
-                                    <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button>
+                                    @if(!empty(Auth::check()))
+                                        <button class="btn btn-cart icon-cart" type="submit">Add to Cart</button>
+                                    @else
+                                        <a href="#signin-modal" data-toggle="modal" class="btn-product btn-cart"><span>Add to cart</span></a>
+                                    @endif
                                     
                                     <div class="details-action-wrapper">
                                         @if(!empty(Auth::check()))
