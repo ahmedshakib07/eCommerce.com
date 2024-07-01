@@ -18,13 +18,71 @@ class HomeController extends Controller
         $data['meta_title'] = 'About us';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
-        return view('about', $data);
+
+        return view('page.about', $data);
     }
 
     public function contact() {
         $data['meta_title'] = 'Contact us';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
-        return view('contact', $data);
+
+        return view('page.contact', $data);
+    }
+
+    public function faq() {
+        $data['meta_title'] = 'FAQ';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.faq', $data);
+    }
+
+    public function payment_method() {
+        $data['meta_title'] = 'Payment Method';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.payment_method', $data);
+    }
+
+    public function money_back_guarantee() {
+        $data['meta_title'] = 'money_back_guarantee';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.money_back_guarantee', $data);
+    }
+
+    public function returns() {
+        $data['meta_title'] = 'returns';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.returns', $data);
+    }
+
+    public function shipping() {
+        $data['meta_title'] = 'shipping';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.shipping', $data);
+    }
+
+    public function terms_condition() {
+        $data['meta_title'] = 'terms_condition';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.terms_condition', $data);
+    }
+
+    public function privacy_policy() {
+        $data['meta_title'] = 'privacy_policy';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+
+        return view('page.privacy_policy', $data);
     }
 }

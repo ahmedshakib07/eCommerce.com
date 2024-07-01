@@ -118,7 +118,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/shipping_charge/delete/{id}', [ShippingChargeController::class, 'delete']);
 });
 
-
 Route::group(['middleware' => 'user'], function (){
 
     Route::get('user/dashboard', [UserController::class, 'dashboard']);
@@ -153,8 +152,15 @@ Route::post('reset/{token}', [AuthController::class, 'auth_reset']);
 Route::get('activate/{id}', [AuthController::class, 'activate_email']);
 
 Route::get('/', [HomeController::class, 'home']);
-Route::get('/about', [HomeController::class, 'about']);
-Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('about', [HomeController::class, 'about']);
+Route::get('contact', [HomeController::class, 'contact']);
+Route::get('faq', [HomeController::class, 'faq']);
+Route::get('payment-method', [HomeController::class, 'payment_method']);
+Route::get('money-back-guarantee', [HomeController::class, 'money_back_guarantee']);
+Route::get('returns', [HomeController::class, 'returns']);
+Route::get('shipping', [HomeController::class, 'shipping']);
+Route::get('terms-condition', [HomeController::class, 'terms_condition']);
+Route::get('privacy-policy', [HomeController::class, 'privacy_policy']);
 
 Route::get('cart', [PaymentController::class, 'cart']);
 Route::post('updateCart', [PaymentController::class, 'updateCart']);

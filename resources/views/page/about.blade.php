@@ -34,7 +34,7 @@
             <div class="mb-5"></div>
         </div>
 
-        <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+        <!-- <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 mb-3 mb-lg-0">
@@ -56,9 +56,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="brands-text">
@@ -201,11 +201,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="mb-2"></div>
+        <!-- <div class="mb-2"></div> -->
 
-        <div class="about-testimonials bg-light-2 pt-6 pb-6">
+        <!-- <div class="about-testimonials bg-light-2 pt-6 pb-6">
             <div class="container">
                 <h2 class="title text-center mb-3">What Customer Say About Us</h2>
 
@@ -241,7 +241,7 @@
                     </blockquote>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </main>
 
