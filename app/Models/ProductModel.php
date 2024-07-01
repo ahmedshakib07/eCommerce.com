@@ -174,4 +174,26 @@ class ProductModel extends Model
                     ->join('users', 'users.id', 'product_review.user_id')
                     ->count();
     }
+
+    static public function getReviewRating($product_id){
+        $avg = ProductReviewModel::getReviewRatingAvg($product_id);
+        if($avg >= 1 && $avg <= 1){
+            return 20;
+        }
+        elseif($avg >= 1 && $avg <= 2){
+            return 40;
+        }
+        elseif($avg >= 1 && $avg <= 3){
+            return 60;
+        }
+        elseif($avg >= 1 && $avg <= 4){
+            return 80;
+        }
+        elseif($avg >= 1 && $avg <= 5){
+            return 100;
+        }
+        else {
+            return 0;
+        }
+    }
 }

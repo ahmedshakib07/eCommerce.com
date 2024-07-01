@@ -22,6 +22,7 @@ class ProductReviewModel extends Model
                 ->where('user_id', '=', $user_id)
                 ->first();
     }
+
     static public function getReviewProduct($product_id) {
         return self::select('product_review.*', 'users.name')
                 ->join('users', 'users.id', 'product_review.user_id')
@@ -51,5 +52,12 @@ class ProductReviewModel extends Model
             return 0;
         }
         
+    }
+
+    static public function getReviewRatingAvg($product_id) {
+        return self::select('product_review.rating')
+                ->join('users', 'users.id', 'product_review.user_id')
+                ->where('product_review.product_id', '=', $product_id)
+                ->avg('product_review.rating');
     }
 }

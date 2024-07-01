@@ -51,7 +51,7 @@
 
                             <div class="ratings-container">
                                 <div class="ratings">
-                                    <div class="ratings-val" style="width: 70%;"></div>
+                                    <div class="ratings-val" style="width: {{ $getProduct->getReviewRating($getProduct->id) }}%;"></div>
                                 </div>
                                 <a class="ratings-text" href="#product-review-link" id="review-link">( {{ $getProduct->getTotalReview() }} Reviews )</a>
                             </div>
