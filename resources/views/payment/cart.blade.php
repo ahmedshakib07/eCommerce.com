@@ -113,7 +113,7 @@
                                         </tr>
 
                                         <tr class="summary-shipping-estimate">
-                                            <th>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></th>
+                                            <th>Estimate for Your Country<br> <a href="{{ url('user/edit-profile') }}">Change address</a></th>
                                             <td>&nbsp;</td>
                                         </tr>
 

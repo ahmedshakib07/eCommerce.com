@@ -45,12 +45,12 @@
             <td style="padding: 8px; border-bottom: 1px solid #ddd;">
                 {{ $item->getProduct->title }} 
                 <br>
-                @if(!empty($item->color_name) || (!empty($item->size_name)))
-                    Color: {{ $item->color_name }}
-                    br>
-                    Size: {{ $item->size_name }}
-                    br>
-                    Size Amount: ${{ number_format($item->size_amount, 2) }}
+                @if(!empty($item->color_name) || (!empty($item->size_name) || $item->size_amount))
+                    <b>Color:</b> {{ $item->color_name }}
+                    <br>
+                    <b>Size:</b> {{ $item->size_name }}
+                    <br>
+                    <b>Size Amount:</b> ${{ number_format($item->size_amount, 2) }}
                 @endif
             </td>
             <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{ $item->quantity }}</td>

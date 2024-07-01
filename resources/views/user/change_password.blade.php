@@ -52,15 +52,17 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg'); padding: 1.6rem 0 2rem;">
         <div class="container">
-            <h3 class="page-title">My Account</h3><span>Shop</span>
+            <h3 class="page-title">My Account</h3>
+            <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / </span>
+            <span>Change Password</span>
         </div>
     </div>
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                <li class="breadcrumb-item"><a href="#">My Account</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Change Password</li>
             </ol>
         </div>
     </nav>

@@ -52,7 +52,9 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url(' {{ url('') }}/assets/images/page-header-bg.jpg'); padding: 1.6rem 0 2rem;">
         <div class="container">
-            <h3 class="page-title">My Account</h3><span>Edit Profile</span>
+            <h3 class="page-title">My Account</h3>
+            <a href="{{ url('') }}"><i class="icon-home"></i></a><span> / </span>
+            <span>Edit Profile</span>
         </div>
     </div>
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">

@@ -31,9 +31,9 @@
                 <br>
                 @if(!empty($item->color_name) || (!empty($item->size_name)))
                     Color: {{ $item->color_name }}
-                    br>
+                    <br>
                     Size: {{ $item->size_name }}
-                    br>
+                    <br>
                     Size Amount: ${{ number_format($item->size_amount, 2) }}
                 @endif
             </td>
