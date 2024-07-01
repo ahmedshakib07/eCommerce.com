@@ -168,4 +168,10 @@ class ProductModel extends Model
 
         return $return;
     }
+
+    public function getTotalReview(){
+        return $this->hasMany(ProductReviewModel::class, 'product_id')
+                    ->join('users', 'users.id', 'product_review.user_id')
+                    ->count();
+    }
 }

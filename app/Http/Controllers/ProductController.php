@@ -8,6 +8,7 @@ use App\Models\SubCategoryModel;
 use App\Models\ProductModel;
 use App\Models\ColorModel;
 use App\Models\BrandModel;
+use App\Models\ProductReviewModel;
 use Auth;
 
 class ProductController extends Controller
@@ -28,7 +29,9 @@ class ProductController extends Controller
 
             $data['getProduct'] = $getProductSingle;
             $data['getRelatedProduct'] = ProductModel::getRelatedProduct($getProductSingle->id, $getProductSingle->sub_category_id);
-            
+            // For Review Stars
+            $data['getReviewProduct'] = ProductReviewModel::getReviewProduct($getProductSingle->id);
+
             return view('product.detail', $data);
         }
         else if(!empty($getCategory) && (!empty($getSubCategory))){

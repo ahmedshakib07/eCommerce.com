@@ -51,9 +51,9 @@
 
                             <div class="ratings-container">
                                 <div class="ratings">
-                                    <div class="ratings-val" style="width: 80%;"></div>
+                                    <div class="ratings-val" style="width: 70%;"></div>
                                 </div>
-                                <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
+                                <a class="ratings-text" href="#product-review-link" id="review-link">( {{ $getProduct->getTotalReview() }} Reviews )</a>
                             </div>
 
                             <div class="product-price">
@@ -155,7 +155,7 @@
                         <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                        <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews ({{ $getProduct->getTotalReview() }})</a>
                     </li>
                 </ul>
             </div>
@@ -185,57 +185,41 @@
                 <div class="tab-pane fade" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
                     <div class="reviews">
                         <div class="container">
-                            <h3>Reviews (2)</h3>
-                            <div class="review">
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <h4><a href="#">Samanta J.</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings">
-                                                <div class="ratings-val" style="width: 80%;"></div>
+                            <h3>Reviews ({{ $getProduct->getTotalReview() }})</h3>
+
+                            @foreach($getReviewProduct as $review)
+                                <div class="review">
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <h4><a href="#">{{ $review->name }}</a></h4>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                    <div class="ratings-val" style="width: {{ $review->getPercentage() }}%;"></div>
+                                                </div>
                                             </div>
+                                            <span class="review-date">
+                                                <!-- 6 days ago -->
+                                                {{ Carbon\Carbon::parse($review->created_at)->diffForHumans() }}
+                                            </span>
                                         </div>
-                                        <span class="review-date">6 days ago</span>
-                                    </div>
-                                    <div class="col">
-                                        <h4>Good, perfect size</h4>
+                                        <div class="col">
+                                            <h4>{{ $review->review }}</h4>
 
-                                        <div class="review-content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum dolores assumenda asperiores facilis porro reprehenderit animi culpa atque blanditiis commodi perspiciatis doloremque, possimus, explicabo, autem fugit beatae quae voluptas!</p>
-                                        </div>
+                                            <div class="review-content">
+                                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum dolores assumenda asperiores facilis porro reprehenderit animi culpa atque blanditiis commodi perspiciatis doloremque, possimus, explicabo, autem fugit beatae quae voluptas!</p> -->
+                                            </div>
 
-                                        <div class="review-action">
-                                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                                            <div class="review-action">
+                                                <!-- <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
+                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <div class="review">
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <h4><a href="#">John Doe</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings">
-                                                <div class="ratings-val" style="width: 100%;"></div>
-                                            </div>
-                                        </div>
-                                        <span class="review-date">5 days ago</span>
-                                    </div>
-                                    <div class="col">
-                                        <h4>Very good</h4>
-
-                                        <div class="review-content">
-                                            <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum blanditiis laudantium iste amet. Cum non voluptate eos enim, ab cumque nam, modi, quas iure illum repellendus, blanditiis perspiciatis beatae!</p>
-                                        </div>
-
-                                        <div class="review-action">
-                                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div style="padding: 10px; float: right;">
+                                {!! $getReviewProduct->appends (Illuminate\Support\Facades\Request::except('page'))->links() !!}
                             </div>
                         </div>
                     </div>
