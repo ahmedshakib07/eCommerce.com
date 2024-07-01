@@ -231,14 +231,14 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ url('add_to_wishlist') }}",
+                url: "{{ url('add-to-wishlist') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
                     product_id: product_id,
                 },
                 dataType: "json",
                 success: function(data) {
-                    if (data.is_wishlist) {
+                    if (data.is_wishlist == 0) {
                         $('.addToWishlist'+product_id).removeClass('btn-wishlist-add');
                     } else {
                         $('.addToWishlist'+product_id).addClass('btn-wishlist-add');
