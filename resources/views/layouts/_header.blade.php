@@ -125,10 +125,14 @@
                 </div>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="{{ url('cart') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
-                        <i class="icon-shopping-cart"></i>
-                        <span class="cart-count">{{ Cart::getContent()->count() }}</span>
-                    </a>
+                    @if(!empty(Auth::check()))
+                        <a href="{{ url('cart') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <i class="icon-shopping-cart"></i>
+                            <span class="cart-count">{{ Cart::getContent()->count() }}</span>
+                        </a>
+                    @else
+                        <a href="#signin-modal" data-toggle="modal" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static"><i class="icon-shopping-cart"></i></a>
+                    @endif
 
                     @if(!empty(Cart::getContent()->count()))
                         <div class="dropdown-menu dropdown-menu-right">
