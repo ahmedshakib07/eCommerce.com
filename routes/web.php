@@ -33,11 +33,17 @@ use App\Http\Controllers\PaymentController;
 //     return view('welcome');
 // });
 
-
+// ----- Admin -----
 Route::get('admin', [AuthController::class, 'login_admin']);
 Route::post('admin', [AuthController::class, 'auth_login_admin']);
 Route::get('admin/logout', [AuthController::class, 'logout_admin']);
 
+// ----- User -----
+Route::post('auth_register', [AuthController::class, 'auth_register']);
+Route::post('auth_login', [AuthController::class, 'auth_login']);
+Route::get('user/logout', [AuthController::class, 'logout_user']);
+
+// ----- Admin -----
 Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
@@ -118,6 +124,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/shipping_charge/delete/{id}', [ShippingChargeController::class, 'delete']);
 });
 
+// ----- User -----
 Route::group(['middleware' => 'user'], function (){
 
     Route::get('user/dashboard', [UserController::class, 'dashboard']);
@@ -140,10 +147,7 @@ Route::group(['middleware' => 'user'], function (){
 
 });
 
-Route::post('auth_register', [AuthController::class, 'auth_register']);
-Route::post('auth_login', [AuthController::class, 'auth_login']);
-Route::get('user/logout', [AuthController::class, 'logout_user']);
-
+// ----- Password -----
 Route::get('forget-password', [AuthController::class, 'forget_password']);
 Route::post('forget-password', [AuthController::class, 'auth_forget_password']);
 Route::get('reset/{token}', [AuthController::class, 'reset']);
@@ -162,11 +166,13 @@ Route::get('shipping', [HomeController::class, 'shipping']);
 Route::get('terms-condition', [HomeController::class, 'terms_condition']);
 Route::get('privacy-policy', [HomeController::class, 'privacy_policy']);
 
+// ----- Cart -----
 Route::get('cart', [PaymentController::class, 'cart']);
 Route::post('updateCart', [PaymentController::class, 'updateCart']);
 Route::get('cart/delete/{id}', [PaymentController::class, 'cartDelete']);
 Route::post('product/add-to-cart', [PaymentController::class, 'addToCart']);
 
+// ----- Checkout -----
 Route::get('checkout', [PaymentController::class, 'checkout']);
 Route::post('checkout/apply_coupon_code', [PaymentController::class, 'applyCouponCode']);
 Route::post('checkout/place_order', [PaymentController::class, 'placeOrder']);
@@ -174,6 +180,7 @@ Route::get('checkout/payment', [PaymentController::class, 'checkout_payment']);
 Route::get('paypal/success-payment', [PaymentController::class, 'paypal_success_payment']);
 Route::get('stripe/payment_success', [PaymentController::class, 'stripe_success_payment']);
 
+// ----- Search -----
 Route::get('search', [ProductFront::class, 'getProductSearch']);
 Route::post('get_filter_product_ajax', [ProductFront::class, 'getFilterProductAjax']);
 Route::get('{category?}/{subcategory?}', [ProductFront::class, 'getCategory']);
