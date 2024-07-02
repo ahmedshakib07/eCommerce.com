@@ -163,7 +163,7 @@ Route::get('payment-method', [HomeController::class, 'payment_method']);
 Route::get('money-back-guarantee', [HomeController::class, 'money_back_guarantee']);
 Route::get('returns', [HomeController::class, 'returns']);
 Route::get('shipping', [HomeController::class, 'shipping']);
-Route::get('terms-condition', [HomeController::class, 'terms_condition']);
+Route::get('terms-conditions', [HomeController::class, 'terms_conditions']);
 Route::get('privacy-policy', [HomeController::class, 'privacy_policy']);
 
 // ----- Cart -----

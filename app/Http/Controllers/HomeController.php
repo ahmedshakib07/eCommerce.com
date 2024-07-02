@@ -70,16 +70,16 @@ class HomeController extends Controller
         return view('page.shipping', $data);
     }
 
-    public function terms_condition() {
-        $data['meta_title'] = 'terms_condition';
+    public function terms_conditions() {
+        $data['meta_title'] = 'Terms Conditions';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.terms_condition', $data);
+        return view('page.terms_conditions', $data);
     }
 
     public function privacy_policy() {
-        $data['meta_title'] = 'privacy_policy';
+        $data['meta_title'] = 'Privacy Policy';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 

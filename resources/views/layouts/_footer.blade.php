@@ -40,7 +40,7 @@
                             <li><a href="{{ url('money-back-guarantee') }}">Money-back guarantee!</a></li>
                             <li><a href="{{ url('returns') }}">Returns</a></li>
                             <li><a href="{{ url('shipping') }}">Shipping</a></li>
-                            <li><a href="{{ url('terms-conditios') }}">Terms and conditions</a></li>
+                            <li><a href="{{ url('terms-conditions') }}">Terms and conditions</a></li>
                             <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
                         </ul>
                     </div>
