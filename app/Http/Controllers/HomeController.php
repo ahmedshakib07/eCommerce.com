@@ -19,7 +19,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.about', $data);
+        return view('pages.about', $data);
     }
 
     public function contact() {
@@ -27,7 +27,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.contact', $data);
+        return view('pages.contact', $data);
     }
 
     public function faq() {
@@ -35,7 +35,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.faq', $data);
+        return view('pages.faq', $data);
     }
 
     public function payment_method() {
@@ -43,7 +43,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.payment_method', $data);
+        return view('pages.payment_method', $data);
     }
 
     public function money_back_guarantee() {
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.money_back_guarantee', $data);
+        return view('pages.money_back_guarantee', $data);
     }
 
     public function returns() {
@@ -59,7 +59,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.returns', $data);
+        return view('pages.returns', $data);
     }
 
     public function shipping() {
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.shipping', $data);
+        return view('pages.shipping', $data);
     }
 
     public function terms_conditions() {
@@ -75,7 +75,7 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.terms_conditions', $data);
+        return view('pages.terms_conditions', $data);
     }
 
     public function privacy_policy() {
@@ -83,6 +83,6 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
 
-        return view('page.privacy_policy', $data);
+        return view('pages.privacy_policy', $data);
     }
 }

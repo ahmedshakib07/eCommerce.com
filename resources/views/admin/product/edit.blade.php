@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('style')
-<link rel="stylesheet" href="{{ url('public/assets/plugins/summernote/summernote-bs4.min.css') }}">
+
 @endsection
 @section('content')
 
@@ -286,15 +286,8 @@
 
     <!-- <script src="{{ url('public/tinymce/tinymce-jquery.min.js') }}"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@1/dist/tinymce-jquery.min.js"></script> -->
-  
-
-    <script src="{{ url('public/assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
 
     <script type="text/javascript">
-
-        $('.editor').summernote({
-            height: 100
-        });
 
         // $('.editor').tinymce({
         //     height: 200,
