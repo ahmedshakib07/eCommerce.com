@@ -30,7 +30,7 @@ class PageController extends Controller
         $page->title = trim($request->title);
         $page->description_one = trim($request->description_one);
         $page->description_two = trim($request->description_two);
-        
+
         $page->meta_title = trim($request->meta_title);
         $page->meta_description = trim($request->meta_description);
         $page->meta_keywords = trim($request->meta_keywords);
@@ -51,5 +51,11 @@ class PageController extends Controller
 
         toastr()->success('Page Updated Successfully!');
         return redirect('admin/page/list');
+    }
+
+    public function system_settings() {
+        // $data['getRecord'] = PageModel::getSingle($id);
+        $data['header_title'] = 'System Settings';
+        return view('admin.setting.system_settings', $data);
     }
 }

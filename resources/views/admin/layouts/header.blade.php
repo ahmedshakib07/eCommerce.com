@@ -118,7 +118,7 @@
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-info elevation-4" style="position: fixed; background: darkslategrey;">
+<aside class="main-sidebar sidebar-dark-info elevation-4" style="background: darkslategrey;">
     <!-- Brand Logo -->
     <div class="brand-link" style="text-align: center;">
         <img src="{{ url('public/assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -221,6 +221,13 @@
                     <a href="{{ url('admin/page/list') }}" class="nav-link @if(Request::segment(2) == 'page') active @endif">
                         <i class="nav-icon far fa-folder-open"></i>
                         <p> ALL Pages </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('admin/system-settings') }}" class="nav-link @if(Request::segment(2) == 'system-settings') active @endif">
+                        <i class="nav-icon fa fa-cog"></i>
+                        <p> System Settings </p>
                     </a>
                 </li>
 
