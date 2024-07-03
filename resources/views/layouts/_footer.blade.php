@@ -4,15 +4,26 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img src="{{url('assets/images/logo.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
-                        <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+                        <img src="{{ $getSystemSettingApp->getLogo() }}" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <!-- <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p> -->
+                        <p>{{ $getSystemSettingApp->footer_description }}</p>
 
                         <div class="social-icons">
-                            <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
-                            <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                            <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
-                            <a href="#" class="social-icon" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
-                            <a href="#" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                            @if(!empty($getSystemSettingApp->facebook_link))
+                            <a href="{{ $getSystemSettingApp->facebook_link }}" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                            @endif
+                            @if(!empty($getSystemSettingApp->twitter_link))
+                            <a href="{{ $getSystemSettingApp->twitter_link }}" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                            @endif
+                            @if(!empty($getSystemSettingApp->instagram_link))
+                            <a href="{{ $getSystemSettingApp->instagram_link }}" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                            @endif
+                            @if(!empty($getSystemSettingApp->youtube_link))
+                            <a href="{{ $getSystemSettingApp->youtube_link }}" class="social-icon" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                            @endif
+                            @if(!empty($getSystemSettingApp->pinterest_link))
+                            <a href="{{ $getSystemSettingApp->pinterest_link }}" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -65,9 +76,9 @@
 
     <div class="footer-bottom">
         <div class="container">
-            <p class="footer-copyright">Copyright &copy; {{ date ('Y')}} eCommerce.com. All Rights Reserved.</p>
+            <p class="footer-copyright">Copyright &copy; {{ date ('Y')}} {{ $getSystemSettingApp->website_name }}. All Rights Reserved.</p>
             <figure class="footer-payments">
-                <img src="{{url('assets/images/payments.png')}}" alt="Payment methods" width="272" height="20">
+                <img src="{{ $getSystemSettingApp->getFooterIcon() }}" alt="Payment methods" width="272" height="20">
             </figure>
         </div>
     </div>

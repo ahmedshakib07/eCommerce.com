@@ -28,7 +28,7 @@
                     <li>
                         <a href="#">Links</a>
                         <ul>
-                            <li><a href="tel:#"><i class="icon-phone"></i>Call: +880 17 #### ####</a></li>
+                            <li><a href="tel:{{ $getSystemSettingApp->phone }}"><i class="icon-phone"></i>Call: {{ $getSystemSettingApp->phone }}</a></li>
                             <li>
                                 <a href="{{ url('about') }}">About Us</a>
                             </li>
@@ -68,7 +68,7 @@
                 </button>
 
                 <a href="{{ url('') }}" class="logo">
-                    <img src="{{ url('assets/images/logo.png') }}" alt="" width="105" height="25">
+                    <img src="{{ $getSystemSettingApp->getLogo() }}" alt="" width="105" height="25">
                 </a>
 
                 <nav class="main-nav">
