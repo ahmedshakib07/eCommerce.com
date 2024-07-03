@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageModel;
+use App\Models\SystemSettingsModel;
 use Auth;
 use Str;
 
@@ -54,8 +55,69 @@ class PageController extends Controller
     }
 
     public function system_settings() {
-        // $data['getRecord'] = PageModel::getSingle($id);
+        $data['getRecord'] = SystemSettingsModel::getSingle();
         $data['header_title'] = 'System Settings';
         return view('admin.setting.system_settings', $data);
+    }
+
+    public function update_system_settings(Request $request) {
+        $save = SystemSettingsModel::getSingle();
+
+        $save->website_name = trim($request->website_name);
+        $save->footer_description = trim($request->footer_description);
+        $save->office_address = trim($request->office_address);
+        $save->office_time = trim($request->office_time);
+        $save->phone = trim($request->phone);
+        $save->mobile = trim($request->mobile);
+        $save->email = trim($request->email);
+        $save->facebook_link = trim($request->facebook_link);
+        $save->twitter_link = trim($request->twitter_link);
+        $save->instagram_link = trim($request->instagram_link);
+        $save->youtube_link = trim($request->youtube_link);
+        $save->pinterest_link = trim($request->pinterest_link);
+
+        // For Logo
+        if(!empty($request->file('logo'))){
+            
+            $file = $request->file('logo');
+            $ext = $file->getClientOriginalExtension();
+            $randomStr = Str::random(10);
+            $filename = strtolower($randomStr).'.'.$ext;
+
+            $file->move('upload/settings/', $filename);
+
+            $save->logo = trim($filename);
+        }
+
+        // For favicon
+        if(!empty($request->file('favicon'))){
+            
+            $file = $request->file('favicon');
+            $ext = $file->getClientOriginalExtension();
+            $randomStr = Str::random(10);
+            $filename = strtolower($randomStr).'.'.$ext;
+
+            $file->move('upload/settings/', $filename);
+
+            $save->favicon = trim($filename);
+        }
+
+        // For footer_icon
+        if(!empty($request->file('footer_icon'))){
+            
+            $file = $request->file('footer_icon');
+            $ext = $file->getClientOriginalExtension();
+            $randomStr = Str::random(10);
+            $filename = strtolower($randomStr).'.'.$ext;
+
+            $file->move('upload/settings/', $filename);
+
+            $save->footer_icon = trim($filename);
+        }
+
+        $save->save();
+
+        toastr()->success('Data Updated Successfully!');
+        return redirect()->back();
     }
 }

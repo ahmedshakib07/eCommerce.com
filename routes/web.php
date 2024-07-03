@@ -129,6 +129,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/page/edit/{id}', [PageController::class, 'update']);
 
     Route::get('admin/system-settings', [PageController::class, 'system_settings']);
+    Route::Post('admin/system-settings', [PageController::class, 'update_system_settings']);
 });
 
 // ----- User -----
