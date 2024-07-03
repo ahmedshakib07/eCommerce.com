@@ -219,7 +219,7 @@
 
                 <li class="nav-item">
                     <a href="{{ url('admin/page/list') }}" class="nav-link @if(Request::segment(2) == 'page') active @endif">
-                        <i class="nav-icon fas fa-dolly"></i>
+                        <i class="nav-icon far fa-folder-open"></i>
                         <p> ALL Pages </p>
                     </a>
                 </li>
