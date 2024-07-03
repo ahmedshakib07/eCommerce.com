@@ -7,13 +7,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
                 <!-- <li class="breadcrumb-item"><a href="javascript:;">Page</a></li> -->
-                <li class="breadcrumb-item active" aria-current="page">About us</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $getPage->title }}</li>
             </ol>
         </div>
     </nav>
     <div class="container">
-        <div class="page-header page-header-big text-center" style="background-image: url('assets/images/about-header-bg.jpg')">
-            <h1 class="page-title text-white">About us<span class="text-white">Who we are</span></h1>
+        <div class="page-header page-header-big text-center" style="background-image: url('{{ $getPage->getImage() }}')">
+            <h1 class="page-title text-white">{{ $getPage->title }}<span class="text-white">Who we are</span></h1>
         </div>
     </div>
 
@@ -21,13 +21,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
-                    <h2 class="title">Our Vision</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
+                    {!! $getPage->description_one !!}
                 </div>
                 
                 <div class="col-lg-6">
-                    <h2 class="title">Our Mission</h2>
-                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p>
+                    <!-- <h2 class="title">Our Mission</h2>
+                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p> -->
+                    {!! $getPage->description_two !!}
                 </div>
             </div>
 

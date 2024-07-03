@@ -28,7 +28,9 @@ class PageController extends Controller
         $page = PageModel::getSingle($id);
         $page->name = trim($request->name);
         $page->title = trim($request->title);
-        $page->description = trim($request->description);
+        $page->description_one = trim($request->description_one);
+        $page->description_two = trim($request->description_two);
+        
         $page->meta_title = trim($request->meta_title);
         $page->meta_description = trim($request->meta_description);
         $page->meta_keywords = trim($request->meta_keywords);

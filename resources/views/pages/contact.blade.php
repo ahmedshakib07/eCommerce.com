@@ -7,13 +7,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
                 <!-- <li class="breadcrumb-item"><a href="javaScript:;">Pages</a></li> -->
-                <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $getPage->title }}</li>
             </ol>
         </div>
     </nav>
     <div class="container">
-        <div class="page-header page-header-big text-center" style="background-image: url('assets/images/contact-header-bg.jpg')">
-            <h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
+        <div class="page-header page-header-big text-center" style="background-image: url('{{ $getPage->getImage() }}')">
+            <h1 class="page-title text-white">{{ $getPage->title }}<span class="text-white">keep in touch with us</span></h1>
         </div>
     </div>
 
@@ -21,8 +21,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-2 mb-lg-0">
-                    <h2 class="title mb-1">Contact Information</h2>
-                    <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                    <!-- <h2 class="title mb-1">Contact Information</h2>
+                    <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p> -->
+                    {!! $getPage->description_one !!}
                     <div class="row">
                         <div class="col-sm-7">
                             <div class="contact-info">

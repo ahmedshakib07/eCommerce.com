@@ -60,29 +60,36 @@
                                             </div>
                                         </div>
                                             
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Description <span style="color:red"> </span> </label>
-                                                <textarea class="form-control editor" name="description" id="">{{ $getRecord->description }}</textarea>
+                                                <label>Description One <span style="color:red"> </span> </label>
+                                                <textarea class="form-control editor" name="description_one" id="">{{ $getRecord->description_one }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Description Two <span style="color:red"> </span> </label>
+                                                <textarea class="form-control editor" name="description_two" id="">{{ $getRecord->description_two }}</textarea>
                                             </div>
                                         </div>
                                         
                                         <hr>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Meta Title <span style="color:red">*</span> </label>
                                                 <input type="text" class="form-control" name="meta_title" id="" value="{{ old('meta_title', $getRecord->meta_title) }}" placeholder="Meta Title" required>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Meta keywords</label>
                                                 <input type="text" class="form-control" name="meta_keywords" id="" value="{{ old('meta_keywords', $getRecord->meta_keywords) }}" placeholder="Meta keywords">
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Meta Description</label>
                                                 <textarea id="" class="form-control" name="meta_description" placeholder="Meta Description">{{ old('meta_description', $getRecord->meta_description) }}</textarea>

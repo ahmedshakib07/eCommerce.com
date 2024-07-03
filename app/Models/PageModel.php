@@ -27,4 +27,9 @@ class PageModel extends Model
             return "";
         }
     }
+
+    static public function getSlug($slug){
+        return self::where('slug','=',$slug)
+                ->first();
+    }
 }
