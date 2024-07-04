@@ -55,9 +55,8 @@
                         </div>
 
                         <div class="col-sm-5">
-                            <div class="contact-info">
+                            <div class="contact-info" style="padding-top: 40px;">
                                 <!-- <h3>The Office</h3> -->
-
                                 <ul class="contact-list">
                                     @if(!empty($getSystemSetting->office_day))
                                         <li>
