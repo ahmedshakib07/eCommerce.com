@@ -80,8 +80,9 @@
 
 
                 <div class="col-lg-6">
-                    <h2 class="title mb-1">Got Any Questions?</h2>
-                    <p class="mb-2">Use the form below to get in touch with the sales team</p>
+                    <!-- <h2 class="title mb-1">Got Any Questions?</h2> -->
+                    <!-- <p class="mb-2">Use the form below to get in touch with the sales team</p> -->
+                    {!! $getPage->short_description !!}
 
                     <form action="" class="contact-form mb-3" method="post" autocomplete="off">
                         {{ csrf_field() }}
