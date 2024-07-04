@@ -49,7 +49,9 @@
                                             <option {{ (old('status', $getRecord->status) == 1) ? 'selected' : '' }} value="1">In Active</option>
                                         </select>
                                     </div>
+
                                     <hr class="mt-5 mb-5">
+                                    
                                     <div class="form-group">
                                         <label>Meta Title <span style="color:red">*</span> </label>
                                         <input type="text" class="form-control" name="meta_title" id="" value="{{ old('meta_title', $getRecord->meta_title) }}" placeholder="Meta Title" required>

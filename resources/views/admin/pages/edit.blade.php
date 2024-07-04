@@ -87,6 +87,7 @@
                                         </div>
                                         
                                         <hr class="mt-5 mb-5">
+                                        
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Meta Title <span style="color:red">*</span> </label>
