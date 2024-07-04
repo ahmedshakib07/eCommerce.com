@@ -128,6 +128,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/page/edit/{id}', [PageController::class, 'edit']);
     Route::post('admin/page/edit/{id}', [PageController::class, 'update']);
 
+    Route::get('admin/contactus', [PageController::class, 'contactus']);
+    Route::get('admin/contactus/delete/{id}', [PageController::class, 'contactus_delete']);
+
     Route::get('admin/system-settings', [PageController::class, 'system_settings']);
     Route::Post('admin/system-settings', [PageController::class, 'update_system_settings']);
 });

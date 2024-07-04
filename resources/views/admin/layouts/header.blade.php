@@ -218,6 +218,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ url('admin/contactus') }}" class="nav-link @if(Request::segment(2) == 'contactus') active @endif">
+                        <i class="nav-icon far fa-folder-open"></i>
+                        <p> Contact Us </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ url('admin/page/list') }}" class="nav-link @if(Request::segment(2) == 'page') active @endif">
                         <i class="nav-icon far fa-folder-open"></i>
                         <p> ALL Pages </p>

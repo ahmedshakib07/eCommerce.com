@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageModel;
 use App\Models\SystemSettingsModel;
+use App\Models\ContactUsModel;
 use Auth;
 use Str;
 
@@ -124,5 +125,17 @@ class PageController extends Controller
 
         toastr()->success('Data Updated Successfully!');
         return redirect()->back();
+    }
+
+    public function contactus() {
+        $data['getRecord'] = ContactUsModel::getRecord();
+        $data['header_title'] = 'Contact Us';
+
+        return view('admin.contactUs.list', $data);
+    }
+
+    public function contactus_delete($id) {
+        ContactUsModel::where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', "User contact Delete Successfully!");
     }
 }
