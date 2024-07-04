@@ -88,7 +88,7 @@
                                         <textarea class="form-control" name="footer_description" id="">{{ $getRecord->footer_description }}</textarea>
                                     </div>
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <!-- Social Icon/ Links -->
 

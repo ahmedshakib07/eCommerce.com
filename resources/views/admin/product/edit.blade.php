@@ -117,7 +117,7 @@
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <!-- Price -->
                                     <div class="row">
@@ -186,7 +186,7 @@
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <!-- Image -->
                                     <div class="row">
@@ -208,7 +208,7 @@
                                         </div>
                                     @endif
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <!-- Short Description -->
                                     <div class="row">
@@ -250,7 +250,7 @@
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <hr class="mt-5 mb-5">
 
                                     <!-- Status -->
                                     <div class="row">

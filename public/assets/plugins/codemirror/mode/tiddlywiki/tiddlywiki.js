@@ -43,7 +43,7 @@ CodeMirror.defineMode("tiddlywiki", function () {
   };
 
   var isSpaceName = /[\w_\-]/i,
-      reHR = /^\-\-\-\-+$/,                                 // <hr>
+      reHR = /^\-\-\-\-+$/,                                 // <hr class="mt-5 mb-5">
       reWikiCommentStart = /^\/\*\*\*$/,            // /***
       reWikiCommentStop = /^\*\*\*\/$/,             // ***/
       reBlockQuote = /^<<<$/,
