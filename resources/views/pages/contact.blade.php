@@ -144,13 +144,14 @@
                                 </div>
                                 <div class="col-sm-7 col-xl-6">
                                     <div class="store-content">
-                                        <h3 class="store-title">Wall Street Plaza</h3>
+                                        <!-- <h3 class="store-title">Wall Street Plaza</h3>
                                         <address>88 Pine St, New York, NY 10005, USA</address>
                                         <div><a href="tel:#">+1 987-876-6543</a></div>
 
                                         <h4 class="store-subtitle">Store Hours:</h4>
                                         <div>Monday - Saturday 11am to 7pm</div>
-                                        <div>Sunday 11am to 6pm</div>
+                                        <div>Sunday 11am to 6pm</div> -->
+                                        {!! $getPage->description_one !!}
 
                                         <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
                                     </div>
@@ -170,14 +171,15 @@
 
                                 <div class="col-sm-7 col-xl-6">
                                     <div class="store-content">
-                                        <h3 class="store-title">One New York Plaza</h3>
+                                        <!-- <h3 class="store-title">One New York Plaza</h3>
                                         <address>88 Pine St, New York, NY 10005, USA</address>
                                         <div><a href="tel:#">+1 987-876-6543</a></div>
 
                                         <h4 class="store-subtitle">Store Hours:</h4>
                                         <div>Monday - Friday 9am to 8pm</div>
                                         <div>Saturday - 9am to 2pm</div>
-                                        <div>Sunday - Closed</div>
+                                        <div>Sunday - Closed</div> -->
+                                        {!! $getPage->description_two !!}
 
                                         <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
                                     </div>
@@ -188,7 +190,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div id="map"></div> -->
+        <div id="map"></div>
     </div>
 </main>
 
