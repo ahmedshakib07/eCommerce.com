@@ -124,7 +124,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Weekend <span style="color:red"> </span> </label>
-                                                <input type="text" class="form-control" name="weekend" id="" value="{{ $getRecord->email }}">
+                                                <input type="text" class="form-control" name="weekend" id="" value="{{ $getRecord->weekend }}">
                                             </div>
                                         </div>
                                     </div>
