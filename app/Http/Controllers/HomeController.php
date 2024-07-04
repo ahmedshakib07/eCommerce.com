@@ -7,6 +7,7 @@ use App\Models\PageModel;
 use App\Models\SystemSettingsModel;
 use App\Models\ContactUsModel;
 use App\Mail\ContactUsMail;
+use Session;
 use Auth;
 use Mail;
 
@@ -36,6 +37,15 @@ class HomeController extends Controller
     }
 
     public function contact() {
+
+        $first_number = mt_rand(0,9);
+        $second_number = mt_rand(0,9);
+
+        $data['first_number'] = $first_number;
+        $data['second_number'] = $second_number;
+
+        Session::put('total_sum', $first_number + $second_number);
+
         $getPage = PageModel::getSlug('contact');
         $data['getPage'] = $getPage;
 
@@ -49,23 +59,35 @@ class HomeController extends Controller
     }
 
     public function submit_contact(Request $request) {
-        $save = new ContactUsModel;
-        if (!empty(Auth::check())) {
-            $save->user_id = Auth::user()->id;
+
+        if (!empty(Session::get('total_sum')) && !empty($request->verification)) {
+            if (trim(Session::get('total_sum')) == trim($request->verification)) {
+                $save = new ContactUsModel;
+                if (!empty(Auth::check())) {
+                    $save->user_id = Auth::user()->id;
+                }
+                $save->name = trim($request->name);
+                $save->email = trim($request->email);
+                $save->phone = trim($request->phone);
+                $save->subject = trim($request->subject);
+                $save->message = trim($request->message);
+        
+                $save->save();
+        
+                $getSystemSetting = SystemSettingsModel::getSingle();
+                Mail::to($getSystemSetting->email)->send(new ContactUsMail($save));
+        
+                toastr()->success('Submitted Successfully!');
+                return redirect()->back();
+            } else {
+                toastr()->error('Incorrect Verification!');
+                return redirect()->back();
+            }
+        }else {
+            toastr()->error('Incorrect Verification!');
+            return redirect()->back();
         }
-        $save->name = trim($request->name);
-        $save->email = trim($request->email);
-        $save->phone = trim($request->phone);
-        $save->subject = trim($request->subject);
-        $save->message = trim($request->message);
-
-        $save->save();
-
-        $getSystemSetting = SystemSettingsModel::getSingle();
-        Mail::to($getSystemSetting->email)->send(new ContactUsMail($save));
-
-        toastr()->success('Submitted Successfully!');
-        return redirect()->back();
+        
     }
 
     public function faq() {
