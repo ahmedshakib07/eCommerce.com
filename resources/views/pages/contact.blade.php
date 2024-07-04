@@ -59,17 +59,17 @@
                                 <h3>The Office</h3>
 
                                 <ul class="contact-list">
-                                    @if(!empty($getSystemSetting->day))
+                                    @if(!empty($getSystemSetting->office_day))
                                         <li>
                                             <i class="icon-clock-o"></i>
-                                            <span class="text-dark">{{ $getSystemSetting->day }}</span> 
-                                            <br>{{ $getSystemSetting->time }}
+                                            <span class="text-dark">{{ $getSystemSetting->office_day }}</span> 
+                                            <br>{{ $getSystemSetting->office_time }}
                                         </li>
                                     @endif
-                                    @if(!empty($getSystemSetting->weekend))
+                                    @if(!empty($getSystemSetting->office_weekend))
                                         <li>
                                             <i class="icon-calendar"></i>
-                                            <span class="text-dark">{{ $getSystemSetting->weekend }}
+                                            <span class="text-dark">{{ $getSystemSetting->office_weekend }}
                                         </li>
                                     @endif
                                 </ul>

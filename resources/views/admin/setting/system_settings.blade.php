@@ -110,21 +110,21 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Working Day <span style="color:red"> </span> </label>
-                                                <input type="text" class="form-control" name="day" id="" value="{{ $getRecord->day }}">
+                                                <input type="text" class="form-control" name="office_day" id="" value="{{ $getRecord->office_day }}">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Working Time <span style="color:red"> </span> </label>
-                                                <input type="text" class="form-control" name="time" id="" value="{{ $getRecord->time }}">
+                                                <input type="text" class="form-control" name="office_time" id="" value="{{ $getRecord->office_time }}">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Weekend <span style="color:red"> </span> </label>
-                                                <input type="text" class="form-control" name="weekend" id="" value="{{ $getRecord->weekend }}">
+                                                <input type="text" class="form-control" name="office_weekend" id="" value="{{ $getRecord->office_weekend }}">
                                             </div>
                                         </div>
                                     </div>
