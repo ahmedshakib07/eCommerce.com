@@ -21,23 +21,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
-                    {!! $getPage->description_one !!}
+                    {!! $getPage->description !!}
                 </div>
                 
                 <div class="col-lg-6">
                     <!-- <h2 class="title">Our Mission</h2>
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p> -->
-                    {!! $getPage->description_two !!}
+                    {!! $getPage->short_description !!}
                 </div>
             </div>
 
             <div class="mb-5"></div>
         </div>
 
-        <!-- <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+        <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5 mb-3 mb-lg-0">
+                    <!-- <div class="col-lg-5 mb-3 mb-lg-0">
                         <h2 class="title">Who We Are</h2>
                         <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat</p>
                         <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. </p>
@@ -53,10 +53,11 @@
                             <img src="assets/images/about/img-1.jpg" alt="" class="about-img-front">
                             <img src="assets/images/about/img-2.jpg" alt="" class="about-img-back">
                         </div>
-                    </div>
+                    </div> -->
+                    {!! $getPage->description_one !!}
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- <div class="container">
             <div class="row">

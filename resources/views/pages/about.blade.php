@@ -40,8 +40,9 @@
                 <div class="row">
                     <div class="col-lg-5 mb-3 mb-lg-0">
                         <h2 class="title">Who We Are</h2>
-                        <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat</p>
-                        <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. </p>
+                        <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat
+                        {!! $getPage->description_one !!}</p>
+                        <p class="mb-2">{!! $getPage->description_two !!} </p>
 
                         <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                             <span>VIEW OUR NEWS</span>
