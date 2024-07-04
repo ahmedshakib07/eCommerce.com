@@ -91,19 +91,19 @@
                                     <hr>
 
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Office Address <span style="color:red"> </span> </label>
                                                 <textarea class="form-control" name="office_address" id="">{{ $getRecord->office_address }}</textarea>
                                             </div>
                                         </div>
 
-                                        <!-- <div class="col-md-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Office Time <span style="color:red"> </span> </label>
-                                                <textarea class="form-control" name="office_time" id="">{{ $getRecord->office_time }}</textarea>
+                                                <label>Short Description <span style="color:red"> </span> </label>
+                                                <textarea class="form-control" name="short_description" id="">{{ $getRecord->short_description }}</textarea>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
 
                                     <div class="row">

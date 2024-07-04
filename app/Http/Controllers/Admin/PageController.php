@@ -66,6 +66,7 @@ class PageController extends Controller
         $save->website_name = trim($request->website_name);
         $save->footer_description = trim($request->footer_description);
         $save->office_address = trim($request->office_address);
+        $save->short_description = trim($request->short_description);
         $save->office_day = trim($request->office_day);
         $save->office_time = trim($request->office_time);
         $save->office_weekend = trim($request->office_weekend);
