@@ -219,7 +219,7 @@
 
                 <li class="nav-item">
                     <a href="{{ url('admin/contactus') }}" class="nav-link @if(Request::segment(2) == 'contactus') active @endif">
-                        <i class="nav-icon far fa-folder-open"></i>
+                        <i class="nav-icon fa fa-address-card-o"></i>
                         <p> Contact Us </p>
                     </a>
                 </li>
