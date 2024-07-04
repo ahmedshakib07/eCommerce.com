@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PageModel;
 use App\Models\SystemSettingsModel;
+use App\Models\ContactUsModel;
+use App\Mail\ContactUsMail;
+use Auth;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -42,6 +46,26 @@ class HomeController extends Controller
         $data['meta_keywords'] = $getPage->meta_keywords;
 
         return view('pages.contact', $data);
+    }
+
+    public function submit_contact(Request $request) {
+        $save = new ContactUsModel;
+        if (!empty(Auth::check())) {
+            $save->user_id = Auth::user()->id;
+        }
+        $save->name = trim($request->name);
+        $save->email = trim($request->email);
+        $save->phone = trim($request->phone);
+        $save->subject = trim($request->subject);
+        $save->message = trim($request->message);
+
+        $save->save();
+
+        $getSystemSetting = SystemSettingsModel::getSingle();
+        Mail::to($getSystemSetting->email)->send(new ContactUsMail($save));
+
+        toastr()->success('Submitted Successfully!');
+        return redirect()->back();
     }
 
     public function faq() {
