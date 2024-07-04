@@ -21,20 +21,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
-                    {!! $getPage->description_one !!}
+                    <!-- <h2 class="title">Our Vision</h2> -->
+                    {!! $getPage->description !!}
                 </div>
                 
                 <div class="col-lg-6">
                     <!-- <h2 class="title">Our Mission</h2>
                     <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p> -->
-                    {!! $getPage->description_two !!}
+                    {!! $getPage->short_description !!}
                 </div>
             </div>
 
             <div class="mb-5"></div>
         </div>
 
-        <!-- <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+        <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 mb-3 mb-lg-0">
@@ -56,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- <div class="container">
             <div class="row">

@@ -59,6 +59,18 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Description <span style="color:red"> </span> </label>
+                                                <textarea class="form-control editor" name="description" id="">{{ $getRecord->description }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Short Description <span style="color:red"> </span> </label>
+                                                <textarea class="form-control editor" name="short_description" id="">{{ $getRecord->short_description }}</textarea>
+                                            </div>
+                                        </div>
                                             
                                         <div class="col-md-6">
                                             <div class="form-group">
