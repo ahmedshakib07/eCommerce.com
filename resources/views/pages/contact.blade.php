@@ -59,17 +59,19 @@
                                 <h3>The Office</h3>
 
                                 <ul class="contact-list">
-                                    @if(!empty($getSystemSetting->office_time))
+                                    @if(!empty($getSystemSetting->day))
                                         <li>
                                             <i class="icon-clock-o"></i>
-                                            <span class="text-dark">{{ $getSystemSetting->office_time }}</span> 
-                                            <!-- <br>11am-7pm ET -->
+                                            <span class="text-dark">{{ $getSystemSetting->day }}</span> 
+                                            <br>{{ $getSystemSetting->time }}
                                         </li>
                                     @endif
-                                    <!-- <li>
-                                        <i class="icon-calendar"></i>
-                                        <span class="text-dark">Sunday</span> <br>11am-6pm ET
-                                    </li> -->
+                                    @if(!empty($getSystemSetting->weekend))
+                                        <li>
+                                            <i class="icon-calendar"></i>
+                                            <span class="text-dark">{{ $getSystemSetting->weekend }}
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>

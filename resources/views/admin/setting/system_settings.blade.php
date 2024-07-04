@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Logo <span style="color:red"> </span> </label>
+                                                <label>Website Logo <span style="color:red"> </span> </label>
                                                 <input type="file" class="form-control" name="logo" id="">
                                             </div>
                                         </div>
@@ -69,7 +69,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Footer Icon <span style="color:red"> </span> </label>
+                                                <label>Footer Payment Icon <span style="color:red"> </span> </label>
                                                 <input type="file" class="form-control" name="footer_icon" id="">
                                             </div>
                                         </div>
@@ -91,17 +91,40 @@
                                     <hr>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Office Address <span style="color:red"> </span> </label>
                                                 <textarea class="form-control" name="office_address" id="">{{ $getRecord->office_address }}</textarea>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Office Time <span style="color:red"> </span> </label>
                                                 <textarea class="form-control" name="office_time" id="">{{ $getRecord->office_time }}</textarea>
+                                            </div>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Working Day <span style="color:red"> </span> </label>
+                                                <input type="text" class="form-control" name="day" id="" value="{{ $getRecord->day }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Working Time <span style="color:red"> </span> </label>
+                                                <input type="text" class="form-control" name="time" id="" value="{{ $getRecord->time }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Weekend <span style="color:red"> </span> </label>
+                                                <input type="text" class="form-control" name="weekend" id="" value="{{ $getRecord->email }}">
                                             </div>
                                         </div>
                                     </div>
