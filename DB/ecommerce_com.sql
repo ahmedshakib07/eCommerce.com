@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 25, 2024 at 04:43 PM
+-- Generation Time: Jul 04, 2024 at 12:17 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -134,6 +134,31 @@ INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `user_id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(4, 1, 'The Office', 'fermentum@gmail.com', '098765432', 'fermentum', 'fermentum fermentum fermentum', '2024-07-04 10:43:51', '2024-07-04 10:43:51');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `coupon_code`
 --
 
@@ -227,7 +252,7 @@ CREATE TABLE `orders` (
   `shipping_amount` varchar(25) NOT NULL DEFAULT '0',
   `total_amount` varchar(25) NOT NULL DEFAULT '0',
   `payment_method` varchar(25) DEFAULT NULL,
-  `status` tinyint NOT NULL DEFAULT '0' COMMENT '0 = Pending\r\n1 = Inprogress\r\n2 = Delivered\r\n3 = Completed\r\n4 = Cancelled',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT '0 = Pending,\r\n1 = In Progress,\r\n2 = Delivered,\r\n3 = Completed,\r\n4 = Cancelled',
   `is_delete` tinyint NOT NULL DEFAULT '0',
   `is_payment` tinyint NOT NULL DEFAULT '0',
   `payment_data` text,
@@ -240,10 +265,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `transaction_id`, `stripe_session_id`, `order_number`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
-(1, 'cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy', 'cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy', NULL, NULL, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test@test.com', 'testtesttesttesttesttesttesttesttesttest', '', '0', 2, '0', '160', 'stripe', 1, 0, 1, '{\"id\":\"cs_test_a1BJIopsEbh6rDxkXaTGs1QAqWBVi1lHePubTqEOJrDqSR1TtRs6WyNMfy\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":16000,\"amount_total\":16000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719237156,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"test@test.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"test@test.com\",\"expires_at\":1719323556,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVDKqE2FZcg7aAh1ZKGq1GN\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 13:52:52', '2024-06-24 19:44:04'),
-(2, 'cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG', 'cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG', NULL, NULL, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2', '', '0', 1, '10', '100', 'stripe', 0, 0, 1, '{\"id\":\"cs_test_a1TkrFKLZYd3HhUsMiJZUYpwMKNDxulLSnVUk3k33xlHeaVNGZ9VBjrjYG\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":10000,\"amount_total\":10000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719237570,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"test2@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"test2@gmail.com\",\"expires_at\":1719323970,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVDQzE2FZcg7aAh08CXzY4K\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 13:59:47', '2024-06-24 14:00:15'),
-(3, 'cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge', 'cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge', '1977232904', NULL, 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'test mail inv', 'testmailinv@gmail.com', 'test mail invtest mail invtest mail invtest mail inv', '', '0', 1, '10', '85', 'stripe', 2, 0, 1, '{\"id\":\"cs_test_a1DvHZFhUSy9850vmRxrZuGeNuEXa9CQ2BvGdLD0nUfvzC8NnBFOBkGOge\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":8500,\"amount_total\":8500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719251837,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"testmailinv@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"testmailinv@gmail.com\",\"expires_at\":1719338237,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVH9XE2FZcg7aAh0dG48Ygc\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 17:57:32', '2024-06-24 19:27:53'),
-(4, 'cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX', 'cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX', '1766711916', NULL, 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststus test', 'ststustest@gmail.com', 'ststus testststus testststus testststus test', '', '0', 2, '0', '10', 'stripe', 0, 0, 1, '{\"id\":\"cs_test_a1FtyfJDS56Gnce1feMaJibdseUHUWTx7MojuYepBUqeikfCJvYrOQxloX\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":1000,\"amount_total\":1000,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719257016,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"ststustest@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"ststustest@gmail.com\",\"expires_at\":1719343416,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVIUhE2FZcg7aAh0OrMJ3u6\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 19:23:53', '2024-06-24 19:24:26');
+(1, NULL, NULL, NULL, 1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test@gmail.com', '', '', '0', 2, '0', '10', 'cash', 3, 0, 1, NULL, '2024-06-24 12:25:12', '2024-07-01 10:04:50'),
+(2, 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', NULL, 1, 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skbstripe@gmail.com', 'skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1', '', '0', 2, '0', '25', 'stripe', 1, 0, 1, '{\"id\":\"cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":2500,\"amount_total\":2500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719232157,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"skbstripe@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"skbstripe@gmail.com\",\"expires_at\":1719318557,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVC1gE2FZcg7aAh1WTw9pz8\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 12:29:16', '2024-07-01 10:04:47'),
+(3, NULL, NULL, NULL, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
+(4, NULL, NULL, NULL, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
+(5, NULL, NULL, '1398927501', 2, 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1@gmail.com', 'test1test1test1test1test1test1test1test1test1', '', '0', 2, '0', '20', 'cash', 0, 0, 1, NULL, '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
+(6, NULL, NULL, '4974433448', 4, 'Imtiaz', 'Ahmed', '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 'user@gmail.com', '', '', '0', 2, '0', '60', 'cash', 3, 0, 1, NULL, '2024-07-01 06:44:51', '2024-07-01 09:59:51'),
+(7, 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', '1152387929', 1, 'Admin', 'Admin', '', 'DB', 'DHK', 'DHK', 'DK', 'mirpur', '1234', '01767056733', 'admin@gmail.com', 'Order notes (optional) Admin', '', '0', 1, '10', '185', 'stripe', 3, 0, 1, '{\"id\":\"cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":18500,\"amount_total\":18500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719821755,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"admin@gmail.com\",\"name\":\"Admin\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"admin@gmail.com\",\"expires_at\":1719908154,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PXfPTE2FZcg7aAh06uBWPiW\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-07-01 08:15:53', '2024-07-01 10:07:07'),
+(8, NULL, NULL, '1492855708', 1, 'Admin', 'Admin2', '', 'test1', 'test2', 'test1', 'test1', 'test2', '123', '5678', 'admin@gmail.com', '', '', '0', 2, '0', '5', 'cash', 0, 0, 1, NULL, '2024-07-01 09:36:49', '2024-07-01 09:36:49');
 
 -- --------------------------------------------------------
 
@@ -270,10 +299,54 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 10, 2, '80', 'Red', 'm', '40', '80', '2024-06-24 13:52:52', '2024-06-24 13:52:52'),
-(2, 2, 2, 2, '45', 'Brown', 'M', '0', '45', '2024-06-24 13:59:47', '2024-06-24 13:59:47'),
-(3, 3, 1, 3, '25', NULL, NULL, '0', '25', '2024-06-24 17:57:32', '2024-06-24 17:57:32'),
-(4, 4, 5, 1, '10', 'Brown', NULL, '0', '10', '2024-06-24 19:23:53', '2024-06-24 19:23:53');
+(1, 1, 16, 2, '5', NULL, NULL, '0', '5', '2024-06-24 12:25:13', '2024-06-24 12:25:13'),
+(2, 2, 1, 1, '25', NULL, NULL, '0', '25', '2024-06-24 12:29:16', '2024-06-24 12:29:16'),
+(3, 3, 18, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
+(4, 4, 18, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
+(5, 5, 8, 2, '10', NULL, 'S', '0', '20', '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
+(6, 6, 14, 2, '30', 'Gray', '39', '0', '60', '2024-07-01 06:44:51', '2024-07-01 06:44:51'),
+(7, 7, 1, 3, '25', NULL, NULL, '0', '75', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
+(8, 7, 11, 1, '100', NULL, NULL, '0', '100', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
+(9, 8, 16, 1, '5', NULL, NULL, '0', '5', '2024-07-01 09:36:49', '2024-07-01 09:36:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page`
+--
+
+CREATE TABLE `page` (
+  `id` int NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `short_description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `description_one` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `description_two` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `image_name` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `page`
+--
+
+INSERT INTO `page` (`id`, `name`, `slug`, `title`, `description`, `short_description`, `description_one`, `description_two`, `image_name`, `meta_title`, `meta_description`, `meta_keywords`, `created_at`, `updated_at`) VALUES
+(1, 'About Us', 'about', 'About Us', '<h4 class=\"\">Our Vision</h4><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh.</p><p>Thank You..</p>', '<h4 style=\"margin-bottom: 1.4rem; font-family: Poppins, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); font-size: 2.4rem; letter-spacing: -0.03em;\" class=\"\">Our Mission</h4><p style=\"margin-bottom: 0px; font-size: 14px; font-family: Poppins; color: rgb(119, 119, 119);\">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus.<br>Praesent elementum hendrerit tortor. Sed semper lorem at felis.</p><p style=\"margin-bottom: 0px; font-size: 14px; font-family: Poppins; color: rgb(119, 119, 119);\"><br></p><p style=\"margin-bottom: 0px; font-size: 14px; font-family: Poppins; color: rgb(119, 119, 119);\">Thank You..</p>', '<p>Pellentesque odio nisi, euismod pharetra a ultricies in diam. Sed arcu. Cras consequat<br></p>', '<p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.<br></p>', '1fg0wdwfwwx524f45phgy.jpg', 'About Us', 'Our Vision', 'Our Vision', NULL, '2024-07-04 09:22:39'),
+(2, 'Contact Us', 'contact', 'Contact Us', '<h2 class=\"title mb-1\" style=\"font-family: Poppins, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); font-size: 2.4rem; letter-spacing: -0.03em; margin-bottom: 1rem !important;\">Contact Information</h2><p class=\"mb-3\" style=\"font-size: 14px; font-family: Poppins; color: rgb(119, 119, 119); margin-bottom: 3rem !important;\">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>', '<h2 class=\"title mb-1\" style=\"line-height: 1.1; font-size: 2.4rem; color: rgb(51, 51, 51); letter-spacing: -0.03em; font-family: Poppins, sans-serif; margin-bottom: 1rem !important;\">Got Any Questions?</h2><p class=\"mb-2\" style=\"font-size: 14px; font-family: Poppins; color: rgb(119, 119, 119); margin-bottom: 2rem !important;\">Use the form below to get in touch with the sales team</p>', '<h3 class=\"store-title\" style=\"margin-top: -0.2rem; margin-bottom: 0.8rem; line-height: 1.1; font-size: 1.6rem; color: rgb(51, 51, 51); font-family: Poppins, sans-serif;\">Wall Street Plaza</h3><address style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">88 Pine St, New York, NY 10005, USA</address><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\"><a href=\"tel:#\" style=\"color: inherit; transition: color 0.3s ease 0s; font-family: Poppins;\">+1 987-876-6543</a></div><h4 class=\"store-subtitle\" style=\"margin-top: 3.2rem; margin-bottom: 0.4rem; line-height: 1.1; font-size: 14px; color: rgb(51, 51, 51); font-family: Poppins, sans-serif;\">Store Hours:</h4><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">Monday - Saturday 11am to 7pm</div><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">Sunday 11am to 6pm</div>', '<h3 class=\"store-title\" style=\"margin-top: -0.2rem; margin-bottom: 0.8rem; line-height: 1.1; font-size: 1.6rem; color: rgb(51, 51, 51); font-family: Poppins, sans-serif;\">One New York Plaza</h3><address style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">88 Pine St, New York, NY 10005, USA</address><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\"><a href=\"tel:#\" style=\"color: inherit; transition: color 0.3s ease 0s; font-family: Poppins;\">+1 987-876-6543</a></div><h4 class=\"store-subtitle\" style=\"margin-top: 3.2rem; margin-bottom: 0.4rem; line-height: 1.1; font-size: 14px; color: rgb(51, 51, 51); font-family: Poppins, sans-serif;\">Store Hours:</h4><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">Monday - Friday 9am to 8pm</div><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">Saturday - 9am to 2pm</div><div style=\"margin-bottom: 0px; color: rgb(119, 119, 119); font-family: Poppins, sans-serif; font-size: 14px;\">Sunday - Closed</div>', '2avnprh874hlvsdsny57o.jpg', 'Contact Us', '', '', NULL, '2024-07-04 11:37:04'),
+(3, 'FAQ', 'faq', 'FAQ', '<p>1. What exactly is eCommerce?</p><p>eCommerce refers to the buying and selling of goods or services over the Internet. It includes everything from online retail stores like Amazon and eBay to digital services like web hosting and online courses.</p><p><br></p><p>2. How does eCommerce work?</p><p>eCommerce works through online platforms or websites where sellers list their products or services, and customers browse, select, and purchase them using electronic transactions. Payment gateways process these transactions securely, and goods are shipped to the customer’s doorstep.</p><p><br></p><p>3. What are the advantages of eCommerce?</p><p>eCommerce offers numerous benefits, including convenience, 24/7 availability, a global reach, lower overhead costs for sellers, and a wide variety of products to choose from. Customers can shop from the comfort of their homes and have their purchases delivered to their doorstep.</p><p><br></p><p>4. Are there different types of eCommerce?</p><p>Yes, there are several types of eCommerce models, including Business-to-Consumer (B2C), Business-to-Business (B2B), Consumer-to-Consumer (C2C), and Consumer-to-Business (C2B). Each type caters to different market segments and involves different transaction flows.</p><p><br></p><p>5. How can I start an eCommerce business?</p><p>Starting an eCommerce business involves several steps, including choosing a niche, researching your target market, creating a business plan, setting up an online store, sourcing products, marketing your business, and providing excellent customer service. Platforms like Shopify, WooCommerce, and Magento as well as eCommerce development companies, such as Estrrado make it easy to set up an online store.</p>', '<p>6. What are some common challenges in eCommerce?</p><p>Some common challenges in eCommerce include fierce competition, attracting and retaining customers, managing inventory and shipping logistics, dealing with cybersecurity threats, and staying updated with changing technology and consumer trends.</p><p><br></p><p>7. Do I need technical skills to run an eCommerce business?</p><p>While technical skills can be helpful, they are not always necessary to run an eCommerce business. Many online platforms offer user-friendly interfaces and tools that make it easy for non-technical users to manage their online stores. However, having basic computer skills and the ability to learn new software can be useful.</p><p><br></p><p>8. How can I drive traffic to my eCommerce website?</p><p>There are several ways to drive traffic to your eCommerce website, including search engine optimization (SEO), social media marketing, email marketing, content marketing, influencer partnerships, and paid advertising. It’s essential to have a thorough marketing strategy to attract and engage potential customers.</p><p><br></p><p>9. How can I ensure the security of my eCommerce website?</p><p>Ensuring the security of your eCommerce website is crucial to protecting your customers’ sensitive information and maintaining their trust. You can implement security measures such as using SSL encryption, regularly updating your website and software, implementing strong password policies, and using secure payment gateways.</p><p><br></p><p>10. What are some emerging trends in eCommerce?</p><p>Some emerging trends in eCommerce include the rise of mobile shopping, the growth of voice commerce, the increasing popularity of social commerce, the adoption of augmented reality (AR) and virtual reality (VR) technologies, and the focus on sustainability and eco-friendly practices.</p>', '<p>Conclusion</p><p>eCommerce continues to revolutionize the way we buy and sell goods and services, offering exceptional convenience and opportunities for businesses and consumers. By understanding the fundamentals of eCommerce and staying updated with the latest trends and technologies, you can position yourself for success in this industry. So, whether you’re an entrepreneur looking to start your online store or a shopper exploring new ways to shop online, eCommerce has something for everyone!</p>', NULL, NULL, 'FAQ', '', '', NULL, '2024-07-04 09:30:30'),
+(4, 'Payment Method', 'payment-method', 'Payment Method', NULL, NULL, NULL, '', NULL, 'Payment Method', '', '', NULL, '2024-07-03 07:01:31'),
+(5, 'Money Back Guarantee', 'money-back-guarantee', 'Money Back Guarantee', NULL, NULL, NULL, NULL, NULL, 'Money Back Guarantee', '', '', NULL, '2024-07-03 04:57:05'),
+(6, 'Returns', 'returns', 'Returns', NULL, NULL, NULL, NULL, NULL, 'Returns', '', '', NULL, '2024-07-03 04:57:19'),
+(7, 'Shipping', 'shipping', 'Shipping', NULL, NULL, NULL, NULL, NULL, 'Shipping', '', '', NULL, '2024-07-03 04:57:33'),
+(8, 'Terms & Conditios', 'terms-conditios', 'Terms & Conditios', NULL, NULL, NULL, NULL, NULL, 'Terms & Conditios', '', '', NULL, '2024-07-03 04:57:59'),
+(9, 'Privacy Policy', 'privacy-policy', 'Privacy Policy', NULL, NULL, NULL, NULL, NULL, 'Privacy Policy', '', '', NULL, '2024-07-03 04:58:21'),
+(10, 'Home', 'home', 'Home', NULL, NULL, NULL, NULL, NULL, 'Home', '', '', NULL, '2024-07-03 08:37:04');
 
 -- --------------------------------------------------------
 
@@ -452,6 +525,31 @@ INSERT INTO `product_image` (`id`, `product_id`, `image_name`, `image_extension`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_review`
+--
+
+CREATE TABLE `product_review` (
+  `id` int NOT NULL,
+  `product_id` int DEFAULT NULL,
+  `order_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `rating` int NOT NULL DEFAULT '0',
+  `review` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `product_review`
+--
+
+INSERT INTO `product_review` (`id`, `product_id`, `order_id`, `user_id`, `rating`, `review`, `created_at`, `updated_at`) VALUES
+(1, 1, 7, 1, 5, 'Good Product', '2024-07-01 10:07:45', '2024-07-01 10:07:45'),
+(2, 1, 7, 2, 5, 'Product Product Product Product ', '2024-07-01 10:07:45', '2024-07-01 10:07:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product_size`
 --
 
@@ -488,6 +586,33 @@ INSERT INTO `product_size` (`id`, `product_id`, `name`, `price`, `created_at`, `
 (134, 2, 'M', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
 (135, 2, 'L', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
 (136, 2, 'XL', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_wishlist`
+--
+
+CREATE TABLE `product_wishlist` (
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `product_wishlist`
+--
+
+INSERT INTO `product_wishlist` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
+(4, 4, 15, '2024-07-01 05:48:52', '2024-07-01 05:48:52'),
+(5, 4, 14, '2024-07-01 05:48:55', '2024-07-01 05:48:55'),
+(6, 4, 8, '2024-07-01 05:48:58', '2024-07-01 05:48:58'),
+(7, 4, 7, '2024-07-01 05:49:03', '2024-07-01 05:49:03'),
+(9, 1, 15, '2024-07-01 08:12:54', '2024-07-01 08:12:54'),
+(10, 1, 2, '2024-07-01 08:13:01', '2024-07-01 08:13:01'),
+(14, 1, 1, '2024-07-02 12:12:11', '2024-07-02 12:12:11');
 
 -- --------------------------------------------------------
 
@@ -560,16 +685,62 @@ INSERT INTO `sub_category` (`id`, `category_id`, `name`, `slug`, `meta_title`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `system_settings`
+--
+
+CREATE TABLE `system_settings` (
+  `id` int NOT NULL,
+  `website_name` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `favicon` varchar(255) DEFAULT NULL,
+  `footer_description` text,
+  `footer_icon` varchar(255) DEFAULT NULL,
+  `office_address` varchar(255) DEFAULT NULL,
+  `short_description` varchar(255) DEFAULT NULL,
+  `office_day` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `office_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `office_weekend` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `facebook_link` varchar(255) DEFAULT NULL,
+  `twitter_link` varchar(255) DEFAULT NULL,
+  `instagram_link` varchar(255) DEFAULT NULL,
+  `youtube_link` varchar(255) DEFAULT NULL,
+  `pinterest_link` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `system_settings`
+--
+
+INSERT INTO `system_settings` (`id`, `website_name`, `logo`, `favicon`, `footer_description`, `footer_icon`, `office_address`, `short_description`, `office_day`, `office_time`, `office_weekend`, `phone`, `mobile`, `email`, `facebook_link`, `twitter_link`, `instagram_link`, `youtube_link`, `pinterest_link`, `created_at`, `updated_at`) VALUES
+(1, 'eCommerce.com', 'a3zenebjpv.png', 'vj383fnao3.ico', 'Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.', 'zsiehcgtrl.png', '70 Washington Square South New York, NY 10012, United States', 'United States', 'Monday-Saturday', '11am-7pm', 'Sunday 11am-6pm', '+92 423 567', '+92 423 567', 'test@gmail.com', 'https://www.google.com/', 'https://www.google.com/', 'https://www.google.com/', 'https://www.google.com/', 'https://www.google.com/', NULL, '2024-07-04 08:37:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `companyName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address_one` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address_two` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_admin` tinyint NOT NULL DEFAULT '0' COMMENT '0=customer, 1=admin',
   `status` tinyint NOT NULL DEFAULT '0' COMMENT '0=active, 1=inactive',
   `is_delete` tinyint NOT NULL DEFAULT '0' COMMENT '0=not, 1=deleted',
@@ -581,10 +752,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', 'MgxLI8rGhxANdv0DRWFwPWd6sTNUpjisDU87G2ILfWj4l0FiO9NwpLcQNqTG', 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
-(2, 'User', 'user@gmail.com', '2024-03-24 04:02:45', '$2y$12$qpWkTp8P3ubF6JkiuulzquFWPROGfJroJe9IQgTr2BrO2HXm0h1CO', 'In9eiXtU6gJNFe7WvykuXFMGOdWvMaEunrUsYCNA9pvSK58jsynfpgNpCmkF', 0, 0, 0, '2024-03-17 22:18:08', '2024-03-24 04:02:45'),
-(3, 'test1', 'test@test.com', NULL, '$2y$12$tH46Z2fApPJZwEbejQVgj.fihwGHgY46iNRq7D6eEyXRSIo4m18BW', NULL, 0, 0, 1, '2024-03-27 02:48:06', '2024-06-24 14:10:07');
+INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `email_verified_at`, `password`, `remember_token`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', NULL, 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', '47lrkKMiHqrshycEL66MlsTJrmWHZaMhh9qYvAR7OGxa6SjUXPIoyg91QCd8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
+(2, 'imtiaz', 'ahmed', 'user1@gmail.com', '2024-03-24 04:02:45', '$2y$12$M/up0AHta5CiDANX0fkiuuc01Fl8E.ti832vKJa2CcXzmJJO06Kiu', '9TJkxwbM5lVzmdUDFTdjPIptIsPsjO', 'skb paypal 1', 'skb paypal 1', 'skb paypal 1', 'skb paypal 1', 'test1', 'test1', '12345', '01767056733', 0, 0, 0, '2024-03-17 22:18:08', '2024-06-27 05:36:42'),
+(3, 'test1', NULL, 'test@test.com', NULL, '$2y$12$tH46Z2fApPJZwEbejQVgj.fihwGHgY46iNRq7D6eEyXRSIo4m18BW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '2024-03-27 02:48:06', '2024-03-27 02:48:06'),
+(4, 'Imtiaz', 'Ahmed', 'user@gmail.com', '2024-06-28 23:50:48', '$2y$12$jDjAfMXCwTzAGjXGqb.iLu985HRsKJULEHRyiNd3PHn/MhyxO/YwG', NULL, '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 0, 0, 0, '2024-06-28 23:50:07', '2024-07-01 00:30:56');
 
 --
 -- Indexes for dumped tables
@@ -606,6 +778,12 @@ ALTER TABLE `category`
 -- Indexes for table `color`
 --
 ALTER TABLE `color`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -637,6 +815,12 @@ ALTER TABLE `orders`
 -- Indexes for table `orders_item`
 --
 ALTER TABLE `orders_item`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -672,9 +856,21 @@ ALTER TABLE `product_image`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_review`
+--
+ALTER TABLE `product_review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_size`
 --
 ALTER TABLE `product_size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_wishlist`
+--
+ALTER TABLE `product_wishlist`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -687,6 +883,12 @@ ALTER TABLE `shipping_charge`
 -- Indexes for table `sub_category`
 --
 ALTER TABLE `sub_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `system_settings`
+--
+ALTER TABLE `system_settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -719,6 +921,12 @@ ALTER TABLE `color`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `coupon_code`
 --
 ALTER TABLE `coupon_code`
@@ -740,13 +948,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -773,10 +987,22 @@ ALTER TABLE `product_image`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT for table `product_review`
+--
+ALTER TABLE `product_review`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+
+--
+-- AUTO_INCREMENT for table `product_wishlist`
+--
+ALTER TABLE `product_wishlist`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `shipping_charge`
@@ -791,10 +1017,16 @@ ALTER TABLE `sub_category`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `system_settings`
+--
+ALTER TABLE `system_settings`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
