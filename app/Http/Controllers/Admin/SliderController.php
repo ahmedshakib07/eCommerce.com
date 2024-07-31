@@ -25,6 +25,7 @@ class SliderController extends Controller
 
         $slider = new SliderModel;
         $slider->title = trim($request->title);
+        $slider->intro_subtitle = trim($request->intro_subtitle);
         $slider->button_name = trim($request->button_name);
         $slider->button_link = trim($request->button_link);
 
@@ -53,6 +54,7 @@ class SliderController extends Controller
 
         $slider = SliderModel::getSingle($id);
         $slider->title = trim($request->title);
+        $slider->intro_subtitle = trim($request->intro_subtitle);
         $slider->button_name = trim($request->button_name);
         $slider->button_link = trim($request->button_link);
 

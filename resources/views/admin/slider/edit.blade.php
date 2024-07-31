@@ -32,8 +32,13 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Title <span style="color:red">*</span> </label>
-                                        <input type="text" class="form-control" name="title" id="" value="{{ $getRecord->title }}" placeholder="Enter Title" required>
+                                        <label>Title <span style="color:red"></span> </label>
+                                        <input type="text" class="form-control" name="title" id="" value="{{ $getRecord->title }}" placeholder="Enter Title">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Intro Subtitle <span style="color:red"></span> </label>
+                                        <input type="text" class="form-control" name="intro_subtitle" id="" value="{{ $getRecord->intro_subtitle }}" placeholder="Enter Intro Subtitle">
                                     </div>
 
                                     <div class="form-group">
@@ -45,8 +50,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Button Nmae <span style="color:red">*</span> </label>
-                                        <input type="text" class="form-control" name="button_name" id="" value="{{ $getRecord->button_name }}" placeholder="Enter Button Nmae" required>
+                                        <label>Button Nmae <span style="color:red"></span> </label>
+                                        <input type="text" class="form-control" name="button_name" id="" value="{{ $getRecord->button_name }}" placeholder="Enter Button Nmae">
                                     </div>
 
                                     <div class="form-group">

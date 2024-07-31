@@ -2,11 +2,10 @@
 @section('content')
 
 <main class="main">
-    <div class="intro-section bg-lighter pt-5 pb-6">
+    <div class="intro-section bg-lighter pt-3 pb-6">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    
                     <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
                         @php
                             $getCategoryHeader = App\Models\CategoryModel::getRecordActive();
@@ -21,62 +20,31 @@
                                     }
                                 }
                             }'>
-                            <div class="intro-slide">
-                                <figure class="slide-image">
-                                    <picture>
-                                        <source media="(max-width: 480px)" srcset="assets/images/slider/slide-1-480w.jpg">
-                                        <img src="assets/images/slider/slide-1.jpg" alt="Image Desc">
-                                    </picture>
-                                </figure>
 
-                                <div class="intro-content">
-                                    <h3 class="intro-subtitle">Topsale Collection</h3>
-                                    <h1 class="intro-title">Living Room<br>Furniture</h1>
+                            @foreach($getSlider as $slider)
+                                @if(!empty($slider->getImage()))
+                                    <div class="intro-slide">
+                                        <figure class="slide-image">
+                                            <picture>
+                                                <source media="(max-width: 480px)" srcset="{{ $slider->getImage() }}">
+                                                <img src="{{ $slider->getImage() }}" alt="Image Desc">
+                                            </picture>
+                                        </figure>
 
-                                    <a href="{{ url($value_category_header->slug) }}" class="btn btn-outline-white">
-                                        <span>SHOP NOW</span>
-                                        <i class="icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+                                        <div class="intro-content">
+                                            <h3 class="intro-subtitle">{!! $slider->intro_subtitle !!}</h3>
+                                            <h1 class="intro-title">{!! $slider->title !!}</h1>
 
-                            <div class="intro-slide">
-                                <figure class="slide-image">
-                                    <picture>
-                                        <source media="(max-width: 480px)" srcset="assets/images/slider/slide-2-480w.jpg">
-                                        <img src="assets/images/slider/slide-2.jpg" alt="Image Desc">
-                                    </picture>
-                                </figure>
-
-                                <div class="intro-content">
-                                    <h3 class="intro-subtitle">News and Inspiration</h3>
-                                    <h1 class="intro-title">New Arrivals</h1>
-
-                                    <a href="category.html" class="btn btn-outline-white">
-                                        <span>SHOP NOW</span>
-                                        <i class="icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="intro-slide">
-                                <figure class="slide-image">
-                                    <picture>
-                                        <source media="(max-width: 480px)" srcset="assets/images/slider/slide-3-480w.jpg">
-                                        <img src="assets/images/slider/slide-3.jpg" alt="Image Desc">
-                                    </picture>
-                                </figure>
-
-                                <div class="intro-content">
-                                    <h3 class="intro-subtitle">Outdoor Furniture</h3>
-                                    <h1 class="intro-title">Outdoor Dining <br>Furniture</h1>
-
-                                    <a href="category.html" class="btn btn-outline-white">
-                                        <span>SHOP NOW</span>
-                                        <i class="icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+                                            @if(!empty($slider->button_link) && !empty($slider->button_name))
+                                            <a href="{{ $slider->button_link }}" class="btn btn-outline-white">
+                                                <span>{{ $slider->button_name }}</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
 
                         </div>
                         

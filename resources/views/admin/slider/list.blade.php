@@ -40,9 +40,10 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Intro Subtitle</th>
                                             <th>Button Name</th>
                                             <th>Button link</th>
-                                            <th>Title</th>
                                             <th>Status</th>
                                             <th>Created Date</th>
                                             <th>Action</th>
@@ -57,9 +58,10 @@
                                                         <img src="{{ $value->getImage() }}" alt="" style="height: 100px;">
                                                     @endif
                                                 </td>
+                                                <td>{{ $value->title }}</td>
+                                                <td>{{ $value->intro_subtitle }}</td>
                                                 <td>{{ $value->button_name }}</td>
                                                 <td>{{ $value->button_link }}</td>
-                                                <td>{{ $value->title }}</td>
                                                 <td>{{ ($value->status == 0) ? 'Active': 'Inactive' }}</td>
                                                 <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                                 <td>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PageModel;
 use App\Models\SystemSettingsModel;
 use App\Models\ContactUsModel;
+use App\Models\SliderModel;
 use App\Mail\ContactUsMail;
 use Session;
 use Auth;
@@ -16,6 +17,8 @@ class HomeController extends Controller
     public function home() {
         $getPage = PageModel::getSlug('home');
         $data['getPage'] = $getPage;
+        
+        $data['getSlider'] = SliderModel::getRecordActive();
 
         $data['meta_title'] = $getPage->meta_title;
         $data['meta_description'] = $getPage->meta_description;
