@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-primary">
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
@@ -48,6 +48,26 @@
                                             <option {{ (old('status', $getRecord->status) == 0) ? 'selected' : '' }} value="0">Active</option>
                                             <option {{ (old('status', $getRecord->status) == 1) ? 'selected' : '' }} value="1">In Active</option>
                                         </select>
+                                    </div>
+
+                                    <hr class="mt-5 mb-5">
+
+                                    <div class="form-group">
+                                        <label>Image <span style="color:red"></span> </label>
+                                        <input type="file" class="form-control" name="image_name" id="">
+                                        @if(!empty($getRecord->getImage()))
+                                            <img src="{{ $getRecord->getImage() }}" alt="" style="height: 100px;">
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Button Name <span style="color:red"></span> </label>
+                                        <input type="text" class="form-control" name="button_name" id="" value="{{ old('button_name', $getRecord->button_name) }}" placeholder="Enter Category Button Name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label style="display: block;">Home Screen <span style="color:red"></span> </label>
+                                        <input type="checkbox" {{ !empty($getRecord->is_home) ? 'checked' : '' }} name="is_home" id="">
                                     </div>
 
                                     <hr class="mt-5 mb-5">

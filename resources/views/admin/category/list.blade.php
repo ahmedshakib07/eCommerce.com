@@ -39,12 +39,14 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Slug</th>
                                             <th>Meta Title</th>
                                             <th>Meta Description</th>
                                             <th>Meta keywords</th>
                                             <th>Created By</th>
+                                            <th>Home</th>
                                             <th>Status</th>
                                             <th>Created Date</th>
                                             <th>Action</th>
@@ -54,12 +56,18 @@
                                         @foreach($getRecord as $value)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
+                                                <td>
+                                                    @if(!empty($value->getImage()))
+                                                        <img src="{{ $value->getImage() }}" alt="" style="height: 100px;">
+                                                    @endif
+                                                </td>
                                                 <td>{{ $value->name }}</td>
                                                 <td>{{ $value->slug }}</td>
                                                 <td>{{ $value->meta_title }}</td>
                                                 <td>{{ $value->meta_description }}</td>
                                                 <td>{{ $value->meta_keywords }}</td>
                                                 <td>{{ $value->created_by_name }}</td>
+                                                <td>{{ ($value->is_home == 1) ? 'Yes': 'No' }}</td>
                                                 <td>{{ ($value->status == 0) ? 'Active': 'Inactive' }}</td>
                                                 <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                                 <td>
