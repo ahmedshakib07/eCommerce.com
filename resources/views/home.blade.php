@@ -88,6 +88,7 @@
                 </div>
             </div>
 
+            @if(!empty($getPartner->count()))
             <div class="mb-6"></div>
 
             <div class="owl-carousel owl-simple" data-toggle="owl" 
@@ -114,30 +115,15 @@
                         }
                     }
                 }'>
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/1.png" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/2.png" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/3.png" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/4.png" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/5.png" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="assets/images/brands/6.png" alt="Brand Name">
-                </a>
+                @foreach($getPartner as $partner)
+                    @if(!empty($partner->getImage()))
+                        <a href="{{ !empty($partner->button_link) ? $partner->button_link : '#' }}" class="brand">
+                            <img src="{{ $partner->getImage() }}" alt="Brand Name">
+                        </a>
+                    @endif
+                @endforeach
             </div>
+            @endif
         </div>
     </div>
 

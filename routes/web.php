@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CouponCodeController;
 use App\Http\Controllers\Admin\ShippingChargeController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\PageController;
 
@@ -132,6 +133,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/slider/edit/{id}', [SliderController::class, 'update']);
     Route::get('admin/slider/delete/{id}', [SliderController::class, 'delete']);
     
+    Route::get('admin/partner/list', [PartnerController::class, 'list']);
+    Route::get('admin/partner/add', [PartnerController::class, 'add']);
+    Route::post('admin/partner/add', [PartnerController::class, 'insert']);
+    Route::get('admin/partner/edit/{id}', [PartnerController::class, 'edit']);
+    Route::post('admin/partner/edit/{id}', [PartnerController::class, 'update']);
+    Route::get('admin/partner/delete/{id}', [PartnerController::class, 'delete']);
 
     Route::get('admin/page/list', [PageController::class, 'list']);
     Route::get('admin/page/edit/{id}', [PageController::class, 'edit']);
