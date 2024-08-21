@@ -183,6 +183,7 @@ Route::post('reset/{token}', [AuthController::class, 'auth_reset']);
 Route::get('activate/{id}', [AuthController::class, 'activate_email']);
 
 Route::get('/', [HomeController::class, 'home']);
+Route::post('recent_arrival_category_product', [HomeController::class, 'recent_arrival_category_product']);
 Route::get('about', [HomeController::class, 'about']);
 
 Route::get('contact', [HomeController::class, 'contact']);
