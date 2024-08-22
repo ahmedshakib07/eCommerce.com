@@ -92,11 +92,11 @@
 
                                     </div>
 
-                                    <!-- Color -->
+                                    <!-- Color and Trendy Products-->
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Color</label>
+                                                <label>Color</label><br>
                                                 @foreach($getColor as $color)
                                                     @php
                                                         $checked = '';
@@ -109,15 +109,23 @@
                                                             @endphp
                                                         @endif
                                                     @endforeach
-                                                    <div>
-                                                        <label><input {{ $checked }} type="checkbox" name="color_id[]" value="{{ $color->id }}"> {{ $color->name }}</label>
-                                                    </div>
+
+                                                    <label><input {{ $checked }} type="checkbox" name="color_id[]" value="{{ $color->id }}"> {{ $color->name }}</label>
                                                 @endforeach
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Trendy Products <span style="color:red"></span> </label>
+                                                <div class="form-group">
+                                                    <label><input {{ !empty($product->is_trendy_products) ? 'checked': '' }} type="checkbox" name="is_trendy_products"></label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <hr class="mt-5 mb-5">
+                                    <hr class="mt-2 mb-5">
 
                                     <!-- Price -->
                                     <div class="row">

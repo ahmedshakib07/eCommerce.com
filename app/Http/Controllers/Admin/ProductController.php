@@ -77,6 +77,7 @@ class ProductController extends Controller
             $product->category_id = trim($request->category_id);
             $product->sub_category_id = trim($request->sub_category_id);
             $product->brand_id = trim($request->brand_id);
+            $product->is_trendy_products = !empty($request->is_trendy_products) ? 1 : 0;
             $product->old_price = trim($request->old_price);
             $product->price = trim($request->price);
             $product->short_description = trim($request->short_description);
