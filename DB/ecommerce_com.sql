@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 04, 2024 at 12:17 PM
+-- Generation Time: Oct 21, 2024 at 08:29 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -72,6 +72,9 @@ CREATE TABLE `category` (
   `id` int NOT NULL,
   `name` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  `button_name` varchar(255) DEFAULT NULL,
+  `is_home` tinyint NOT NULL DEFAULT '0' COMMENT '0=not show,\r\n1=show',
   `meta_title` varchar(250) DEFAULT NULL,
   `meta_description` text,
   `meta_keywords` varchar(250) DEFAULT NULL,
@@ -86,17 +89,17 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `slug`, `meta_title`, `meta_description`, `meta_keywords`, `created_by`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Toys And Games', 'toys-games', 'Toys And Games', 'Toys And Games Product', 'Toys, Games, Shopping', 1, 0, 0, '2024-01-16 05:17:36', '2024-03-07 07:05:15'),
-(2, 'Home & Furniture', 'home-furniture', 'Home and Furniture', 'Home and Furniture', 'Home, Furniture', 1, 0, 0, '2024-01-16 06:25:52', '2024-01-22 09:00:46'),
-(3, 'Fashion', 'fashion', 'Fashion', 'Fashion', 'Fashion', 1, 0, 0, '2024-01-16 06:41:03', '2024-03-07 07:05:29'),
-(4, 'Electronics', 'electronics', 'Electronic Products', 'Electronic Products', 'All Electronic Products, Electronics', 1, 0, 0, '2024-01-16 08:57:18', '2024-01-22 11:34:49'),
-(5, 'Books, Movies and Music', 'books-movies-music', 'Books, Movies & Music', 'Books, Movies and Music', 'Books, Movies, Music', 1, 0, 0, '2024-01-22 09:00:29', '2024-01-22 09:00:29'),
-(6, 'Bags', 'bags', 'Bags', 'Bags', 'Bags', 1, 0, 0, '2024-01-31 05:27:56', '2024-03-07 07:05:38'),
-(7, 'Baby products', 'baby-products', 'Baby products', 'Baby products', 'Baby products', 1, 0, 0, '2024-01-31 05:55:41', '2024-03-07 07:05:08'),
-(8, 'Lighting', 'lighting', 'Lighting', 'Lighting', 'Lighting', 1, 0, 0, '2024-01-31 12:36:26', '2024-01-31 12:36:26'),
-(9, 'Kitchen & Utensil', 'kitchen-utensil', 'Kitchen & Utensil', 'Kitchen & Utensil', 'Kitchen & Utensil', 1, 0, 0, '2024-01-31 12:37:00', '2024-01-31 12:37:00'),
-(10, 'Outdoor', 'outdoor', 'Outdoor', 'Outdoor', 'Outdoor', 1, 0, 0, '2024-01-31 12:37:21', '2024-01-31 12:37:21');
+INSERT INTO `category` (`id`, `name`, `slug`, `image_name`, `button_name`, `is_home`, `meta_title`, `meta_description`, `meta_keywords`, `created_by`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 'Toys And Games', 'toys-games', '2evtmdabtuzwafhy7tnl.jpg', 'VISIT NOW', 1, 'Toys And Games', 'Toys And Games Product', 'Toys, Games, Shopping', 1, 0, 0, '2024-01-16 05:17:36', '2024-08-21 17:59:11'),
+(2, 'Home & Furniture', 'home-furniture', NULL, NULL, 0, 'Home and Furniture', 'Home and Furniture', 'Home, Furniture', 1, 0, 0, '2024-01-16 06:25:52', '2024-01-22 09:00:46'),
+(3, 'Fashion', 'fashion', NULL, NULL, 0, 'Fashion', 'Fashion', 'Fashion', 1, 0, 0, '2024-01-16 06:41:03', '2024-03-07 07:05:29'),
+(4, 'Electronics', 'electronics', NULL, NULL, 0, 'Electronic Products', 'Electronic Products', 'All Electronic Products, Electronics', 1, 0, 0, '2024-01-16 08:57:18', '2024-01-22 11:34:49'),
+(5, 'Books, Movies and Music', 'books-movies-music', NULL, NULL, 0, 'Books, Movies & Music', 'Books, Movies and Music', 'Books, Movies, Music', 1, 0, 0, '2024-01-22 09:00:29', '2024-01-22 09:00:29'),
+(6, 'Bags', 'bags', 'vzk3vebjmuhcozqu1282.jpg', 'VISIT NOW', 1, 'Bags', 'Bags', 'Bags', 1, 0, 0, '2024-01-31 05:27:56', '2024-08-21 18:22:33'),
+(7, 'Baby products', 'baby-products', '3mqlty9vnju3qcw12nnl.jpg', 'SHOP NOW', 0, 'Baby products', 'Baby products', 'Baby products', 1, 0, 0, '2024-01-31 05:55:41', '2024-08-20 19:08:05'),
+(8, 'Lighting', 'lighting', 'a5rruk0ksaihx8r8flzs.jpg', 'SHOP NOW', 0, 'Lighting', 'Lighting', 'Lighting', 1, 0, 0, '2024-01-31 12:36:26', '2024-08-21 18:03:45'),
+(9, 'Kitchen & Utensil', 'kitchen-utensil', 'lqgfq55xb5xmzsdvdnws.jpg', 'SHOP NOW', 0, 'Kitchen & Utensil', 'Kitchen & Utensil', 'Kitchen & Utensil', 1, 0, 0, '2024-01-31 12:37:00', '2024-08-20 19:07:55'),
+(10, 'Outdoor', 'outdoor', 'yihmzyu3vufyldu8ngoi.jpg', 'SHOP NOW', 1, 'Outdoor', 'Outdoor', 'Outdoor', 1, 0, 0, '2024-01-31 12:37:21', '2024-08-21 18:18:27');
 
 -- --------------------------------------------------------
 
@@ -126,7 +129,7 @@ INSERT INTO `color` (`id`, `name`, `code`, `created_by`, `status`, `is_delete`, 
 (4, 'black', '#000000', 1, 1, 0, '2024-02-11 11:10:09', '2024-02-25 11:07:57'),
 (5, 'white', '#ffffff', 1, 0, 0, '2024-02-11 11:10:23', '2024-02-11 11:10:23'),
 (6, 'Brown', '#c27638', 1, 0, 0, '2024-02-12 09:49:15', '2024-02-12 09:49:15'),
-(7, 'Teal', '#7dd4ce', 1, 0, 0, '2024-02-20 11:08:26', '2024-02-20 11:09:28'),
+(7, 'Teal', '#7dd4ce', 1, 0, 1, '2024-02-20 11:08:26', '2024-08-22 18:02:45'),
 (8, 'Sky Blue', '#87ceeb', 1, 0, 0, '2024-02-27 07:03:35', '2024-02-27 07:04:07'),
 (9, 'Green', '#067a2e', 1, 0, 0, '2024-03-21 03:39:49', '2024-03-21 03:39:49'),
 (10, 'tests', '#000000', 1, 0, 1, '2024-03-21 08:35:40', '2024-03-21 08:35:59');
@@ -154,7 +157,8 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `user_id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(4, 1, 'The Office', 'fermentum@gmail.com', '098765432', 'fermentum', 'fermentum fermentum fermentum', '2024-07-04 10:43:51', '2024-07-04 10:43:51');
+(4, 1, 'The Office', 'fermentum@gmail.com', '098765432', 'fermentum', 'fermentum fermentum fermentum', '2024-07-04 10:43:51', '2024-07-04 10:43:51'),
+(5, NULL, 'test 1', 'test@gmail.com', '123456', 'test d', 'good work', '2024-07-31 14:34:37', '2024-07-31 14:34:37');
 
 -- --------------------------------------------------------
 
@@ -233,6 +237,7 @@ CREATE TABLE `orders` (
   `transaction_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `stripe_session_id` varchar(255) DEFAULT NULL,
   `order_number` varchar(255) DEFAULT NULL,
+  `vendor_id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `firstName` varchar(255) DEFAULT NULL,
   `lastName` varchar(255) DEFAULT NULL,
@@ -264,15 +269,15 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `transaction_id`, `stripe_session_id`, `order_number`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, NULL, 1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test@gmail.com', '', '', '0', 2, '0', '10', 'cash', 3, 0, 1, NULL, '2024-06-24 12:25:12', '2024-07-01 10:04:50'),
-(2, 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', NULL, 1, 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skbstripe@gmail.com', 'skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1', '', '0', 2, '0', '25', 'stripe', 1, 0, 1, '{\"id\":\"cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":2500,\"amount_total\":2500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719232157,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"skbstripe@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"skbstripe@gmail.com\",\"expires_at\":1719318557,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVC1gE2FZcg7aAh1WTw9pz8\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 12:29:16', '2024-07-01 10:04:47'),
-(3, NULL, NULL, NULL, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
-(4, NULL, NULL, NULL, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
-(5, NULL, NULL, '1398927501', 2, 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1@gmail.com', 'test1test1test1test1test1test1test1test1test1', '', '0', 2, '0', '20', 'cash', 0, 0, 1, NULL, '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
-(6, NULL, NULL, '4974433448', 4, 'Imtiaz', 'Ahmed', '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 'user@gmail.com', '', '', '0', 2, '0', '60', 'cash', 3, 0, 1, NULL, '2024-07-01 06:44:51', '2024-07-01 09:59:51'),
-(7, 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', '1152387929', 1, 'Admin', 'Admin', '', 'DB', 'DHK', 'DHK', 'DK', 'mirpur', '1234', '01767056733', 'admin@gmail.com', 'Order notes (optional) Admin', '', '0', 1, '10', '185', 'stripe', 3, 0, 1, '{\"id\":\"cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":18500,\"amount_total\":18500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719821755,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"admin@gmail.com\",\"name\":\"Admin\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"admin@gmail.com\",\"expires_at\":1719908154,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PXfPTE2FZcg7aAh06uBWPiW\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-07-01 08:15:53', '2024-07-01 10:07:07'),
-(8, NULL, NULL, '1492855708', 1, 'Admin', 'Admin2', '', 'test1', 'test2', 'test1', 'test1', 'test2', '123', '5678', 'admin@gmail.com', '', '', '0', 2, '0', '5', 'cash', 0, 0, 1, NULL, '2024-07-01 09:36:49', '2024-07-01 09:36:49');
+INSERT INTO `orders` (`id`, `transaction_id`, `stripe_session_id`, `order_number`, `vendor_id`, `user_id`, `firstName`, `lastName`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `email`, `notes`, `coupon_code`, `coupon_amount`, `shipping_id`, `shipping_amount`, `total_amount`, `payment_method`, `status`, `is_delete`, `is_payment`, `payment_data`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, NULL, 0, 1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test@gmail.com', '', '', '0', 2, '0', '10', 'cash', 3, 0, 1, NULL, '2024-06-24 12:25:12', '2024-07-01 10:04:50'),
+(2, 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', 'cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5', NULL, 0, 1, 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skb stripe 1', 'skbstripe@gmail.com', 'skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1skb stripe 1', '', '0', 2, '0', '25', 'stripe', 1, 0, 1, '{\"id\":\"cs_test_a1pfPKTQV03ZiP7Vk4HWN1mJfofq5vVLPiVGnsJOYwhoeEvB5a89M2xzo5\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":2500,\"amount_total\":2500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719232157,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"skbstripe@gmail.com\",\"name\":\"111\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"skbstripe@gmail.com\",\"expires_at\":1719318557,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PVC1gE2FZcg7aAh1WTw9pz8\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-06-24 12:29:16', '2024-07-01 10:04:47'),
+(3, NULL, NULL, NULL, 0, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
+(4, NULL, NULL, NULL, 0, 1, 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'test2test2test2test2test2test2test2test2', '', '0', 2, '0', '150', 'paypal', 0, 0, 0, NULL, '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
+(5, NULL, NULL, '1398927501', 0, 2, 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1', 'test1@gmail.com', 'test1test1test1test1test1test1test1test1test1', '', '0', 2, '0', '20', 'cash', 0, 0, 1, NULL, '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
+(6, NULL, NULL, '4974433448', 0, 4, 'Imtiaz', 'Ahmed', '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 'user@gmail.com', '', '', '0', 2, '0', '60', 'cash', 3, 0, 1, NULL, '2024-07-01 06:44:51', '2024-07-01 09:59:51'),
+(7, 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', 'cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW', '1152387929', 0, 1, 'Admin', 'Admin', '', 'DB', 'DHK', 'DHK', 'DK', 'mirpur', '1234', '01767056733', 'admin@gmail.com', 'Order notes (optional) Admin', '', '0', 1, '10', '185', 'stripe', 3, 0, 1, '{\"id\":\"cs_test_a1zW5Jogi54Jh8RoJgBZBAeR1i6yslDYanEOElGMlBTfi2eiuCoE4QG7RW\",\"object\":\"checkout.session\",\"after_expiration\":null,\"allow_promotion_codes\":null,\"amount_subtotal\":18500,\"amount_total\":18500,\"automatic_tax\":{\"enabled\":false,\"liability\":null,\"status\":null},\"billing_address_collection\":null,\"cancel_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/checkout\",\"client_reference_id\":null,\"client_secret\":null,\"consent\":null,\"consent_collection\":null,\"created\":1719821755,\"currency\":\"usd\",\"currency_conversion\":null,\"custom_fields\":[],\"custom_text\":{\"after_submit\":null,\"shipping_address\":null,\"submit\":null,\"terms_of_service_acceptance\":null},\"customer\":null,\"customer_creation\":\"if_required\",\"customer_details\":{\"address\":{\"city\":null,\"country\":\"BD\",\"line1\":null,\"line2\":null,\"postal_code\":null,\"state\":null},\"email\":\"admin@gmail.com\",\"name\":\"Admin\",\"phone\":null,\"tax_exempt\":\"none\",\"tax_ids\":[]},\"customer_email\":\"admin@gmail.com\",\"expires_at\":1719908154,\"invoice\":null,\"invoice_creation\":{\"enabled\":false,\"invoice_data\":{\"account_tax_ids\":null,\"custom_fields\":null,\"description\":null,\"footer\":null,\"issuer\":null,\"metadata\":[],\"rendering_options\":null}},\"livemode\":false,\"locale\":null,\"metadata\":[],\"mode\":\"payment\",\"payment_intent\":\"pi_3PXfPTE2FZcg7aAh06uBWPiW\",\"payment_link\":null,\"payment_method_collection\":\"if_required\",\"payment_method_configuration_details\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"payment_method_types\":[\"card\"],\"payment_status\":\"paid\",\"phone_number_collection\":{\"enabled\":false},\"recovered_from\":null,\"saved_payment_method_options\":null,\"setup_intent\":null,\"shipping_address_collection\":null,\"shipping_cost\":null,\"shipping_details\":null,\"shipping_options\":[],\"status\":\"complete\",\"submit_type\":null,\"subscription\":null,\"success_url\":\"http:\\/\\/localhost\\/eCommerce.com\\/stripe\\/payment_success\",\"total_details\":{\"amount_discount\":0,\"amount_shipping\":0,\"amount_tax\":0},\"ui_mode\":\"hosted\",\"url\":null}', '2024-07-01 08:15:53', '2024-07-01 10:07:07'),
+(8, NULL, NULL, '1492855708', 0, 1, 'Admin', 'Admin2', '', 'test1', 'test2', 'test1', 'test1', 'test2', '123', '5678', 'admin@gmail.com', '', '', '0', 2, '0', '5', 'cash', 0, 0, 1, NULL, '2024-07-01 09:36:49', '2024-07-01 09:36:49');
 
 -- --------------------------------------------------------
 
@@ -284,6 +289,7 @@ CREATE TABLE `orders_item` (
   `id` int NOT NULL,
   `order_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
+  `vendor_id` int NOT NULL,
   `quantity` int NOT NULL DEFAULT '0',
   `price` varchar(25) DEFAULT '0',
   `color_name` varchar(255) DEFAULT NULL,
@@ -298,16 +304,16 @@ CREATE TABLE `orders_item` (
 -- Dumping data for table `orders_item`
 --
 
-INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 16, 2, '5', NULL, NULL, '0', '5', '2024-06-24 12:25:13', '2024-06-24 12:25:13'),
-(2, 2, 1, 1, '25', NULL, NULL, '0', '25', '2024-06-24 12:29:16', '2024-06-24 12:29:16'),
-(3, 3, 18, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
-(4, 4, 18, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
-(5, 5, 8, 2, '10', NULL, 'S', '0', '20', '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
-(6, 6, 14, 2, '30', 'Gray', '39', '0', '60', '2024-07-01 06:44:51', '2024-07-01 06:44:51'),
-(7, 7, 1, 3, '25', NULL, NULL, '0', '75', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
-(8, 7, 11, 1, '100', NULL, NULL, '0', '100', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
-(9, 8, 16, 1, '5', NULL, NULL, '0', '5', '2024-07-01 09:36:49', '2024-07-01 09:36:49');
+INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `vendor_id`, `quantity`, `price`, `color_name`, `size_name`, `size_amount`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 16, 0, 2, '5', NULL, NULL, '0', '5', '2024-06-24 12:25:13', '2024-06-24 12:25:13'),
+(2, 2, 1, 0, 1, '25', NULL, NULL, '0', '25', '2024-06-24 12:29:16', '2024-06-24 12:29:16'),
+(3, 3, 18, 0, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:31:56', '2024-06-24 12:31:56'),
+(4, 4, 18, 0, 1, '150', NULL, NULL, '0', '150', '2024-06-24 12:32:38', '2024-06-24 12:32:38'),
+(5, 5, 8, 0, 2, '10', NULL, 'S', '0', '20', '2024-06-27 06:26:07', '2024-06-27 06:26:07'),
+(6, 6, 14, 0, 2, '30', 'Gray', '39', '0', '60', '2024-07-01 06:44:51', '2024-07-01 06:44:51'),
+(7, 7, 1, 0, 3, '25', NULL, NULL, '0', '75', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
+(8, 7, 11, 0, 1, '100', NULL, NULL, '0', '100', '2024-07-01 08:15:53', '2024-07-01 08:15:53'),
+(9, 8, 16, 0, 1, '5', NULL, NULL, '0', '5', '2024-07-01 09:36:49', '2024-07-01 09:36:49');
 
 -- --------------------------------------------------------
 
@@ -351,6 +357,32 @@ INSERT INTO `page` (`id`, `name`, `slug`, `title`, `description`, `short_descrip
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `partner`
+--
+
+CREATE TABLE `partner` (
+  `id` int NOT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  `button_link` varchar(255) DEFAULT NULL,
+  `is_delete` tinyint NOT NULL DEFAULT '0' COMMENT 'delete = 0, \r\nnot delete = 1',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT 'active = 0, \r\nnot active = 1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `partner`
+--
+
+INSERT INTO `partner` (`id`, `image_name`, `button_link`, `is_delete`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'xzhskspfsx7k5tfxmk1y.png', 'http://localhost/eCommerce.com/electronics/power-bank', 0, 1, '2024-08-20 16:28:09', '2024-10-20 16:50:08'),
+(2, 'dxeltaxrojvicwheumvj.png', 'b', 0, 0, '2024-08-20 16:33:38', '2024-08-20 16:33:38'),
+(3, 's0wil2rsbepoij2x34c2.png', 's', 0, 0, '2024-08-20 16:33:55', '2024-08-20 16:33:55'),
+(4, 'xinczs5c2bqoqt5mqbu3.png', 'k', 0, 0, '2024-08-20 16:34:16', '2024-08-20 16:34:16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_reset_tokens`
 --
 
@@ -387,6 +419,7 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `product` (
   `id` int NOT NULL,
+  `created_by` int DEFAULT NULL COMMENT 'created_by = user_id as vendor',
   `title` varchar(250) DEFAULT NULL,
   `slug` varchar(250) DEFAULT NULL,
   `sku` varchar(250) DEFAULT NULL,
@@ -395,12 +428,12 @@ CREATE TABLE `product` (
   `brand_id` int DEFAULT NULL,
   `old_price` double NOT NULL DEFAULT '0',
   `price` double NOT NULL DEFAULT '0',
+  `is_trendy_products` tinyint NOT NULL DEFAULT '0',
   `short_description` text,
   `description` longtext,
   `additiona_information` text,
   `shipping_return` text,
   `is_delete` tinyint NOT NULL DEFAULT '0' COMMENT '0=not,\r\n1=delete',
-  `created_by` int DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '0' COMMENT '0=adtive, 1=Inactive',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
@@ -410,26 +443,27 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `slug`, `sku`, `category_id`, `sub_category_id`, `brand_id`, `old_price`, `price`, `short_description`, `description`, `additiona_information`, `shipping_return`, `is_delete`, `created_by`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Men\'s Bags', 'bag', 'Men\'s Bags', 6, 11, 2, 8, 25, 'text Short Description', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Description</span></p>', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Additiona Information&nbsp;</span></p>', '<p>text&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 1, 0, '2024-01-16 12:02:46', '2024-02-20 06:11:13'),
-(2, 'Dark yellow lace cut out swing dress', 'dark-yellow-lace-cut-out-swing-dress', 'dummy-product-title', 3, 5, 1, 50, 45, 'dummy-product-title', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', 0, 1, 0, '2024-01-16 12:11:36', '2024-01-23 11:20:35'),
-(3, 'Women\'s Bag', 'dummy-product-title', 'womens-bag', 6, 12, 2, 15, 10, 'Dummy Product Short Description', '<p>Dummy Product<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">&nbsp;Description</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Additiona Information</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 1, 0, '2024-01-18 09:05:57', '2024-01-31 05:47:10'),
-(4, 'Women\'s Cloth\'s', 'cloths', 'cloths', 3, 5, 1, 15, 10, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', 0, 1, 0, '2024-01-23 11:24:40', '2024-02-27 06:33:30'),
-(5, 'Women\'s Bag', 'womwns-bag', 'womens-bag', 6, 12, 2, 15, 10, 'Women\'s Bag', '', '', '', 0, 1, 0, '2024-01-31 05:36:29', '2024-01-31 05:37:52'),
-(6, 'Office Bag', 'office-bag', 'office-bag', 6, 14, 2, 8, 15, 'Office Bag', '', '', '', 0, 1, 0, '2024-01-31 05:42:59', '2024-02-11 11:27:37'),
-(7, 'Organic Baby Clothes In Coimbatore', 'organic-baby-clothes-in-coimbatore', 'organic-baby-clothes-in-coimbatore', 3, 13, 1, 8, 10, 'Organic Baby Clothes In Coimbatore - Prices, Manufacturers & Suppliers', '', '', '', 0, 1, 0, '2024-01-31 05:57:06', '2024-01-31 05:58:20'),
-(8, 'Men\'s Clothing Essentials', 'buy-mens-clothing-essentials-online-at-best-prices-in-bangladesh-2024', 'men\'s-clothing', 3, 4, 1, 8, 10, 'Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', 0, 1, 0, '2024-01-31 06:00:12', '2024-02-27 06:49:21'),
-(9, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', 'xiaomi-mi-v3-plm13zm-10000mah-power-bank', 'Power Bank', 4, 15, 8, 40, 50, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', '', '', '', 0, 1, 0, '2024-02-11 10:55:47', '2024-02-11 10:58:59'),
-(10, 'Akaso EK7000 12MP 4K WiFi Action Camera', 'akaso-ek7000-12mp-4k-wifi-action-camera', 'Akaso EK7000 12MP 4K WiFi Action Camera', 4, 6, 7, 45, 40, 'Akaso EK7000 12MP 4K WiFi Action Camera', '', '', '', 0, 1, 0, '2024-02-11 11:04:11', '2024-02-11 11:06:48'),
-(11, 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 'xiaomi-mi-34-144hz-freesync-curved-monitor', 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 4, 9, 8, 80, 100, 'Key Features\r\nModel: Xiaomi Mi 34\" 144Hz FreeSync Curved\r\nResolution: WQHD (3440x1440)\r\nDisplay: VA, 144Hz, 4ms\r\nPorts: HDMI, DP, Audio Jack\r\nFeatures: Low Blue Light', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', 0, 1, 0, '2024-02-11 11:12:19', '2024-02-27 06:47:53'),
-(12, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 2, 10, 55, 55, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 1, 0, '2024-02-12 06:44:49', '2024-02-20 09:46:06'),
-(13, 'Noah Patio Wicker Outdoor Garden Chair Set', 'noah-patio-wicker-outdoor-garden-chair-set', 'Noah Patio Wicker Outdoor Garden Chair Set', 2, 7, 11, 50, 70, 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 0, 1, 0, '2024-02-12 08:55:34', '2024-02-12 08:57:12'),
-(14, 'Men\'s Footwear', 'learning-toys-and-stem-toys-we-love-reviews-by-wirecutter', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 3, 17, 3, 35, 30, 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 0, 1, 0, '2024-02-12 09:01:51', '2024-02-27 06:33:00'),
-(15, 'Brown Low Top Sneakers For Men', 'brown-low-top-sneakers-for-men', 'Brown Low Top Sneakers For Men', 3, 17, 2, 7, 10, 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 0, 1, 0, '2024-02-12 09:10:58', '2024-02-27 05:49:44'),
-(16, 'ArtStation', 'artStation', 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', 1, 16, 7, 2, 5, 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', 0, 1, 0, '2024-02-12 10:24:49', '2024-02-27 06:45:50'),
-(17, 'abc', 'abc', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 1, 1, 0, '2024-02-12 11:30:33', '2024-02-28 09:14:19'),
-(18, 'Brax 7 Seater Sofa Set + Table', 'brax7-seater-sofa Set+table', 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 2, 2, 10, 130, 150, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', 0, 1, 0, '2024-02-15 09:01:40', '2024-02-27 06:32:35'),
-(19, 'ggg', 'ggg-19', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 1, 1, 0, '2024-02-15 11:03:32', '2024-02-28 09:14:14');
+INSERT INTO `product` (`id`, `created_by`, `title`, `slug`, `sku`, `category_id`, `sub_category_id`, `brand_id`, `old_price`, `price`, `is_trendy_products`, `short_description`, `description`, `additiona_information`, `shipping_return`, `is_delete`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Men\'s Bags', 'bag', 'Men\'s Bags', 6, 11, 2, 8, 25, 1, 'text Short Description', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Description</span></p>', '<p>text&nbsp;<span style=\"color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px; background-color: #ffffff;\">Additiona Information&nbsp;</span></p>', '<p>text&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 0, '2024-01-16 12:02:46', '2024-02-20 06:11:13'),
+(2, 1, 'Dark yellow lace cut out swing dress', 'dark-yellow-lace-cut-out-swing-dress', 'dummy-product-title', 3, 5, 1, 50, 45, 0, 'dummy-product-title', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', '<p>dummy-product-title</p>', 0, 0, '2024-01-16 12:11:36', '2024-01-23 11:20:35'),
+(3, 1, 'Women\'s Bag', 'dummy-product-title', 'womens-bag', 6, 12, 2, 15, 10, 1, 'Dummy Product Short Description', '<p>Dummy Product<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">&nbsp;Description</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Additiona Information</span></p>', '<p>Dummy Product&nbsp;<span style=\"background-color: #ffffff; color: #212529; font-family: \'Source Sans Pro\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'; font-size: 16px;\">Shipping Return</span></p>', 0, 0, '2024-01-18 09:05:57', '2024-01-31 05:47:10'),
+(4, 1, 'Women\'s Cloth\'s', 'cloths', 'cloths', 3, 5, 1, 15, 10, 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>', 0, 0, '2024-01-23 11:24:40', '2024-02-27 06:33:30'),
+(5, 1, 'Women\'s Bag', 'womwns-bag', 'womens-bag', 6, 12, 2, 15, 10, 0, 'Women\'s Bag', '', '', '', 0, 0, '2024-01-31 05:36:29', '2024-01-31 05:37:52'),
+(6, 1, 'Office Bag', 'office-bag', 'office-bag', 6, 14, 2, 8, 15, 0, 'Office Bag', '', '', '', 0, 0, '2024-01-31 05:42:59', '2024-02-11 11:27:37'),
+(7, 1, 'Organic Baby Clothes In Coimbatore', 'organic-baby-clothes-in-coimbatore', 'organic-baby-clothes-in-coimbatore', 3, 13, 1, 8, 10, 0, 'Organic Baby Clothes In Coimbatore - Prices, Manufacturers & Suppliers', '', '', '', 0, 0, '2024-01-31 05:57:06', '2024-01-31 05:58:20'),
+(8, 1, 'Men\'s Clothing Essentials', 'buy-mens-clothing-essentials-online-at-best-prices-in-bangladesh-2024', 'men\'s-clothing', 3, 4, 1, 8, 10, 0, 'Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', '<p>Buy Men\'s Clothing Essentials Online at Best Prices in Bangladesh 2024<br></p>', 0, 0, '2024-01-31 06:00:12', '2024-02-27 06:49:21'),
+(9, 1, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', 'xiaomi-mi-v3-plm13zm-10000mah-power-bank', 'Power Bank', 4, 15, 8, 40, 50, 1, 'Xiaomi MI V3 PLM13ZM 10000mAh Power Bank', '', '', '', 0, 0, '2024-02-11 10:55:47', '2024-02-11 10:58:59'),
+(10, 1, 'Akaso EK7000 12MP 4K WiFi Action Camera', 'akaso-ek7000-12mp-4k-wifi-action-camera', 'Akaso EK7000 12MP 4K WiFi Action Camera', 4, 6, 7, 45, 40, 1, 'Akaso EK7000 12MP 4K WiFi Action Camera', '', '', '', 0, 0, '2024-02-11 11:04:11', '2024-02-11 11:06:48'),
+(11, 1, 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 'xiaomi-mi-34-144hz-freesync-curved-monitor', 'Xiaomi Mi 34\" 144Hz FreeSync Curved Monitor', 4, 9, 8, 80, 100, 1, 'Key Features\r\nModel: Xiaomi Mi 34\" 144Hz FreeSync Curved\r\nResolution: WQHD (3440x1440)\r\nDisplay: VA, 144Hz, 4ms\r\nPorts: HDMI, DP, Audio Jack\r\nFeatures: Low Blue Light', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', '<p>Key Features</p><p>Model: Xiaomi Mi 34\" 144Hz FreeSync Curved</p><p>Resolution: WQHD (3440x1440)</p><p>Display: VA, 144Hz, 4ms</p><p>Ports: HDMI, DP, Audio Jack</p><p>Features: Low Blue Light</p>', 0, 0, '2024-02-11 11:12:19', '2024-02-27 06:47:53'),
+(12, 1, 'Wooden Luxury Divan-Argos', 'wooden-luxury-divan-argos', 'Wooden Luxury Divan-Argos', 2, 2, 10, 55, 55, 0, 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 'Wooden Luxury Divan-Argos', 0, 0, '2024-02-12 06:44:49', '2024-02-20 09:46:06'),
+(13, 1, 'Noah Patio Wicker Outdoor Garden Chair Set', 'noah-patio-wicker-outdoor-garden-chair-set', 'Noah Patio Wicker Outdoor Garden Chair Set', 2, 7, 11, 50, 70, 0, 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 'Noah Patio Wicker Outdoor Garden Chair Set', 0, 0, '2024-02-12 08:55:34', '2024-02-12 08:57:12'),
+(14, 1, 'Men\'s Footwear', 'learning-toys-and-stem-toys-we-love-reviews-by-wirecutter', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 3, 17, 3, 35, 30, 0, 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 'Men\'s Footwear - Buy Men\'s Shoes Starts', 0, 0, '2024-02-12 09:01:51', '2024-02-27 06:33:00'),
+(15, 1, 'Brown Low Top Sneakers For Men', 'brown-low-top-sneakers-for-men', 'Brown Low Top Sneakers For Men', 3, 17, 2, 7, 10, 1, 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 'Brown Low Top Sneakers For Men', 0, 0, '2024-02-12 09:10:58', '2024-08-22 17:04:28'),
+(16, 1, 'ArtStation', 'artStation', 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', 1, 16, 7, 2, 5, 0, 'ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', '<p>ArtStation - [ MechMonster ]\'s Truck Concept, Gergely Szöke | Futuristic cars, Concept car design, City vehicles&nbsp;<br></p>', 0, 0, '2024-02-12 10:24:49', '2024-02-27 06:45:50'),
+(17, 1, 'abc', 'abc', NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1, 0, '2024-02-12 11:30:33', '2024-02-28 09:14:19'),
+(18, 1, 'Brax 7 Seater Sofa Set + Table', 'brax7-seater-sofa Set+table', 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', 2, 2, 10, 130, 150, 1, 'Brax 7 Seater Sofa Set + Table price from konga in Nigeria', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', '<p>Brax 7 Seater Sofa Set + Table price from konga in Nigeria<br></p>', 0, 0, '2024-02-15 09:01:40', '2024-08-22 17:04:37'),
+(19, 1, 'ggg', 'ggg-19', NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1, 0, '2024-02-15 11:03:32', '2024-02-28 09:14:14'),
+(20, 1, 'test', 'test', NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, '2024-08-22 17:40:15', '2024-08-22 17:40:15');
 
 -- --------------------------------------------------------
 
@@ -451,8 +485,6 @@ CREATE TABLE `product_color` (
 
 INSERT INTO `product_color` (`id`, `product_id`, `color_id`, `created_at`, `updated_at`) VALUES
 (64, 10, 1, '2024-02-11 11:06:48', '2024-02-11 11:06:48'),
-(109, 15, 6, '2024-02-27 06:45:07', '2024-02-27 06:45:07'),
-(110, 15, 2, '2024-02-27 06:45:07', '2024-02-27 06:45:07'),
 (111, 14, 2, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
 (112, 14, 7, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
 (113, 14, 5, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
@@ -474,7 +506,9 @@ INSERT INTO `product_color` (`id`, `product_id`, `color_id`, `created_at`, `upda
 (133, 2, 7, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
 (134, 2, 5, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
 (135, 2, 3, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
-(136, 9, 2, '2024-02-27 06:57:44', '2024-02-27 06:57:44');
+(136, 9, 2, '2024-02-27 06:57:44', '2024-02-27 06:57:44'),
+(137, 15, 6, '2024-08-22 17:04:28', '2024-08-22 17:04:28'),
+(138, 15, 2, '2024-08-22 17:04:28', '2024-08-22 17:04:28');
 
 -- --------------------------------------------------------
 
@@ -568,9 +602,6 @@ CREATE TABLE `product_size` (
 
 INSERT INTO `product_size` (`id`, `product_id`, `name`, `price`, `created_at`, `updated_at`) VALUES
 (31, 10, 'm', 40, '2024-02-11 11:06:48', '2024-02-11 11:06:48'),
-(116, 15, '40', 0, '2024-02-27 06:45:07', '2024-02-27 06:45:07'),
-(117, 15, '41', 0, '2024-02-27 06:45:07', '2024-02-27 06:45:07'),
-(118, 15, '42', 0, '2024-02-27 06:45:07', '2024-02-27 06:45:07'),
 (119, 14, '39', 0, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
 (120, 14, '40', 0, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
 (121, 14, '41', 0, '2024-02-27 06:46:35', '2024-02-27 06:46:35'),
@@ -585,7 +616,10 @@ INSERT INTO `product_size` (`id`, `product_id`, `name`, `price`, `created_at`, `
 (130, 4, 'XL', 10, '2024-02-27 06:51:30', '2024-02-27 06:51:30'),
 (134, 2, 'M', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
 (135, 2, 'L', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
-(136, 2, 'XL', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21');
+(136, 2, 'XL', 0, '2024-02-27 06:53:21', '2024-02-27 06:53:21'),
+(137, 15, '40', 0, '2024-08-22 17:04:28', '2024-08-22 17:04:28'),
+(138, 15, '41', 0, '2024-08-22 17:04:28', '2024-08-22 17:04:28'),
+(139, 15, '42', 0, '2024-08-22 17:04:28', '2024-08-22 17:04:28');
 
 -- --------------------------------------------------------
 
@@ -641,6 +675,34 @@ INSERT INTO `shipping_charge` (`id`, `name`, `price`, `is_delete`, `status`, `cr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `intro_subtitle` varchar(255) DEFAULT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  `button_name` varchar(255) DEFAULT NULL,
+  `button_link` varchar(255) DEFAULT NULL,
+  `is_delete` tinyint NOT NULL DEFAULT '0' COMMENT 'delete = 0, \r\nnot delete = 1',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT 'active = 0, \r\nnot active = 1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id`, `title`, `intro_subtitle`, `image_name`, `button_name`, `button_link`, `is_delete`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Living Room Furniture', 'Topsale Collection', 'wq4be2fnsx1skz96voek.jpg', 'SHOP NOW', 'http://localhost/eCommerce.com/home-furniture/living-room-furniture', 0, 0, '2024-07-31 15:39:25', '2024-07-31 17:00:04'),
+(2, 'New Arrivals', '', 'zyjo5nnpsematbpqxgwz.jpg', 'SHOP NOW', 'http://localhost/eCommerce.com/home-furniture/new-arrivals', 0, 0, '2024-07-31 16:18:59', '2024-07-31 17:00:35'),
+(3, 'Outdoor Dining', '', 'ojfmhtsxqcxgq1bi4eeu.jpg', 'SHOP NOW', 'http://localhost/eCommerce.com/home-furniture/outdoor-dining-furniture', 0, 0, '2024-07-31 16:19:47', '2024-07-31 17:01:01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_category`
 --
 
@@ -680,7 +742,9 @@ INSERT INTO `sub_category` (`id`, `category_id`, `name`, `slug`, `meta_title`, `
 (14, 6, 'Office Bag', 'office-bag', 'Office Bag', 'Office Bag', 'Office Bag', 1, 0, 0, '2024-01-31 05:40:04', '2024-01-31 05:40:04'),
 (15, 4, 'Power Bank', 'power-bank', 'Power Bank', 'Power Bank', 'Power Bank', 1, 0, 0, '2024-02-11 10:57:13', '2024-02-11 10:57:13'),
 (16, 1, 'Vehicles', 'vehicles', 'Vehicles', 'Vehicles', 'Vehicles', 1, 0, 0, '2024-02-12 06:53:09', '2024-02-12 06:56:19'),
-(17, 3, 'Shoes', 'shoes', 'Shoes', 'Shoes', 'Shoes', 1, 0, 0, '2024-02-12 09:06:22', '2024-02-12 09:06:22');
+(17, 3, 'Shoes', 'shoes', 'Shoes', 'Shoes', 'Shoes', 1, 0, 0, '2024-02-12 09:06:22', '2024-02-12 09:06:22'),
+(18, 6, 'my', 'my', 'Terms & Conditios', '', '', 1, 0, 1, '2024-08-22 17:54:58', '2024-08-22 18:02:21'),
+(19, 7, 'test', 'test', 'eta', '', '', 1, 0, 0, '2024-08-22 18:16:38', '2024-08-22 18:16:38');
 
 -- --------------------------------------------------------
 
@@ -728,7 +792,7 @@ INSERT INTO `system_settings` (`id`, `website_name`, `logo`, `favicon`, `footer_
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lastName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -753,10 +817,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `email_verified_at`, `password`, `remember_token`, `companyName`, `country`, `address_one`, `address_two`, `city`, `state`, `postcode`, `phone`, `is_admin`, `status`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', NULL, 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$VVb4KM0UcuAjtK9wQC0UBevBKGRy2jnZiphaUEof5opRPRv5cOpr6', '47lrkKMiHqrshycEL66MlsTJrmWHZaMhh9qYvAR7OGxa6SjUXPIoyg91QCd8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, '2024-01-14 21:24:53', '2024-03-18 01:49:38'),
+(1, 'Admin', NULL, 'admin@gmail.com', '2024-01-14 21:24:53', '$2y$12$1smWQZJwrfw.AsNEUvlhz.SXk5IMtgAb/ITC0HVPYNKsc4bbMMVD2', 'dErpPD1NB6s9APkRpnKvtgVROU7iDgWGIfM0FbsqNnWO7ocjosrMaADFzYyU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, '2024-01-14 21:24:53', '2024-10-18 05:10:15'),
 (2, 'imtiaz', 'ahmed', 'user1@gmail.com', '2024-03-24 04:02:45', '$2y$12$M/up0AHta5CiDANX0fkiuuc01Fl8E.ti832vKJa2CcXzmJJO06Kiu', '9TJkxwbM5lVzmdUDFTdjPIptIsPsjO', 'skb paypal 1', 'skb paypal 1', 'skb paypal 1', 'skb paypal 1', 'test1', 'test1', '12345', '01767056733', 0, 0, 0, '2024-03-17 22:18:08', '2024-06-27 05:36:42'),
 (3, 'test1', NULL, 'test@test.com', NULL, '$2y$12$tH46Z2fApPJZwEbejQVgj.fihwGHgY46iNRq7D6eEyXRSIo4m18BW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '2024-03-27 02:48:06', '2024-03-27 02:48:06'),
-(4, 'Imtiaz', 'Ahmed', 'user@gmail.com', '2024-06-28 23:50:48', '$2y$12$jDjAfMXCwTzAGjXGqb.iLu985HRsKJULEHRyiNd3PHn/MhyxO/YwG', NULL, '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 0, 0, 0, '2024-06-28 23:50:07', '2024-07-01 00:30:56');
+(4, 'Imtiaz', 'Ahmed', 'user@gmail.com', '2024-06-28 23:50:48', '$2y$12$jDjAfMXCwTzAGjXGqb.iLu985HRsKJULEHRyiNd3PHn/MhyxO/YwG', NULL, '', 'BD', 'test1', 'test2', 'DHK', 'DHK', '1200', '01767056733', 0, 0, 0, '2024-06-28 23:50:07', '2024-07-01 00:30:56'),
+(5, 'shakib', NULL, 'shakib@gmail.com', '2024-10-18 13:01:22', '$2y$12$ugbqXXPBfDHIl0UrY.sjA.iqUzDphZ0YCgC5tPaTX3U0yJ97ax/TC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 0, '2024-10-18 05:17:24', '2024-10-18 13:01:22'),
+(6, 'Imtiaz Ahmed', NULL, 'sakibimtiaz07@gmail.com', NULL, '$2y$12$pknMxs8Yh/MMIMx4TrLrXuO57RRieex7WjeL9zs2sKnMUtz6Nn4dy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, '2024-10-20 08:20:46', '2024-10-20 08:20:46'),
+(7, 'Goriber Shop', NULL, 'goribs@gmail.com', '2024-10-20 11:50:09', '$2y$12$ZpwsKPcfH.W/9bh5XNrBaeI12rPJCKdDixZH0m2NsttOpYZga.aFO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 0, '2024-10-20 11:49:39', '2024-10-20 11:50:09');
 
 --
 -- Indexes for dumped tables
@@ -824,6 +891,12 @@ ALTER TABLE `page`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `partner`
+--
+ALTER TABLE `partner`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -880,6 +953,12 @@ ALTER TABLE `shipping_charge`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sub_category`
 --
 ALTER TABLE `sub_category`
@@ -924,7 +1003,7 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `coupon_code`
@@ -963,6 +1042,12 @@ ALTER TABLE `page`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `partner`
+--
+ALTER TABLE `partner`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -972,13 +1057,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `product_color`
 --
 ALTER TABLE `product_color`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `product_image`
@@ -996,13 +1081,13 @@ ALTER TABLE `product_review`
 -- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `product_wishlist`
 --
 ALTER TABLE `product_wishlist`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `shipping_charge`
@@ -1011,10 +1096,16 @@ ALTER TABLE `shipping_charge`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `system_settings`
@@ -1026,7 +1117,7 @@ ALTER TABLE `system_settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
